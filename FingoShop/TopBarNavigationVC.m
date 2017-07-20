@@ -30,6 +30,11 @@
     _searchTextField.leftViewMode = UITextFieldViewModeAlways;
   _searchTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search"]];
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    [self.navigationController setNavigationBarHidden:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -46,9 +51,58 @@
         [self.view setUserInteractionEnabled:YES];
     }
 }
+
+#pragma mark - Buttons Clicked
+
+
 - (IBAction)backButtonClicked:(id)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)btnCartClicked:(id)sender {
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"email"] && ![[[NSUserDefaults standardUserDefaults] stringForKey:@"email"] isEqualToString:@""]) {
+        if ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CartCount"] integerValue] > 0) {
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Cart"];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+        }
+        else {
+            UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Add atleast one Product to your cart" preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            }]];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+            
+        }
+        
+    }
+    else {
+        UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Please login to get cart information" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+        }]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+
+    
+    
+}
+- (IBAction)btnVirtualShoppingClicked:(id)sender {
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VirtualShoppingVC"];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
+- (IBAction)btnWishlistClicked:(id)sender {
+    
+    // [self performSegueWithIdentifier:@"WishList" sender:self];
+   UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"WishListViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

@@ -20,8 +20,7 @@
         IBOutlet KIImagePager *_imagePager;
         NSMutableDictionary*datadic;
         NSArray *top_category_imageArray,*top_category_nameArray,*bannerarry_imageArray,*offers_imageArray,*mensFashion_imageArray,*electronic_imageArray;
-    }
-
+}
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView,*banner_Scroll,*banner_Scroll1,*offerZone_Scroll,*Arrival_Scroll,*brandStore_Scroll;

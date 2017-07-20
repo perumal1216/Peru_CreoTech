@@ -52,6 +52,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO];
     [self callGetCartInfoService];
     [self checkItemsInCart];
    [self.tblCart reloadData];
