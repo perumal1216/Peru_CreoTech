@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		004EB5F3D7EC596E64BE8D0F4B07DA1E /* Pods-FingoShopTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 120EDC67262C210098BA86F15C4DF779 /* Pods-FingoShopTests-dummy.m */; };
+		6FCD1C81FC2CBEF784636DFF39A95232 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		9E0E81674759D266B49B1B78338204C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		A667699222D8BDA3821126512D570275 /* Pods-FingoShop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B080FFB3EEB1B7CC10B04B49BBEF55 /* Pods-FingoShop-dummy.m */; };
+		C5ED0A54CDB4DE43B689FA60C63624BD /* Pods-FingoShopUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5381065202601884E9D0BCCA5487FD18 /* Pods-FingoShopUITests-dummy.m */; };
+		DEAF1C57434A055051093E1CE3AE5B4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		120EDC67262C210098BA86F15C4DF779 /* Pods-FingoShopTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FingoShopTests-dummy.m"; sourceTree = "<group>"; };
+		1B066B8E47877FC5674FF5C359C34555 /* Pods-FingoShop-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FingoShop-acknowledgements.plist"; sourceTree = "<group>"; };
+		1EA95101C43C1E7DBF578B97D3852E3C /* Pods-FingoShopTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FingoShopTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		21BBEC0611510C51D305D5086E944829 /* libPods-FingoShopUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FingoShopUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		282B176E1DDAD849125E45637B4DEE8E /* Pods-FingoShopTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FingoShopTests-frameworks.sh"; sourceTree = "<group>"; };
+		3064597E6AF4B716675CBC96B04CFC37 /* Pods-FingoShopUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FingoShopUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		331AAAC4A8E4B7C52574CE3C767DFD5C /* Pods-FingoShopTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FingoShopTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5381065202601884E9D0BCCA5487FD18 /* Pods-FingoShopUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FingoShopUITests-dummy.m"; sourceTree = "<group>"; };
+		5C89B3FA226A1C193286DB02EF2C603E /* Pods-FingoShop-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FingoShop-resources.sh"; sourceTree = "<group>"; };
+		769F3A75C2DF4B7B1C12F9310D69257F /* libPods-FingoShop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FingoShop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8736BAF6209F1F5F588E1AA958604D47 /* Pods-FingoShopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FingoShopUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8AB4CFA8D5C20FFE2D97D39737EADB59 /* Pods-FingoShopUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FingoShopUITests-resources.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9666F0740BDEF86BB6549F15595D6228 /* Pods-FingoShopUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FingoShopUITests-frameworks.sh"; sourceTree = "<group>"; };
+		AFFC23FAEB5423D5D79B77FAE7BF2C7D /* Pods-FingoShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FingoShop.debug.xcconfig"; sourceTree = "<group>"; };
+		B871D0EA3B00F6263F8C15B0C9368B46 /* Pods-FingoShopUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FingoShopUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D76E71CDC473DC0F15527D532D478200 /* Pods-FingoShopTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FingoShopTests-resources.sh"; sourceTree = "<group>"; };
+		D8166E26748DC562B2A3CEFA6333F6E5 /* Pods-FingoShop-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FingoShop-frameworks.sh"; sourceTree = "<group>"; };
+		DC0A1B453EA0C18A30D97AD59F6D3BB3 /* Pods-FingoShopTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FingoShopTests.release.xcconfig"; sourceTree = "<group>"; };
+		E9EE2D26AB7FAFAA5101AF7E85829385 /* libPods-FingoShopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FingoShopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F38A45C2E292444D70FAC33BDC2CC05D /* Pods-FingoShopUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FingoShopUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F3C6A721AC1B4E9188C3CFC69219A283 /* Pods-FingoShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FingoShop.release.xcconfig"; sourceTree = "<group>"; };
+		F7F5CF6CD4C0CA8101AADE29AB1E3B50 /* Pods-FingoShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FingoShopTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F8B080FFB3EEB1B7CC10B04B49BBEF55 /* Pods-FingoShop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FingoShop-dummy.m"; sourceTree = "<group>"; };
+		FA60F9437F566DEF5E6BC842382EF9C4 /* Pods-FingoShop-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FingoShop-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0328AFB9BDEFA48272C40AB020F24022 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0E81674759D266B49B1B78338204C9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4D1679EAEBBB6548862C29D3925ED82A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FCD1C81FC2CBEF784636DFF39A95232 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BA33BE2B4BC88F8581651505BEAD13A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEAF1C57434A055051093E1CE3AE5B4C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		035B6323B8FEA44A151C70D96C5ED72C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				769F3A75C2DF4B7B1C12F9310D69257F /* libPods-FingoShop.a */,
+				E9EE2D26AB7FAFAA5101AF7E85829385 /* libPods-FingoShopTests.a */,
+				21BBEC0611510C51D305D5086E944829 /* libPods-FingoShopUITests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05E3F6C25817EBAF7DBFC5A2B28875C6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				79F5092A5DD6E5BC3497B233CEEB9AE0 /* Pods-FingoShop */,
+				26599E60E326D572BBB05501413B76F2 /* Pods-FingoShopTests */,
+				668D7107AC863983C7F2603F7EA1D16A /* Pods-FingoShopUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		26599E60E326D572BBB05501413B76F2 /* Pods-FingoShopTests */ = {
+			isa = PBXGroup;
+			children = (
+				1EA95101C43C1E7DBF578B97D3852E3C /* Pods-FingoShopTests-acknowledgements.markdown */,
+				331AAAC4A8E4B7C52574CE3C767DFD5C /* Pods-FingoShopTests-acknowledgements.plist */,
+				120EDC67262C210098BA86F15C4DF779 /* Pods-FingoShopTests-dummy.m */,
+				282B176E1DDAD849125E45637B4DEE8E /* Pods-FingoShopTests-frameworks.sh */,
+				D76E71CDC473DC0F15527D532D478200 /* Pods-FingoShopTests-resources.sh */,
+				F7F5CF6CD4C0CA8101AADE29AB1E3B50 /* Pods-FingoShopTests.debug.xcconfig */,
+				DC0A1B453EA0C18A30D97AD59F6D3BB3 /* Pods-FingoShopTests.release.xcconfig */,
+			);
+			name = "Pods-FingoShopTests";
+			path = "Target Support Files/Pods-FingoShopTests";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		668D7107AC863983C7F2603F7EA1D16A /* Pods-FingoShopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F38A45C2E292444D70FAC33BDC2CC05D /* Pods-FingoShopUITests-acknowledgements.markdown */,
+				B871D0EA3B00F6263F8C15B0C9368B46 /* Pods-FingoShopUITests-acknowledgements.plist */,
+				5381065202601884E9D0BCCA5487FD18 /* Pods-FingoShopUITests-dummy.m */,
+				9666F0740BDEF86BB6549F15595D6228 /* Pods-FingoShopUITests-frameworks.sh */,
+				8AB4CFA8D5C20FFE2D97D39737EADB59 /* Pods-FingoShopUITests-resources.sh */,
+				3064597E6AF4B716675CBC96B04CFC37 /* Pods-FingoShopUITests.debug.xcconfig */,
+				8736BAF6209F1F5F588E1AA958604D47 /* Pods-FingoShopUITests.release.xcconfig */,
+			);
+			name = "Pods-FingoShopUITests";
+			path = "Target Support Files/Pods-FingoShopUITests";
+			sourceTree = "<group>";
+		};
+		79F5092A5DD6E5BC3497B233CEEB9AE0 /* Pods-FingoShop */ = {
+			isa = PBXGroup;
+			children = (
+				FA60F9437F566DEF5E6BC842382EF9C4 /* Pods-FingoShop-acknowledgements.markdown */,
+				1B066B8E47877FC5674FF5C359C34555 /* Pods-FingoShop-acknowledgements.plist */,
+				F8B080FFB3EEB1B7CC10B04B49BBEF55 /* Pods-FingoShop-dummy.m */,
+				D8166E26748DC562B2A3CEFA6333F6E5 /* Pods-FingoShop-frameworks.sh */,
+				5C89B3FA226A1C193286DB02EF2C603E /* Pods-FingoShop-resources.sh */,
+				AFFC23FAEB5423D5D79B77FAE7BF2C7D /* Pods-FingoShop.debug.xcconfig */,
+				F3C6A721AC1B4E9188C3CFC69219A283 /* Pods-FingoShop.release.xcconfig */,
+			);
+			name = "Pods-FingoShop";
+			path = "Target Support Files/Pods-FingoShop";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				035B6323B8FEA44A151C70D96C5ED72C /* Products */,
+				05E3F6C25817EBAF7DBFC5A2B28875C6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39E3A9446C874BA35B6E2245E9E7152A /* Pods-FingoShopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7EC9F73155EBDEE1A5BC5C34B6428A95 /* Build configuration list for PBXNativeTarget "Pods-FingoShopTests" */;
+			buildPhases = (
+				0088D285DB2CCF2AB53DED321401FD28 /* Sources */,
+				5BA33BE2B4BC88F8581651505BEAD13A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FingoShopTests";
+			productName = "Pods-FingoShopTests";
+			productReference = E9EE2D26AB7FAFAA5101AF7E85829385 /* libPods-FingoShopTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		78C81AAD55D7E40355513F3B7E05996A /* Pods-FingoShop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16E04AD3FE80B52E630BCF1B4D942E94 /* Build configuration list for PBXNativeTarget "Pods-FingoShop" */;
+			buildPhases = (
+				3910B744849E3B48F23CA7F09768C8A6 /* Sources */,
+				0328AFB9BDEFA48272C40AB020F24022 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FingoShop";
+			productName = "Pods-FingoShop";
+			productReference = 769F3A75C2DF4B7B1C12F9310D69257F /* libPods-FingoShop.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D17D369EF296F00F31F9CF65BC2A0721 /* Pods-FingoShopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8048FDC448B57C94BE0EB2CD165B40F /* Build configuration list for PBXNativeTarget "Pods-FingoShopUITests" */;
+			buildPhases = (
+				C6D5D1A4C2B9E415DF53CCB42CF4AF55 /* Sources */,
+				4D1679EAEBBB6548862C29D3925ED82A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FingoShopUITests";
+			productName = "Pods-FingoShopUITests";
+			productReference = 21BBEC0611510C51D305D5086E944829 /* libPods-FingoShopUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 035B6323B8FEA44A151C70D96C5ED72C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				78C81AAD55D7E40355513F3B7E05996A /* Pods-FingoShop */,
+				39E3A9446C874BA35B6E2245E9E7152A /* Pods-FingoShopTests */,
+				D17D369EF296F00F31F9CF65BC2A0721 /* Pods-FingoShopUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0088D285DB2CCF2AB53DED321401FD28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				004EB5F3D7EC596E64BE8D0F4B07DA1E /* Pods-FingoShopTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3910B744849E3B48F23CA7F09768C8A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A667699222D8BDA3821126512D570275 /* Pods-FingoShop-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6D5D1A4C2B9E415DF53CCB42CF4AF55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5ED0A54CDB4DE43B689FA60C63624BD /* Pods-FingoShopUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		034014829C1E4434983CF3A690C12017 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		16B4A34B48498D7162211BE346DD3F59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3C6A721AC1B4E9188C3CFC69219A283 /* Pods-FingoShop.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		68DEF83AA94DD1D94493EEBE3ACEF4A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC0A1B453EA0C18A30D97AD59F6D3BB3 /* Pods-FingoShopTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7067E3CB0359D21F51D7C7C161AE47EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3064597E6AF4B716675CBC96B04CFC37 /* Pods-FingoShopUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7FBB625D1910AD0FEB686EFC822F2F1C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7F5CF6CD4C0CA8101AADE29AB1E3B50 /* Pods-FingoShopTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		889E6C2E6A231AEAF731E0387AC8C082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8736BAF6209F1F5F588E1AA958604D47 /* Pods-FingoShopUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C7E474A03CAE21F1CB6046E7344C59BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBC36BF2FF5E076680287C843B42078F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFFC23FAEB5423D5D79B77FAE7BF2C7D /* Pods-FingoShop.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16E04AD3FE80B52E630BCF1B4D942E94 /* Build configuration list for PBXNativeTarget "Pods-FingoShop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBC36BF2FF5E076680287C843B42078F /* Debug */,
+				16B4A34B48498D7162211BE346DD3F59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				034014829C1E4434983CF3A690C12017 /* Debug */,
+				C7E474A03CAE21F1CB6046E7344C59BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7EC9F73155EBDEE1A5BC5C34B6428A95 /* Build configuration list for PBXNativeTarget "Pods-FingoShopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FBB625D1910AD0FEB686EFC822F2F1C /* Debug */,
+				68DEF83AA94DD1D94493EEBE3ACEF4A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F8048FDC448B57C94BE0EB2CD165B40F /* Build configuration list for PBXNativeTarget "Pods-FingoShopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7067E3CB0359D21F51D7C7C161AE47EC /* Debug */,
+				889E6C2E6A231AEAF731E0387AC8C082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
