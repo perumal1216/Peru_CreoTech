@@ -32,7 +32,7 @@
     [_searchTextField.layer addSublayer:border];
     _searchTextField.layer.masksToBounds = YES;
     */
-    _searchTextField.layer.borderWidth = 1;
+   /* _searchTextField.layer.borderWidth = 1;
     _searchTextField.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
     _searchTextField.layer.cornerRadius = 3;
     
@@ -43,9 +43,10 @@
     _searchTextField.layer.shadowOpacity = 1.0;
    UIImageView *myImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search"]];
     myImage.frame = CGRectMake(0.0, 30.0, self.searchTextField.frame.size.height-5.0, self.searchTextField.frame.size.height-5.0);
-    _searchTextField.rightViewMode = UITextFieldViewModeUnlessEditing;
+    //_searchTextField.rightViewMode = UITextFieldViewModeUnlessEditing;
     _searchTextField.leftViewMode = UITextFieldViewModeAlways;
     _searchTextField.leftView = myImage;
+    */
     
    /* UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 26, 26)];
     imgView.image = [UIImage imageNamed:@"search"];
@@ -55,6 +56,8 @@
     [_searchTextField setRightViewMode:UITextFieldViewModeAlways];
     [_searchTextField setRightView:paddingView];
     */
+    
+    [self.searchTextField setUserInteractionEnabled:YES];
     
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -143,6 +146,27 @@
     // [self performSegueWithIdentifier:@"WishList" sender:self];
    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"WishListViewController"];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - TextFiled Delegate Methods
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    //self.view.frame = CGRectMake(0, self.view.frame.origin.y - 250,self.view.frame.size.width, self.view.frame.size.height);
+    
+    
+}
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    //self.view.frame = CGRectMake(0, self.view.frame.origin.y + 250,self.view.frame.size.width, self.view.frame.size.height);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 /*

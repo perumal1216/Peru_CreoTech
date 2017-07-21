@@ -11,8 +11,8 @@
 @implementation UIViewController (HeaderContainer)
 -(void)displayContentController:(UIViewController *)content
 {
-    [self addChildViewController:content];
-  [content.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 100)];
+  [self addChildViewController:content];
+  [content.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 130)];
     [self.view addSubview:content.view];
     [content didMoveToParentViewController:self];
     

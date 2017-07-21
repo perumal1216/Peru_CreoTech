@@ -339,13 +339,13 @@
                   symbolName = "-[ShippingDetailsViewController jsonData:]"
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rizenew/Desktop/FingoShop_Github/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "521460801.814646"
+                  urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
+                  timestampString = "522326510.191834"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "740"
                   endingLineNumber = "740"
-                  offsetFromSymbolStart = "436">
+                  offsetFromSymbolStart = "401">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -354,13 +354,13 @@
                   symbolName = "__42-[ShippingDetailsViewController jsonData:]_block_invoke"
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rizenew/Desktop/FingoShop_Github/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "521460801.816013"
+                  urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
+                  timestampString = "522326510.193232"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "740"
                   endingLineNumber = "740"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -387,13 +387,13 @@
                   symbolName = "-[ShippingDetailsViewController jsonData:]"
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rizenew/Desktop/FingoShop_Github/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "521460801.819234"
+                  urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
+                  timestampString = "522326510.196866"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "749"
                   endingLineNumber = "749"
-                  offsetFromSymbolStart = "652">
+                  offsetFromSymbolStart = "657">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -402,13 +402,13 @@
                   symbolName = "-[ShippingDetailsViewController jsonData:]"
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/rizenew/Desktop/FingoShop_Github/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "521460801.820685"
+                  urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
+                  timestampString = "522326510.198253"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "749"
                   endingLineNumber = "749"
-                  offsetFromSymbolStart = "704">
+                  offsetFromSymbolStart = "703">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -457,6 +457,54 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "580"
             endingLineNumber = "580"
+            landmarkName = "-textFieldDidBeginEditing:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/TopBarNavigationVC.m"
+            timestampString = "522337063.309138"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-textFieldShouldReturn:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/TopBarNavigationVC.m"
+            timestampString = "522337063.309138"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "-textFieldDidEndEditing:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/TopBarNavigationVC.m"
+            timestampString = "522337063.309138"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "-textFieldDidBeginEditing:"
             landmarkType = "7">
          </BreakpointContent>

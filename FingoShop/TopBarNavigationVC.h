@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TopBarNavigationVC : UIViewController
+@interface TopBarNavigationVC : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UILabel *cart_count_lbl;
 
