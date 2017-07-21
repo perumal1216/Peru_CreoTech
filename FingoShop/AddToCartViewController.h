@@ -17,4 +17,6 @@
     
 
 }
+@property (weak, nonatomic) IBOutlet UIView *empty_cartView;
+
 @end

@@ -38,6 +38,10 @@
     
     
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO];
+}
 - (void)moveImage:(UIPanGestureRecognizer *)recognizer
 {
     CGPoint newCenter = [recognizer translationInView:self.bagRoundImage];
@@ -80,6 +84,13 @@
 }
 
 //MARK:- BUTTON ACTIONS
+- (IBAction)btnBackClicked:(id)sender {
+    
+     [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
 - (IBAction)takeaPictureButtonAction:(id)sender {
     
     if (! [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {

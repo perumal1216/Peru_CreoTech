@@ -59,6 +59,9 @@
     self.popUpImageView.backgroundColor = [UIColor whiteColor];
     //[[UIColor blackColor]colorWithAlphaComponent:0.5];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationController setNavigationBarHidden:NO];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -19,5 +19,6 @@
      NSString *serviceType;
 }
 @property(nonatomic,strong) NSMutableDictionary *selectedWishListItemDict;
+@property (weak, nonatomic) IBOutlet UIView *empty_wishlistView;
 
 @end

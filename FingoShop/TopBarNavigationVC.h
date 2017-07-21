@@ -10,5 +10,6 @@
 
 @interface TopBarNavigationVC : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+@property (weak, nonatomic) IBOutlet UILabel *cart_count_lbl;
 
 @end

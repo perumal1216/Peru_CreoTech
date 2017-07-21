@@ -48,7 +48,7 @@
     [self.tblCart reloadData];
     
     */
-    
+    [self.empty_cartView setHidden:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -163,6 +163,29 @@
 
 #pragma mark - Button Action Methods
 
+- (IBAction)shopnowButtonClicked:(id)sender {
+    
+       for (UIViewController *controller in self.navigationController.viewControllers)
+     {
+     if ([controller isKindOfClass:[ViewController class]])
+     {
+     
+     [self.navigationController popToViewController:controller animated:YES];
+     
+     break;
+     }
+     else if ([controller isKindOfClass:[DetailViewController class]])
+     {
+     [self.navigationController popToViewController:controller animated:YES];
+     
+     break;
+     
+     }
+     }
+    
+
+    
+}
 
 -(void)btnQuantityClicked:(UIButton*)sender {
     
@@ -307,6 +330,17 @@
             [cartInfoArray removeAllObjects];
             cartInfoArray = [[itemsDict objectForKey:@"cart_items"] mutableCopy];
             
+            if ([cartInfoArray count] == 0) {
+                [self.empty_cartView setHidden: NO];
+                [self.view bringSubviewToFront:self.empty_cartView];
+                
+            }
+            else{
+                [self.empty_cartView setHidden: YES];
+                [self.view sendSubviewToBack:self.empty_cartView];
+                
+            }
+            
             _lblItemTotal.text = [NSString stringWithFormat:@"₹ %@",[itemsTotal objectForKey:@"subtotal"]];
             _lblTotal.text = [NSString stringWithFormat:@"₹ %@",[itemsTotal objectForKey:@"grandtotal"]];
             
@@ -411,7 +445,7 @@
         if ([cartInfoArray count] == 0) {
             //[self.navigationController popToRootViewControllerAnimated:YES];
             
-            for (UIViewController *controller in self.navigationController.viewControllers)
+         /*   for (UIViewController *controller in self.navigationController.viewControllers)
             {
                 if ([controller isKindOfClass:[ViewController class]])
                 {
@@ -428,10 +462,22 @@
                     
                 }
             }
+          */
+            //if ([cartInfoArray count] == 0) {
+                [self.empty_cartView setHidden: NO];
+                [self.view bringSubviewToFront:self.empty_cartView];
+                
+           // }
+           // else{
+                //[self.empty_cartView setHidden: YES];
+                //[self.view sendSubviewToBack:self.empty_cartView];
+                
+            //}
             
         }
         else {
-
+            [self.empty_cartView setHidden: YES];
+            [self.view sendSubviewToBack:self.empty_cartView];
         
         _lblItemTotal.text = [NSString stringWithFormat:@"₹ %@",[itemsTotal objectForKey:@"subtotal"]];
         _lblTotal.text = [NSString stringWithFormat:@"₹ %@",[itemsTotal objectForKey:@"grandtotal"]];
@@ -472,6 +518,17 @@
         NSDictionary *itemsTotal = [jsonDict objectForKey:@"total"];
         [cartInfoArray removeAllObjects];
         cartInfoArray = [[itemsDict objectForKey:@"cart_items"] mutableCopy];
+        
+        if ([cartInfoArray count] == 0) {
+            [self.empty_cartView setHidden: NO];
+            [self.view bringSubviewToFront:self.empty_cartView];
+            
+        }
+        else{
+            [self.empty_cartView setHidden: YES];
+            [self.view sendSubviewToBack:self.empty_cartView];
+            
+        }
         _lblItemTotal.text = [NSString stringWithFormat:@"₹ %@",[itemsTotal objectForKey:@"subtotal"]];
         _lblTotal.text = [NSString stringWithFormat:@"₹ %@",[itemsTotal objectForKey:@"grandtotal"]];
         _lblShippingCharges.text = [NSString stringWithFormat:@"₹ %@",[itemsTotal objectForKey:@"shipping"]];

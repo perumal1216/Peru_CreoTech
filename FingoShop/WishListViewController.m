@@ -18,6 +18,8 @@
 #import "UIView+Toast.h"
 #import "Cart.h"
 #import "UIViewController+ECSlidingViewController.h"
+#import "DetailViewController.h"
+#import "ViewController.h"
 
 
 #define IS_IPHONE5 ( [ [ UIScreen mainScreen ] bounds ].size.height == 568 )
@@ -43,6 +45,9 @@ AppDelegate *apdl_detail2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.empty_wishlistView setHidden:YES];
+    
     NSLog(@"wishlist array is:%@",WishListArr);
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
      apdl_detail2=(AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -369,6 +374,27 @@ AppDelegate *apdl_detail2;
     
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)continueShoppingButtonClicked:(id)sender {
+    
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[ViewController class]])
+        {
+            
+            [self.navigationController popToViewController:controller animated:YES];
+            
+            break;
+        }
+        else if ([controller isKindOfClass:[DetailViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+            
+            break;
+            
+        }
+    }
+}
+
 
 -(void)callRemoveFromWishListService:(NSString *)ProductId
 {
@@ -477,7 +503,7 @@ AppDelegate *apdl_detail2;
             WishListArr=[jsonDict objectForKey:@"items"];
             NSLog(@"%@",WishListArr);
             if ([WishListArr count] == 0) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FING0SHOP" message:@"Your wish list is empty" preferredStyle:UIAlertControllerStyleAlert];
+               /* UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FING0SHOP" message:@"Your wish list is empty" preferredStyle:UIAlertControllerStyleAlert];
                 
                 UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     [self.navigationController popViewControllerAnimated:YES];
@@ -485,6 +511,14 @@ AppDelegate *apdl_detail2;
                 [alertController addAction:okAction];
                 
                 [self presentViewController:alertController animated:YES completion:nil];
+                
+                */
+                
+            
+                    [self.empty_wishlistView setHidden: NO];
+                    [self.view bringSubviewToFront:self.empty_wishlistView];
+              
+                
             }
             
             [_wishlist_CV reloadData];

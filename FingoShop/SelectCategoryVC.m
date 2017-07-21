@@ -31,7 +31,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+  [self.navigationController setNavigationBarHidden:NO];
     if ([categoryFlag isEqualToString:@"Men"]) {
         
         categoryArray = @[@"Clothing", @"Sunglasses"];
@@ -49,7 +49,6 @@
     }
     
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -22,18 +22,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //  myTextField.rightViewMode = UITextFieldViewModeAlways;
-    _searchTextField.layer.shadowColor = [[UIColor lightGrayColor] CGColor];
-    _searchTextField.layer.shadowOffset = CGSizeMake(1.0, 1.0);
-    _searchTextField.layer.shadowOpacity = 1;
-    _searchTextField.layer.shadowRadius = 0.0;
+    // search textfiled border color
+    
+   /* CALayer *border = [CALayer layer];
+    CGFloat borderWidth = 2;
+    border.borderColor = [UIColor darkGrayColor].CGColor;
+    border.frame = CGRectMake(0, _searchTextField.frame.size.height - borderWidth, _searchTextField.frame.size.width, _searchTextField.frame.size.height);
+    border.borderWidth = borderWidth;
+    [_searchTextField.layer addSublayer:border];
+    _searchTextField.layer.masksToBounds = YES;
+    */
+    _searchTextField.layer.borderWidth = 1;
+    _searchTextField.layer.borderColor = (__bridge CGColorRef _Nullable)([UIColor whiteColor]);
+    _searchTextField.layer.cornerRadius = 3;
+    
+    _searchTextField.layer.masksToBounds = false;
+    _searchTextField.layer.shadowRadius = 5.0;
+    _searchTextField.layer.shadowColor = (__bridge CGColorRef _Nullable)([UIColor redColor]);
+    //_searchTextField.layer.shadowOffset = CGSizeMake(5.0, 5.0);
+    _searchTextField.layer.shadowOpacity = 1.0;
+   UIImageView *myImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search"]];
+    myImage.frame = CGRectMake(0.0, 30.0, self.searchTextField.frame.size.height-5.0, self.searchTextField.frame.size.height-5.0);
+    _searchTextField.rightViewMode = UITextFieldViewModeUnlessEditing;
     _searchTextField.leftViewMode = UITextFieldViewModeAlways;
-  _searchTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search"]];
+    _searchTextField.leftView = myImage;
+    
+   /* UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 26, 26)];
+    imgView.image = [UIImage imageNamed:@"search"];
+    
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 32, 32)];
+    [paddingView addSubview:imgView];
+    [_searchTextField setRightViewMode:UITextFieldViewModeAlways];
+    [_searchTextField setRightView:paddingView];
+    */
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    
     [self.navigationController setNavigationBarHidden:YES];
+    
+    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"email"] && ![[[NSUserDefaults standardUserDefaults] stringForKey:@"email"] isEqualToString:@""]) {
+        self.cart_count_lbl.text = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"CartCount"]];
+        
+    }
+    else {
+        self.cart_count_lbl.text = 0;
+        
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,13 +105,17 @@
             
         }
         else {
-            UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Add atleast one Product to your cart" preferredStyle:UIAlertControllerStyleAlert];
+          /*  UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Add atleast one Product to your cart" preferredStyle:UIAlertControllerStyleAlert];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             }]];
             
             [self presentViewController:alertController animated:YES completion:nil];
+            */
             
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Cart"];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         
     }
