@@ -13,5 +13,5 @@
 {
      ServiceConnection *serviceConn;
 }
-
+@property (nonatomic , strong) NSString *search_string;
 @end

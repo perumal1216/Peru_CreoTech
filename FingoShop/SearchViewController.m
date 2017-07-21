@@ -10,6 +10,8 @@
 #import "SearchCell.h"
 #import "SVProgressHUD.h"
 #import "Constants.h"
+#import "UIViewController+HeaderContainer.h"
+#import "TopBarNavigationVC.h"
 
 
 @interface SearchViewController ()
@@ -22,6 +24,7 @@
 @end
 
 @implementation SearchViewController
+@synthesize search_string;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,8 +50,35 @@
     self.txtfldSearch.layer.borderWidth = 1;
     self.txtfldSearch.layer.cornerRadius = 5;
     self.txtfldSearch.clipsToBounds = YES;
+    
+    // TopBar Navigation
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    [self displayContentController:topVC];
+    [topVC.menu_button setHidden :YES];
+    [topVC.back_button setHidden :NO];
+    
+    [self searchandlerMethod :search_string];
+    
+}
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
 }
 
+#pragma mark - Buttons Methods
+
+-(void)searchandlerMethod:(NSString *)searchStr
+{
+    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    
+    NSString * post = searchStr;
+    
+    
+    serviceConn = [[ServiceConnection alloc]init];
+    serviceConn.delegate = self;
+    
+    [serviceConn GetSearchList:post];
+    
+}
 
 - (void)btnBackClicked:(id)sender
 {

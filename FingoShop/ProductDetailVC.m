@@ -20,7 +20,9 @@
 #import "Constants.h"
 #import "GGFullscreenImageViewController.h"
 #import "AddToCartViewController.h"
-
+#import "DetailViewController.h"
+#import "TopBarNavigationVC.h"
+#import "UIViewController+HeaderContainer.h"
 
 @interface ProductDetailVC ()
 {
@@ -93,6 +95,11 @@ AppDelegate *apdl_product;
     quantity = 0;
     
     
+    // TopBar Navigation
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    [self displayContentController:topVC];
+    [topVC.menu_button setHidden :YES];
+    [topVC.back_button setHidden :NO];
     
   //  self.btnLike.hidden = true;
     //NSString *urlString =[NSString stringWithFormat:@"%@",[productDetailsDict objectForKey:@"image_small_url"]];
@@ -337,6 +344,7 @@ AppDelegate *apdl_product;
 
 
 -(void)viewWillAppear:(BOOL)animated {
+     [self.navigationController setNavigationBarHidden:YES];
     [self CheckCart];
 }
 

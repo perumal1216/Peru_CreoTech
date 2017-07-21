@@ -19,6 +19,9 @@
 #import "Constants.h"
 #import "GGFullscreenImageViewController.h"
 #import "AddToCartViewController.h"
+#import "DetailViewController.h"
+#import "TopBarNavigationVC.h"
+#import "UIViewController+HeaderContainer.h"
 
 @interface ProductDetailNewVC ()
 {
@@ -106,6 +109,14 @@ AppDelegate *apdl_product1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     quantity = 0;
+    
+    // TopBar Navigation
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    [self displayContentController:topVC];
+    [topVC.menu_button setHidden :YES];
+    [topVC.back_button setHidden :NO];
+    
+    
     productGalleryArr = [[NSMutableArray alloc] init];
     _lblSizeStatic.layer.borderWidth = 1;
     _lblSizeStatic.layer.cornerRadius = 3;
@@ -393,6 +404,7 @@ AppDelegate *apdl_product1;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+     [self.navigationController setNavigationBarHidden:YES];
     [self CheckCart];
 }
 

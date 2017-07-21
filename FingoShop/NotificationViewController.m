@@ -12,6 +12,8 @@
 #import "Constants.h"
 #import "DetailViewController.h"
 #import "UIBarButtonItem+Badge.h"
+#import "UIViewController+HeaderContainer.h"
+#import "TopBarNavigationVC.h"
 @interface NotificationViewController ()
 {
         UIBarButtonItem *AP_barbutton2,*AP_barbutton3,*AP_barbutton4;
@@ -36,7 +38,7 @@
 
     [self callNotificationService];
     
-    
+  /*
     UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     UILabel *lbl=[[UILabel alloc] initWithFrame:CGRectMake(0, 10, 150, 20)];
     lbl.textColor=[UIColor whiteColor];
@@ -70,11 +72,18 @@
     
     self.navigationItem.rightBarButtonItems =
     [NSArray arrayWithObjects:AP_barbutton2,AP_barbutton4,AP_barbutton3,nil];
+    */
     
     
+    // TopBar Navigation
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    [self displayContentController:topVC];
+    [topVC.menu_button setHidden :NO];
+    [topVC.back_button setHidden :YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
     [self CheckCart];
 }
 

@@ -12,6 +12,8 @@
 #import "UIImageView+WebCache.h"
 #import "Constants.h"
 #import "UIBarButtonItem+Badge.h"
+#import "UIViewController+HeaderContainer.h"
+#import "TopBarNavigationVC.h"
 
 @interface OffersViewController ()
 {
@@ -31,6 +33,11 @@
     offersArray = [[NSMutableArray alloc] init];
     [self callGetOffersList];
     
+    // TopBar Navigation
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    [self displayContentController:topVC];
+    [topVC.menu_button setHidden :NO];
+    [topVC.back_button setHidden :YES];
     
 //    UIImage *abuttonImage1 = [UIImage imageNamed:@"User_1x.png"];
 //    UIButton *aaButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -43,7 +50,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotification) name:@"loginNotification" object:nil];
     
     
-    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+   /* UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     UILabel *lbl=[[UILabel alloc] initWithFrame:CGRectMake(0, 10, 150, 20)];
     lbl.textColor=[UIColor whiteColor];
     lbl.text=@"Offers";
@@ -78,10 +85,11 @@
     self.navigationItem.rightBarButtonItems =
     [NSArray arrayWithObjects:AP_barbutton2,AP_barbutton4,AP_barbutton3,nil];
     
-    
+    */
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
     [self CheckCart];
 }
 

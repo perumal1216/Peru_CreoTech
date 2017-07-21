@@ -12,6 +12,7 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "MEDynamicTransition.h"
 #import "METransitions.h"
+#import "SearchViewController.h"
 @interface TopBarNavigationVC ()
 
 @end
@@ -22,6 +23,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+   // UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [[UIImage imageNamed:@"back-white.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.back_button setImage:image forState:UIControlStateNormal];
+    _back_button.tintColor = [UIColor blackColor];
+    
+    UIToolbar* keyboardToolbar = [[UIToolbar alloc] init];
+    [keyboardToolbar sizeToFit];
+    UIBarButtonItem *flexBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                                      target:nil action:nil];
+    UIBarButtonItem *doneBarButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                      target:self action:@selector(yourTextViewDoneButtonPressed)];
+    keyboardToolbar.items = @[flexBarButton, doneBarButton];
+    self.searchTextField.inputAccessoryView = keyboardToolbar;
+    
+    
     // search textfiled border color
     
    /* CALayer *border = [CALayer layer];
@@ -93,6 +113,10 @@
 
 #pragma mark - Buttons Clicked
 
+-(void)yourTextViewDoneButtonPressed
+{
+    [self.searchTextField resignFirstResponder];
+}
 
 - (IBAction)backButtonClicked:(id)sender {
     
@@ -165,6 +189,10 @@
 {
     
     [textField resignFirstResponder];
+    
+    SearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
+    vc.search_string = self.searchTextField.text;
+    [self.navigationController pushViewController:vc animated:YES];
     
     return YES;
 }

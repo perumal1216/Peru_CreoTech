@@ -12,6 +12,7 @@
 #import "DealCell.h"
 #import "Constants.h"
 #import "DetailViewController.h"
+#import "TopBarNavigationVC.h"
 
 
 @interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource>
@@ -69,9 +70,10 @@
     //
     
     // TopBar Navigation
-    UIViewController *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
     [self displayContentController:topVC];
-    
+    [topVC.menu_button setHidden :NO];
+    [topVC.back_button setHidden :YES];
     
     
     top_category_imageArray = [[NSArray alloc]initWithObjects:@"men.png",@"women.png",@"kids.png",@"men.png",@"women.png",@"kids.png", nil];

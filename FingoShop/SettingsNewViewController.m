@@ -11,6 +11,8 @@
 #import "OrdersListViewController.h"
 #import "UIBarButtonItem+Badge.h"
 #import "PrivacyPolicyVC.h"
+#import "UIViewController+HeaderContainer.h"
+#import "TopBarNavigationVC.h"
 
 @interface SettingsNewViewController ()
 {
@@ -42,7 +44,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutNotification) name:@"logoutNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotification) name:@"loginNotification" object:nil];
     
-    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+ /*   UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     UILabel *lbl=[[UILabel alloc] initWithFrame:CGRectMake(0, 10, 150, 20)];
     lbl.textColor=[UIColor whiteColor];
     lbl.text=@"My Profile";
@@ -75,7 +77,13 @@
     self.navigationItem.rightBarButtonItems =
     [NSArray arrayWithObjects:AP_barbutton2,AP_barbutton4,AP_barbutton3,nil];
     
+    */
     
+    // TopBar Navigation
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    [self displayContentController:topVC];
+    [topVC.menu_button setHidden :NO];
+    [topVC.back_button setHidden :YES];
 }
 
 -(void)loginNotification {
@@ -154,6 +162,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
      [self CheckCart];
     [_changePswdButton setHidden:true];
     [_changedPswdLabel setHidden:true];

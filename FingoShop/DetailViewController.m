@@ -22,6 +22,8 @@
 #import "ProductDetailNewVC.h"
 #import "VirtualDetailsVC.h"
 #import "SortViewController.h"
+#import "UIViewController+HeaderContainer.h"
+#import "TopBarNavigationVC.h"
 
 
 #define IS_IPHONE5 ( [ [ UIScreen mainScreen ] bounds ].size.height == 568 )
@@ -154,13 +156,17 @@ AppDelegate *apdl_detail;
     self.navigationItem.rightBarButtonItems =
     [NSArray arrayWithObjects:AP_barbutton2,AP_barbutton4,AP_barbutton3,nil];
     
-    
-    
+    // TopBar Navigation
+    TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
+    [self displayContentController:topVC];
+    [topVC.menu_button setHidden :YES];
+    [topVC.back_button setHidden :NO];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+   
+    [self.navigationController setNavigationBarHidden:YES];
     if ([_WSConstScreenValue isEqualToString:@"Search"]) {
         
         _itemsListArr=[[NSMutableArray alloc]init];
