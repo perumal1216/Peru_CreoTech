@@ -393,6 +393,8 @@ AppDelegate *apdl_detail2;
             
         }
     }
+
+        [self.tabBarController setSelectedIndex:0];
 }
 
 

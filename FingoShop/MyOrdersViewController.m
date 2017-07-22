@@ -29,6 +29,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
 //    [self callGetOrdersService];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 #pragma mark - UITableView Delegate Methods

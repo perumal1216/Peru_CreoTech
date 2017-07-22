@@ -26,8 +26,8 @@
 		2BE788041DF88036009E6C38 /* Minus-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE788021DF88036009E6C38 /* Minus-64.png */; };
 		2BE788051DF88036009E6C38 /* Plus-64.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE788031DF88036009E6C38 /* Plus-64.png */; };
 		2BF5A2F81DBBA472006BC8E3 /* ProductDetailNewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BF5A2F71DBBA472006BC8E3 /* ProductDetailNewVC.m */; };
-		2BF7815C1DC8729000ADD5CD /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF7815A1DC8729000ADD5CD /* plus.png */; };
-		2BF7815D1DC8729000ADD5CD /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF7815B1DC8729000ADD5CD /* minus.png */; };
+		2BF7815C1DC8729000ADD5CD /* plus_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF7815A1DC8729000ADD5CD /* plus_old.png */; };
+		2BF7815D1DC8729000ADD5CD /* minus_old.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BF7815B1DC8729000ADD5CD /* minus_old.png */; };
 		2BFFEE661DB8BD6C0041B02D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFFEE651DB8BD6C0041B02D /* SearchViewController.m */; };
 		2BFFEE6B1DB8C24C0041B02D /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFFEE6A1DB8C24C0041B02D /* SearchCell.m */; };
 		2BFFEE6D1DB8E96E0041B02D /* filter_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BFFEE6C1DB8E96E0041B02D /* filter_30.png */; };
@@ -51,7 +51,6 @@
 		4CFF7E701D1E964D006B1780 /* FingoShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7E6F1D1E964D006B1780 /* FingoShopTests.m */; };
 		4CFF7E7B1D1E964D006B1780 /* FingoShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7E7A1D1E964D006B1780 /* FingoShopUITests.m */; };
 		4CFF7E8E1D1E96AC006B1780 /* WirelessMouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF7E891D1E96AC006B1780 /* WirelessMouse.jpg */; };
-		4CFF7E971D1E96C4006B1780 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7E941D1E96C4006B1780 /* ViewController.m */; };
 		4CFF7E981D1E96C4006B1780 /* DealCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7E961D1E96C4006B1780 /* DealCell.m */; };
 		4CFF7E9A1D1EB3C5006B1780 /* menu-48@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFF7E991D1EB3C5006B1780 /* menu-48@2x.png */; };
 		4CFF7EB11D1EB432006B1780 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFF7E9D1D1EB432006B1780 /* MEFoldAnimationController.m */; };
@@ -201,6 +200,8 @@
 		C30C84A31EAA892E008AEC9E /* SelectCategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C30C84A21EAA892E008AEC9E /* SelectCategoryVC.m */; };
 		C30D31B91ED68080009E6C36 /* FilterWithPriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C30D31B81ED68080009E6C36 /* FilterWithPriceVC.m */; };
 		C30E8E141EAE7292005BADDB /* ic_vs.png in Resources */ = {isa = PBXBuildFile; fileRef = C30E8E131EAE7292005BADDB /* ic_vs.png */; };
+		C315137D1F23776D00EF6CF1 /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = C315137B1F23776D00EF6CF1 /* minus.png */; };
+		C315137E1F23776D00EF6CF1 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = C315137C1F23776D00EF6CF1 /* plus.png */; };
 		C31EDE2E1ED9989F00F651B4 /* OptionsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C31EDE2D1ED9989E00F651B4 /* OptionsVC.m */; };
 		C32B2B201EB7A822009F5EC9 /* MyAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B2B1F1EB7A822009F5EC9 /* MyAccountVC.m */; };
 		C32B2B231EB7A84D009F5EC9 /* MyRewardPointsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C32B2B221EB7A84D009F5EC9 /* MyRewardPointsVC.m */; };
@@ -208,6 +209,7 @@
 		C3A6DCB41E53FBC900D8FB5B /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A6DCB31E53FBC900D8FB5B /* KIImagePager.m */; };
 		C3C260361ED74FF0008A7880 /* PrivacyPolicyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3C260351ED74FF0008A7880 /* PrivacyPolicyVC.m */; };
 		C3D993801E52A36A002ACBC4 /* ChangePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3D3D6991E52294F00CA0547 /* ChangePasswordVC.m */; };
+		C3DE68721F23011B000A10EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3DE68711F23011B000A10EF /* ViewController.m */; };
 		C3F18E361EAC9E860081B827 /* VirtualDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F18E351EAC9E860081B827 /* VirtualDetailsVC.m */; };
 		C3FF3BB91F1FD88E009D87EF /* TopBarNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FF3BB81F1FD88E009D87EF /* TopBarNavigationVC.m */; };
 		C3FF3BBC1F1FD97F009D87EF /* UIViewController+HeaderContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FF3BBB1F1FD97F009D87EF /* UIViewController+HeaderContainer.m */; };
@@ -275,8 +277,8 @@
 		2BE788031DF88036009E6C38 /* Plus-64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Plus-64.png"; sourceTree = "<group>"; };
 		2BF5A2F61DBBA472006BC8E3 /* ProductDetailNewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailNewVC.h; sourceTree = "<group>"; };
 		2BF5A2F71DBBA472006BC8E3 /* ProductDetailNewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailNewVC.m; sourceTree = "<group>"; };
-		2BF7815A1DC8729000ADD5CD /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		2BF7815B1DC8729000ADD5CD /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
+		2BF7815A1DC8729000ADD5CD /* plus_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_old.png; sourceTree = "<group>"; };
+		2BF7815B1DC8729000ADD5CD /* minus_old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus_old.png; sourceTree = "<group>"; };
 		2BFFEE641DB8BD6C0041B02D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		2BFFEE651DB8BD6C0041B02D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		2BFFEE691DB8C24C0041B02D /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
@@ -314,8 +316,6 @@
 		4CFF7E7A1D1E964D006B1780 /* FingoShopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FingoShopUITests.m; sourceTree = "<group>"; };
 		4CFF7E7C1D1E964D006B1780 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CFF7E891D1E96AC006B1780 /* WirelessMouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WirelessMouse.jpg; sourceTree = "<group>"; };
-		4CFF7E931D1E96C4006B1780 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4CFF7E941D1E96C4006B1780 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4CFF7E951D1E96C4006B1780 /* DealCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealCell.h; sourceTree = "<group>"; };
 		4CFF7E961D1E96C4006B1780 /* DealCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealCell.m; sourceTree = "<group>"; };
 		4CFF7E991D1EB3C5006B1780 /* menu-48@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-48@2x.png"; sourceTree = "<group>"; };
@@ -593,6 +593,8 @@
 		C30D31B71ED68080009E6C36 /* FilterWithPriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterWithPriceVC.h; sourceTree = "<group>"; };
 		C30D31B81ED68080009E6C36 /* FilterWithPriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterWithPriceVC.m; sourceTree = "<group>"; };
 		C30E8E131EAE7292005BADDB /* ic_vs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_vs.png; sourceTree = "<group>"; };
+		C315137B1F23776D00EF6CF1 /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
+		C315137C1F23776D00EF6CF1 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		C31EDE2C1ED9989E00F651B4 /* OptionsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsVC.h; sourceTree = "<group>"; };
 		C31EDE2D1ED9989E00F651B4 /* OptionsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsVC.m; sourceTree = "<group>"; };
 		C32B2B1E1EB7A822009F5EC9 /* MyAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAccountVC.h; sourceTree = "<group>"; };
@@ -609,6 +611,8 @@
 		C3D3D6991E52294F00CA0547 /* ChangePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordVC.m; sourceTree = "<group>"; };
 		C3D9937B1E529F56002ACBC4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C3D9937D1E529F71002ACBC4 /* libstdc++.6.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.tbd"; path = "usr/lib/libstdc++.6.tbd"; sourceTree = SDKROOT; };
+		C3DE68701F23011B000A10EF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C3DE68711F23011B000A10EF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C3F18E351EAC9E860081B827 /* VirtualDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirtualDetailsVC.m; sourceTree = "<group>"; };
 		C3FF3BB71F1FD88E009D87EF /* TopBarNavigationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarNavigationVC.h; sourceTree = "<group>"; };
 		C3FF3BB81F1FD88E009D87EF /* TopBarNavigationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarNavigationVC.m; sourceTree = "<group>"; };
@@ -827,8 +831,10 @@
 		4CFF7E881D1E967E006B1780 /* Supporting Images */ = {
 			isa = PBXGroup;
 			children = (
-				2BF7815A1DC8729000ADD5CD /* plus.png */,
-				2BF7815B1DC8729000ADD5CD /* minus.png */,
+				C315137B1F23776D00EF6CF1 /* minus.png */,
+				C315137C1F23776D00EF6CF1 /* plus.png */,
+				2BF7815A1DC8729000ADD5CD /* plus_old.png */,
+				2BF7815B1DC8729000ADD5CD /* minus_old.png */,
 				2BE788021DF88036009E6C38 /* Minus-64.png */,
 				2BE788031DF88036009E6C38 /* Plus-64.png */,
 				BE21AF0C1D381F4C00DB8E96 /* credit card_30x-03.png */,
@@ -1044,8 +1050,8 @@
 		BE21AF1E1D382D5100DB8E96 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4CFF7E931D1E96C4006B1780 /* ViewController.h */,
-				4CFF7E941D1E96C4006B1780 /* ViewController.m */,
+				C3DE68701F23011B000A10EF /* ViewController.h */,
+				C3DE68711F23011B000A10EF /* ViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1609,6 +1615,7 @@
 			files = (
 				BEF8A6401D6E2A980078F19F /* splash_screen_xhdpi.png in Resources */,
 				C3FF3BDA1F1FE0C3009D87EF /* women.png in Resources */,
+				C315137D1F23776D00EF6CF1 /* minus.png in Resources */,
 				C3FF3BCC1F1FDECC009D87EF /* specail1.jpg in Resources */,
 				4C67260C1D24595E002F669B /* ic_search_white_1x.png in Resources */,
 				C3FF3BC91F1FDECC009D87EF /* iphone1.png in Resources */,
@@ -1616,8 +1623,9 @@
 				2BE788041DF88036009E6C38 /* Minus-64.png in Resources */,
 				4CFF7E9A1D1EB3C5006B1780 /* menu-48@2x.png in Resources */,
 				BE9B851C1D2E3B9100233BA4 /* back-white@2x.png in Resources */,
+				C315137E1F23776D00EF6CF1 /* plus.png in Resources */,
 				4CFF7E651D1E964D006B1780 /* FingoLaunchScreen.storyboard in Resources */,
-				2BF7815C1DC8729000ADD5CD /* plus.png in Resources */,
+				2BF7815C1DC8729000ADD5CD /* plus_old.png in Resources */,
 				A66319C01D6CEB2F009A1EC9 /* placeholder.png in Resources */,
 				BE9B851F1D2E4D3E00233BA4 /* newliked@2x.png in Resources */,
 				4CFF7E621D1E964D006B1780 /* Assets.xcassets in Resources */,
@@ -1663,7 +1671,7 @@
 				BAB0274C1D38EB3B00A1F103 /* RATableViewCell.xib in Resources */,
 				4C6726041D2456BF002F669B /* ic_my profile_1x.png in Resources */,
 				C30C849D1EAA7DC2008AEC9E /* vs_bg.jpg in Resources */,
-				2BF7815D1DC8729000ADD5CD /* minus.png in Resources */,
+				2BF7815D1DC8729000ADD5CD /* minus_old.png in Resources */,
 				2BE668101E6698CA000DB721 /* beauty_icon.png in Resources */,
 				BE21AF101D381F4C00DB8E96 /* mastercard.png in Resources */,
 				C30C84971EAA7782008AEC9E /* virtual_shopping.png in Resources */,
@@ -1861,6 +1869,7 @@
 				BEA6FBE51D6F907000EB8401 /* NetBankingCell.m in Sources */,
 				BE7506181D39691D00CA0C99 /* RATreeView.m in Sources */,
 				BEA6FBD51D6F8AE600EB8401 /* iOSDefaultActivityIndicator.m in Sources */,
+				C3DE68721F23011B000A10EF /* ViewController.m in Sources */,
 				82B40DD71D70450D008198A4 /* MyOrdersCell.m in Sources */,
 				C3C260361ED74FF0008A7880 /* PrivacyPolicyVC.m in Sources */,
 				C3F18E361EAC9E860081B827 /* VirtualDetailsVC.m in Sources */,
@@ -1948,7 +1957,6 @@
 				BE21AF171D381FEC00DB8E96 /* PaymentViewController.m in Sources */,
 				4CFF7E981D1E96C4006B1780 /* DealCell.m in Sources */,
 				BEA6FBE21D6F8F3000EB8401 /* NetBankingViewController.m in Sources */,
-				4CFF7E971D1E96C4006B1780 /* ViewController.m in Sources */,
 				4C5FB43C1D1FECCC0056902E /* ItemCell.m in Sources */,
 				BE7506191D39691D00CA0C99 /* RABatchChangeEntity.m in Sources */,
 				4CFF7E601D1E964D006B1780 /* FingoShop.xcdatamodeld in Sources */,

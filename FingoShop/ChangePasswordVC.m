@@ -29,7 +29,7 @@ AppDelegate *apdl_signup;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    [self.navigationController setNavigationBarHidden:NO];
     self.navigationItem.title = @"Change Password";
 }
 

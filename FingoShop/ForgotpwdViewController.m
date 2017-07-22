@@ -37,7 +37,7 @@ AppDelegate *apdl_Forgot;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-     [self.navigationController setNavigationBarHidden:YES];
+     [self.navigationController setNavigationBarHidden:NO];
     [super viewWillAppear:animated];
     
 //    self.txtEmail.text = @"angelsadda786@gmail.com";

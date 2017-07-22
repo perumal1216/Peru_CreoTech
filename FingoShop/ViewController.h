@@ -9,22 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "ServiceConnection.h"
 #import "KIImagePager.h"
-#import <QuartzCore/QuartzCore.h>
 
-@interface ViewController : UIViewController<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+
+@interface ViewController : UIViewController<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,ServiceConnectionDelegate,UIGestureRecognizerDelegate,UISearchControllerDelegate>
 {
     ServiceConnection *serviceconn;
 
 }
-@property (weak, nonatomic) IBOutlet UIScrollView *main_scrollview;
-@property (weak, nonatomic) IBOutlet UICollectionView *top_category_collectionView;
-@property (weak, nonatomic) IBOutlet UICollectionView *offers_collectionView;
 
-@property (weak, nonatomic) IBOutlet UICollectionView *mensFashion_collectionView;
-@property (weak, nonatomic) IBOutlet UICollectionView *womenfashion_collectionView;
-@property (weak, nonatomic) IBOutlet UICollectionView *electronic_collView_Vertical;
-@property (weak, nonatomic) IBOutlet UICollectionView *electronic_collView_horizental;
-@property (weak, nonatomic) IBOutlet UICollectionView *art_collectionView;
 
 
 @end

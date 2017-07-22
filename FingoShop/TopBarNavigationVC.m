@@ -13,6 +13,8 @@
 #import "MEDynamicTransition.h"
 #import "METransitions.h"
 #import "SearchViewController.h"
+#import "SVProgressHUD.h"
+#import "Constants.h"
 @interface TopBarNavigationVC ()
 
 @end
@@ -85,11 +87,13 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     if ([[NSUserDefaults standardUserDefaults] stringForKey:@"email"] && ![[[NSUserDefaults standardUserDefaults] stringForKey:@"email"] isEqualToString:@""]) {
+        [self.cart_count_lbl setHidden:NO];
         self.cart_count_lbl.text = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"CartCount"]];
         
     }
     else {
         self.cart_count_lbl.text = 0;
+        [self.cart_count_lbl setHidden:YES];
         
     }
 
@@ -151,7 +155,12 @@
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
             
-            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+//            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+            [self.navigationController pushViewController:vc animated:YES];
+            
+            
         }]];
         
         [self presentViewController:alertController animated:YES completion:nil];
@@ -190,12 +199,74 @@
     
     [textField resignFirstResponder];
     
-    SearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
+   /* SearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
     vc.search_string = self.searchTextField.text;
     [self.navigationController pushViewController:vc animated:YES];
+    */
+    [self searchandlerMethod:self.searchTextField.text];
     
     return YES;
 }
+
+#pragma mark - ServiceConnection Delegate Methods
+
+-(void)searchandlerMethod:(NSString *)searchStr
+{
+    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    
+    NSString * post = searchStr;
+    
+    
+    serviceConn = [[ServiceConnection alloc]init];
+    serviceConn.delegate = self;
+    
+    [serviceConn GetSearchList:post];
+    
+}
+
+
+
+- (void)jsonData:(NSDictionary *)jsonDict
+{
+    
+    [SVProgressHUD dismiss];
+    if (jsonDict) {
+        _searchFiltersProductsArray = [jsonDict objectForKey:@"products"];
+        if ([_searchFiltersProductsArray count] > 0) {
+            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+            _WSConstScreenValue = @"Search";
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            UIAlertController * alert = [UIAlertController
+                                         alertControllerWithTitle:@"FIGOSHOP"
+                                         message:@"Please Specify a Product"
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okButton = [UIAlertAction
+                                       actionWithTitle:@"ok"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action) {
+                                           //Handle your yes please button action here
+                                       }];
+            
+            
+            [alert addAction:okButton];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }
+    
+    
+    
+    
+}
+
+
+- (void)errorMessage:(NSString *)errMsg
+{
+    [SVProgressHUD dismiss];
+}
+
 
 /*
 #pragma mark - Navigation

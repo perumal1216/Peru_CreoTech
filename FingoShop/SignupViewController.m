@@ -52,6 +52,11 @@
     self.txt_Telephone.inputAccessoryView = keyboardToolbar;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setHidesBarsOnTap:NO];
+}
+
 //- (void)myLoginDictionaryData:(NSDictionary *)sourceDictionary{
 //
 //}

@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TopBarNavigationVC : UIViewController<UITextFieldDelegate>
+#import "ServiceConnection.h"
+@interface TopBarNavigationVC : UIViewController<UITextFieldDelegate,ServiceConnectionDelegate>
+{
+    ServiceConnection *serviceConn;
+}
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UILabel *cart_count_lbl;
 @property (weak, nonatomic) IBOutlet UIButton *back_button;

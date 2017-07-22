@@ -53,6 +53,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated {
 //    [self callGetOrdersService];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 - (void)btnordersBackClicked:(id)sender {
     

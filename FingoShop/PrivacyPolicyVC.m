@@ -52,6 +52,8 @@
 {
    // [self.navigationItem setBackBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil]];
     
+    [self.navigationController setNavigationBarHidden:NO];
+    
     if ([flagStrng isEqualToString:@"PrivacyAndPolicy"]) {
         self.navigationItem.title = @"Privacy & Policy";
     }

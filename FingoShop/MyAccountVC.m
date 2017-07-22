@@ -27,6 +27,11 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+     [self.navigationController setNavigationBarHidden:NO];
+}
+
 -(void)callGetAccountInfo
 {
     [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress

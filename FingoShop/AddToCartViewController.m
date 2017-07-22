@@ -165,7 +165,7 @@
 
 - (IBAction)shopnowButtonClicked:(id)sender {
     
-       for (UIViewController *controller in self.navigationController.viewControllers)
+    for (UIViewController *controller in self.navigationController.viewControllers)
      {
      if ([controller isKindOfClass:[ViewController class]])
      {
@@ -183,6 +183,7 @@
      }
      }
     
+     [self.tabBarController setSelectedIndex:0];
 
     
 }
