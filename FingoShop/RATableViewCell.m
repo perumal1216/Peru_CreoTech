@@ -53,10 +53,10 @@
 - (void)setupWithTitle:(NSString *)title detailText:(NSString *)detailText level:(NSInteger)level additionButtonHidden:(BOOL)additionButtonHidden
 {
     self.customTitleLabel.text = title;
-    self.customTitleLabel.highlightedTextColor = [UIColor redColor];
+    self.customTitleLabel.highlightedTextColor = [UIColor colorWithRed:255/255 green:53/255 blue:64/255 alpha:1];
     if ([title isEqualToString:@"Home"]) {
-       self.customTitleLabel.font = [UIFont boldSystemFontOfSize:15];
-        //self.customTitleLabel.textColor = [UIColor redColor];
+       self.customTitleLabel.font = [UIFont systemFontOfSize:14];
+      //self.customTitleLabel.textColor = [UIColor redColor];
     }
     else{
          self.customTitleLabel.font = [UIFont systemFontOfSize:14];
@@ -82,8 +82,8 @@
   CGFloat left = 11 + 20 * level;
   
   CGRect titleFrame = self.customTitleLabel.frame;
-  titleFrame.origin.x = left;
-  self.customTitleLabel.frame = titleFrame;
+  //titleFrame.origin.x = left;
+  //self.customTitleLabel.frame = titleFrame;
   
   CGRect detailsFrame = self.detailedLabel.frame;
   detailsFrame.origin.x = left;

@@ -340,11 +340,11 @@
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "522575093.313156"
+                  timestampString = "522600549.524999"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "740"
-                  endingLineNumber = "740"
+                  startingLineNumber = "743"
+                  endingLineNumber = "743"
                   offsetFromSymbolStart = "401">
                </Location>
                <Location
@@ -355,11 +355,11 @@
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "522575093.314562"
+                  timestampString = "522600549.526297"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "740"
-                  endingLineNumber = "740"
+                  startingLineNumber = "743"
+                  endingLineNumber = "743"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -388,11 +388,11 @@
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "522575093.317589"
+                  timestampString = "522600549.52995"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "749"
-                  endingLineNumber = "749"
+                  startingLineNumber = "752"
+                  endingLineNumber = "752"
                   offsetFromSymbolStart = "657">
                </Location>
                <Location
@@ -403,11 +403,11 @@
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/ShippingDetailsViewController.m"
-                  timestampString = "522575093.318908"
+                  timestampString = "522600549.531326"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "749"
-                  endingLineNumber = "749"
+                  startingLineNumber = "752"
+                  endingLineNumber = "752"
                   offsetFromSymbolStart = "703">
                </Location>
             </Locations>
@@ -484,11 +484,11 @@
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/TopBarNavigationVC.m"
-                  timestampString = "522575093.330029"
+                  timestampString = "522600549.542594"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "165"
-                  endingLineNumber = "165"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
                   offsetFromSymbolStart = "1074">
                </Location>
                <Location
@@ -499,11 +499,11 @@
                   moduleName = "FingoShop"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/rizenew/Desktop/CreoTech/FingoShop/TopBarNavigationVC.m"
-                  timestampString = "522575093.331452"
+                  timestampString = "522600549.543972"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "165"
-                  endingLineNumber = "165"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
@@ -602,6 +602,102 @@
             startingLineNumber = "256"
             endingLineNumber = "256"
             landmarkName = "-showCustomLoader:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/RATableViewCell.m"
+            timestampString = "522597691.551553"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-setupWithTitle:detailText:level:additionButtonHidden:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/RATableViewCell.m"
+            timestampString = "522596868.28003"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-setupWithTitle:detailText:level:additionButtonHidden:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/MEMenuViewController.m"
+            timestampString = "522600540.297418"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "-treeView:cellForItem:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/MEMenuViewController.m"
+            timestampString = "522600540.952746"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-treeView:cellForItem:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/RATableViewCell.m"
+            timestampString = "522601038.125804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-setAdditionButtonHidden:animated:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FingoShop/MEMenuViewController.m"
+            timestampString = "522601156.001067"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-treeView:willExpandRowForItem:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
