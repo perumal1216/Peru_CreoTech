@@ -82,8 +82,8 @@
   CGFloat left = 11 + 20 * level;
   
   CGRect titleFrame = self.customTitleLabel.frame;
-  //titleFrame.origin.x = left;
-  //self.customTitleLabel.frame = titleFrame;
+  titleFrame.origin.x = left;
+  self.customTitleLabel.frame = titleFrame;
   
   CGRect detailsFrame = self.detailedLabel.frame;
   detailsFrame.origin.x = left;
