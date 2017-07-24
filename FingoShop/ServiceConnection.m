@@ -18,7 +18,7 @@
 -(void)submitPayUResponse:(NSString *)Post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/processPayUResponse?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/checkout/processPayUResponse?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -29,7 +29,7 @@
 
 -(void)GetVirtualImage:(NSString *)productId
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/products/getVirtualPic?product=%@",productId];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/products/getVirtualPic?product=%@",productId];
     
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -42,7 +42,7 @@
 -(void)GetShipmentDetails
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/getShippingRates?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/checkout/getShippingRates?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -54,7 +54,7 @@
 -(void)SaveShipmentDetails:(NSString *)method
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/saveShipping?shipping_method=%@&SID=%@",method,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/checkout/saveShipping?shipping_method=%@&SID=%@",method,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -75,7 +75,7 @@
 -(void)savePayment:(NSString *)paymentMethod
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/savePayment?method=%@&SID=%@",paymentMethod,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/checkout/savePayment?method=%@&SID=%@",paymentMethod,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     url_Method = [url_Method stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -87,7 +87,7 @@
 -(void)sendOTP:(NSString *)url_Method
 {
     
-   // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/sendotpcod?telephone=%@",params];
+   // NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/sendotpcod?telephone=%@",params];
    NSString *urlPath = [url_Method stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     NSURL *url=[NSURL URLWithString:urlPath];
@@ -100,7 +100,7 @@
 -(void)submitOrder
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/submitOrder?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/checkout/submitOrder?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -112,7 +112,7 @@
 -(void)cancelOrder:(NSString*)orderID
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/cancelOrder?order_id=%@&SID=%@",orderID,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/cancelOrder?order_id=%@&SID=%@",orderID,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -126,7 +126,7 @@
 -(void)destroyCartItems
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/destroy?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/destroy?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -140,7 +140,7 @@
 -(void)GetMainMenu
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/menu?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/menu?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -151,7 +151,7 @@
 
 -(void)GetMainBannerImages
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getHomePageBanners?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/getHomePageBanners?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     [self startRequestForUrl:url];
@@ -162,7 +162,7 @@
 
 -(void)GetHomePageCategories
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getHomePageCategories?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/getHomePageCategories?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     [self startRequestForUrl:url];
@@ -171,7 +171,7 @@
 }
 
 -(void)GetProductList:(NSString *)categoryId{
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getCategoryProductsList?id=2&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/getCategoryProductsList?id=2&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -184,7 +184,7 @@
 
 -(void)GetProductDetails:(NSString *)productId
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/products/getproductdetail?productid=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/products/getproductdetail?productid=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -196,7 +196,7 @@
 
 -(void)GetSimilarProductDetails:(NSString *)productId
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getRelatedProducts?product_id=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/getRelatedProducts?product_id=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -209,7 +209,7 @@
 
 -(void)GetProductImages:(NSString *)productId
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/products/getPicLists?product=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/products/getPicLists?product=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -221,7 +221,7 @@
 
 -(void)performLogin:(NSMutableDictionary *)loginDict
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/login?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/login?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -230,7 +230,7 @@
 
 -(void)performSignup:(NSMutableDictionary *)signupDict
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/register?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/register?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -239,7 +239,7 @@
 
 -(void)performForgotpwd:(NSString *)email
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/forgotpwd?Email=%@&SID=%@",email,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/forgotpwd?Email=%@&SID=%@",email,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -250,7 +250,7 @@
 
 -(void)GetUserInfo
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/getCustomerInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/getCustomerInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -262,7 +262,7 @@
 
 -(void)performLogout
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/logout?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/logout?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -274,9 +274,9 @@
 
 -(void)GetSearchList:(NSString *)Post
 {
-    //https://www.fingoshop.com/restconnect/search/searchnew?q=fidget
-    // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/search?q=%@&SID=%@",Post,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/search/searchnew?q=%@",Post];
+    //https://dev.fingoshop.com/restconnect/search/searchnew?q=fidget
+    // NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/search?q=%@&SID=%@",Post,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/search/searchnew?q=%@",Post];
     
     NSString* urlText = url_Method;
 //    [string stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]
@@ -298,7 +298,7 @@
 -(void)GetOffersList
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/offers?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/offers?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -309,7 +309,7 @@
 -(void)GetNotificationsList
 {
     
-    NSString *url_Method= [NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getNotification"];
+    NSString *url_Method= [NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/getNotification"];
     //[NSString stringWithFormat:@"http://www.fingoshop.com/restconnect/index/trackOrder?email=rakesh.akkineni@ctouchproducts.com&order_id=100000004"];
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -322,7 +322,7 @@
 -(void)GetWishList:(NSString *)Post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/getWishlist?%@",Post];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/wishlist/getWishlist?%@",Post];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -336,7 +336,7 @@
 -(void)AddToWishList:(NSString *)post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/addtowishlist"];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/wishlist/addtowishlist"];
 
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -345,7 +345,7 @@
 
     
     
-  /*  NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/addtowishlist?%@",post];
+  /*  NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/wishlist/addtowishlist?%@",post];
     NSURL *url=[NSURL URLWithString:url_Method];
     
     [self startRequestForUrl:url];
@@ -359,7 +359,7 @@
 -(void)RemoveFromWishList:(NSString *)productId
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/removewishlistitem?id=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/wishlist/removewishlistitem?id=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -370,7 +370,7 @@
 -(void)cashOnDeliveyAvailability:(NSString *)post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/checkdelivery/index/index/?zipcode=%@",post];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/checkdelivery/index/index/?zipcode=%@",post];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -383,7 +383,7 @@
 -(void)getAddressList
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/getAddressList?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/getAddressList?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -396,7 +396,7 @@
 -(void)AddAddress:(NSString *)post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/createaddress?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/createaddress?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -408,9 +408,9 @@
 -(void)UpdateAddress:(NSString *)post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/updateaddress?id=%@&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"entity_id"],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/updateaddress?id=%@&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"entity_id"],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
-//     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/updateaddress"];
+//     NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/updateaddress"];
     
     
     
@@ -426,7 +426,7 @@
 -(void)DeleteAddress:(NSString *)addressId
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/deleteaddress?id=%@&SID=%@",addressId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/deleteaddress?id=%@&SID=%@",addressId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     NSURL *url=[NSURL URLWithString:url_Method];    
     [self startRequestForUrl:url];
 
@@ -436,7 +436,7 @@
 -(void)SaveAddress:(NSString *)post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/saveAddress?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/checkout/saveAddress?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     NSURL *url=[NSURL URLWithString:url_Method];
     [self postRequestForUrl:url postBody:post];
     
@@ -448,7 +448,7 @@
 
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/getCustomerOrders?page=1&limit=10&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/getCustomerOrders?page=1&limit=10&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -458,7 +458,7 @@
 -(void)GetPointsBalance
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/getPointBalance?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/getPointBalance?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -470,7 +470,7 @@
 -(void)GetCustomerAccount
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/getAccountInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/getAccountInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -482,7 +482,7 @@
 -(void)UpdateAccountDetails:(NSString *)post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/setAccountInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/setAccountInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     
@@ -496,7 +496,7 @@
 
 -(void)AddToCart:(NSString *)PoductID qty:(NSString *)qty
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/add?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/add?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
      NSString *post = [NSString stringWithFormat:@"product=%@&qty=%@",PoductID,qty];
     
@@ -511,7 +511,7 @@
 
 //-(void)AddToCart:(NSString *)PoductID qty:(NSString *)qty option:(NSString *)optionId size:(NSString *)size
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/add?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/add?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
     [dict setObject:size forKey:optionId];
         
@@ -560,7 +560,7 @@
 
 -(void)GetCartInfo
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/getCartInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/getCartInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -570,7 +570,7 @@
 
 -(void)RemoveItemFromcart:(NSString *)post
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/remove?cart_item_id=%ld&SID=%@",(long)[post integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/remove?cart_item_id=%ld&SID=%@",(long)[post integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -579,7 +579,7 @@
 }
 -(void)ApplyCoupon:(NSString *)post
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/postCoupon?coupon_code=%@&SID=%@",post,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/postCoupon?coupon_code=%@&SID=%@",post,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -588,7 +588,7 @@
 }
 -(void)UpdateCartWithItemId:(NSString *)itemId andQuantity:(NSString *)qty
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/update?cart_item_id=%ld&qty=%ld&SID=%@",(long)[itemId integerValue],(long)[qty integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/cart/update?cart_item_id=%ld&qty=%ld&SID=%@",(long)[itemId integerValue],(long)[qty integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     

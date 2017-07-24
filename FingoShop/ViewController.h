@@ -11,7 +11,7 @@
 #import "KIImagePager.h"
 
 
-@interface ViewController : UIViewController<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,ServiceConnectionDelegate,UIGestureRecognizerDelegate,UISearchControllerDelegate>
+@interface ViewController : UIViewController<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,ServiceConnectionDelegate,UIGestureRecognizerDelegate,UISearchControllerDelegate>
 {
     ServiceConnection *serviceconn;
 

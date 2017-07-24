@@ -341,7 +341,7 @@ heightForFooterInSection:(NSInteger)section {
 - (IBAction)resendButtonAction:(id)sender {
 //      self.optwithmobileLabel.text = [NSString stringWithFormat:@"OTP resent to %@",[postDict objectForKey:@"mobile"]];
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/resendotp?mobile=%@",_telephoneL.text];
+    NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/resendotp?mobile=%@",_telephoneL.text];
     
     [self callMobileverify:url_Method type:@"ResendOTP"];
     
@@ -354,7 +354,7 @@ heightForFooterInSection:(NSInteger)section {
     if ([self.enterOtpTxt.text length]>0)
     {
         
-        NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/verifyotpcod?otp=%@&mobile=%@",_enterOtpTxt.text,_telephoneL.text];
+        NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/verifyotpcod?otp=%@&mobile=%@",_enterOtpTxt.text,_telephoneL.text];
         
         [self callMobileverify:url_Method type:@"VerifyOTP"];
         
@@ -398,7 +398,7 @@ heightForFooterInSection:(NSInteger)section {
          
          if ([sender.titleLabel.text isEqualToString:@"Mobile no verify"]) {
              
-             NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/sendotpcod?telephone=%@",_telephoneL.text];
+             NSString *url_Method=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/sendotpcod?telephone=%@",_telephoneL.text];
              
              [self callMobileverify:url_Method type:@"OTPSend"];
              

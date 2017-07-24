@@ -43,6 +43,15 @@
     keyboardToolbar.items = @[flexBarButton, doneBarButton];
     self.searchTextField.inputAccessoryView = keyboardToolbar;
     
+    UIImageView *envelopeView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 5, 25,20 )];
+    envelopeView.image = [UIImage imageNamed:@"search"];
+    envelopeView.contentMode = UIViewContentModeScaleAspectFit;
+    UIView *test=  [[UIView alloc]initWithFrame:CGRectMake(20, 0, 70, 30)];
+    [test addSubview:envelopeView];
+    [self.searchTextField.leftView setFrame:envelopeView.frame];
+    self.searchTextField.leftView =test;
+    self.searchTextField.leftViewMode = UITextFieldViewModeAlways;
+    
     
     // search textfiled border color
     

@@ -265,7 +265,7 @@ AppDelegate *apdl_detail2;
     NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
     
     
-    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getCategoryProductsList?id=%@&page=%ld&limit=10&order=&dir=&SID=%@",CategoryId,loadpage,sessionid];
+    NSString *url_str1=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/getCategoryProductsList?id=%@&page=%ld&limit=10&order=&dir=&SID=%@",CategoryId,loadpage,sessionid];
     
     url_str1=[url_str1 stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSURL *url=[NSURL URLWithString:url_str1];
@@ -440,7 +440,7 @@ AppDelegate *apdl_detail2;
     }
     
     
-    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getCategoryProductsList?id=%@&sid=%@",CategoryId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_str1=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/getCategoryProductsList?id=%@&sid=%@",CategoryId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     

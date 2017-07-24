@@ -22,8 +22,9 @@
 #import "bannerCollectionViewCell.h"
 #import "TopBarNavigationVC.h"
 #import "UIViewController+HeaderContainer.h"
+#import "ProductDetailVC.h"
 
-@interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource>
+@interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource,UICollectionViewDelegateFlowLayout>
 {
     NSArray *pageImages,*offerzone_Array,*New_Arraivals_Array,*BrandStore_Array,*horizontal_imageArray,*horizontal_titalArray,*horizontal_categoryIDArray;
     NSMutableArray *pageViews,*bannerarry,*banner_idarry;
@@ -35,10 +36,15 @@
     NSString *ServiceType;
     NSInteger bannerPageNum;
     NSMutableDictionary*datadic;
-     IBOutlet KIImagePager *_imagePager;
+    NSMutableDictionary *homePageCategoriesDict;
+    IBOutlet KIImagePager *_imagePager;
+    NSDictionary *selectedProduct;
     
+   
 }
 
+@property (weak, nonatomic) IBOutlet UIImageView *top_banner_imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *middle_banner_imageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainScrollView,*banner_Scroll,*banner_Scroll1,*offerZone_Scroll,*Arrival_Scroll,*brandStore_Scroll;
 
@@ -46,7 +52,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *Electronics_collecVW,*Womens_collecVW,*Mens_collecVW,*Art_collecVW,*kids_collecVW,*home_kichen_collecVW,*sports_collecVW,*books_collecVW,*bannercol;
 @property (strong, nonatomic) IBOutlet UICollectionView *Horizontal_CollectionVW;
 
-@property(nonatomic,strong) NSMutableArray *Electronics_Arr,*Womens_Arr,*Mens_arr,*Art_Arr,*baby_kids_Arr,*home_kichen_Arr,*sports_arr,*books_Arr,*homePageCategoriesArr;
+@property(nonatomic,strong) NSMutableArray *Electronics_Arr,*Womens_Arr,*Mens_arr,*Art_Arr,*baby_kids_Arr,*home_kichen_Arr,*sports_arr,*books_Arr,*homePageCategoriesArr,*top_categoriesArray,*top_bannerArray,*banner_topArray,*banner_middleArray;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAll1;
@@ -55,16 +61,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAll4;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAll5;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAll6;
-@property (weak, nonatomic) IBOutlet UIButton *btnViewAll7;
-@property (weak, nonatomic) IBOutlet UIButton *btnViewAll8;
+
 - (IBAction)btnViewAllClicked1:(id)sender;
 - (IBAction)btnViewAllClicked2:(id)sender;
 - (IBAction)btnViewAllClicked3:(id)sender;
 - (IBAction)btnViewAllClicked4:(id)sender;
 - (IBAction)btnViewAllClicked5:(id)sender;
-- (IBAction)btnViewAllClicked6:(id)sender;
-- (IBAction)btnViewAllClicked7:(id)sender;
-- (IBAction)btnViewAllClicked8:(id)sender;
 - (IBAction)btnMenuClicked:(id)sender;
 
 
@@ -77,29 +79,35 @@ AppDelegate *apdl;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
- // NSURL*url=[NSURL URLWithString:@"https://www.fingoshop.com/restconnect/index/getHomePageBanners?SID=p5i1vm8klt4asns7b3us9fm671"];
- //NSData*jsondata=[NSData dataWithContentsOfURL:url];
-   // NSError*err;
-//datadic=[NSJSONSerialization JSONObjectWithData:jsondata options:NSJSONReadingMutableContainers error:&err];
-  // NSLog(@" the dic sat   %@",datadic);
-//=[datadic valueForKey:@"source_file"];
-   // NSDictionary*newimg = [jsonDict ];
-    // bannerarry=[NSMutableArray arrayWithObject:datadic];
-    
     if ([_WSConstScreenValue isEqualToString:@"SlideMenu"]) {
         
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
         
     }
 
-    
     // TopBar Navigation
     TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
     [self displayContentController:topVC];
     [topVC.menu_button setHidden :NO];
     [topVC.back_button setHidden :YES];
-
-     horizontal_imageArray = [[NSArray alloc]initWithObjects:@"virtual.png",@"men.png",@"women.png",@"kids.png",@"men.png",@"women.png",@"kids.png",@"kids.png",@"kids.png",@"kids.png",@"kids.png", nil];
+    
+    
+    UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+     // Configure layout
+    [layout setItemSize:CGSizeMake(self.view.frame.size.width - 10, 150)];
+    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.minimumLineSpacing = 5;
+    layout.minimumInteritemSpacing = 5;
+    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [self.Mens_collecVW setCollectionViewLayout:layout];
+    [self.Art_collecVW setCollectionViewLayout:layout];
+    
+    
+   
+     [self.Art_collecVW setScrollEnabled:NO];
+     [self.Mens_collecVW setScrollEnabled:NO];
+  /*   horizontal_imageArray = [[NSArray alloc]initWithObjects:@"virtual.png",@"men.png",@"women.png",@"kids.png",@"men.png",@"women.png",@"kids.png",@"kids.png",@"kids.png",@"kids.png",@"kids.png", nil];
+    
    // horizontal_imageArray = [[NSArray alloc]initWithObjects:@"virtual_shopping.png",@"electronics_icon.png",@"kitchen_icon.png",@"kids_icon.png",@"beauty_icon.png",@"women_acc_icon.png",@"men_acc_icon.png",@"elec_app_icon.png",@"arts_icon.png",@"crazy_icon.png",@"sports_icon.png", nil];
     
     horizontal_titalArray = [[NSArray alloc]initWithObjects:@"Virtual Shopping",@"Computers",@"Kitchen",@"Toys",@"Beauty",@"Woman Accessories",@"Men Accessories",@"Electronic Appliances",@"Arts N Crafts",@"Crazy Collections",@"Sports", nil];
@@ -125,6 +133,8 @@ AppDelegate *apdl;
     }
 
    NSLog(@"pageimages is %@",bannerarry);
+    
+    */
 
     UITapGestureRecognizer *imagetap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollimagehandleOneTap:)];
     [imagetap setDelegate:self];
@@ -138,7 +148,7 @@ AppDelegate *apdl;
     
     apdl=(AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
+  /*  UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
    // [view setBackgroundColor:[UIColor redColor]];
     
     UILabel *lbl=[[UILabel alloc] initWithFrame:CGRectMake(10, 10, 150, 20)];
@@ -147,7 +157,7 @@ AppDelegate *apdl;
     [view addSubview:lbl];
     
     self.navigationItem.titleView = view;
-    
+   */
     
    /* UIImage *abuttonImage1 = [UIImage imageNamed:@"User_1x.png"];
     UIButton *aaButton1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -158,7 +168,7 @@ AppDelegate *apdl;
     
     */
     
-    UIImage *abuttonImage2 = [UIImage imageNamed:@"ic_cart.png"];
+  /*  UIImage *abuttonImage2 = [UIImage imageNamed:@"ic_cart.png"];
     UIButton *aaButton2 = [UIButton buttonWithType:UIButtonTypeCustom];
     [aaButton2 setImage:abuttonImage2 forState:UIControlStateNormal];
     aaButton2.frame = CGRectMake(0.0, 0.0, 36.0, 36.0);
@@ -186,7 +196,7 @@ AppDelegate *apdl;
     self.navigationItem.rightBarButtonItems =
     [NSArray arrayWithObjects:AP_barbutton2,AP_barbutton4,AP_barbutton3,nil];
     
-    
+    */
     
     [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
@@ -194,29 +204,50 @@ AppDelegate *apdl;
     dispatch_async(queue, ^{
         
         [self callHomepageCategoriesService];
-       // [self callMainBannerImagesService];
-               NSLog(@"pagenewImages:%@",pagenewImages);
-            // myarr = [myarr addObject:pageImages];
-            //myarr = [NSMutableArray new];
-            //        [newdict addEntriesFromDictionary:pageImages];
-            //        NSLog(@"newdict is %@",newdict);
-            //        myarr = [NSMutableArray arrayWithObject:pageImages];
-            NSLog(@"pageimages is %@",pageImages);
-        self.Electronics_Arr=[childCategoriesDict objectForKey:@"Electronics"];
-     //   NSLog(@"electronics )
         
-        self.Womens_Arr=[childCategoriesDict objectForKey:@"Women"];
-        self.Mens_arr=[childCategoriesDict objectForKey:@"Men"];
-        self.Art_Arr=[childCategoriesDict objectForKey:@"Arts & Crafts"];
-        self.baby_kids_Arr=[childCategoriesDict objectForKey:@"Kids"];
-        self.home_kichen_Arr=[childCategoriesDict objectForKey:@"Home & Kitchen"];
-        self.sports_arr=[childCategoriesDict objectForKey:@"Sports & Fitness"];
-        self.books_Arr=[childCategoriesDict objectForKey:@"Books & Media"];
-        NSLog(@"Mens Array :%@", _Mens_arr);
-        NSLog(@"womens array :%@", _Womens_Arr);
+        self.top_bannerArray =[homePageCategoriesDict objectForKey:@"topbanners"];
+        self.banner_topArray = [homePageCategoriesDict objectForKey:@"banner_top"];
+        self.banner_middleArray = [homePageCategoriesDict objectForKey:@"banner_middle"];
+        NSDictionary *category_dict = [_banner_topArray objectAtIndex:0];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"source_file"]];
+        urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        NSURL *url = [NSURL URLWithString:urlString];
+        [self.top_banner_imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+        NSDictionary *category_dict1 = [_banner_middleArray objectAtIndex:0];
+        NSString *urlString1 =[NSString stringWithFormat:@"%@",[category_dict1 objectForKey:@"source_file"]];
+        urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        NSURL *url1 = [NSURL URLWithString:urlString1];
+        [self.middle_banner_imageView sd_setImageWithURL:url1 placeholderImage:[UIImage imageNamed:@"place"]];
+        
+        
+        bannerarry = [[NSMutableArray alloc]init];
+        for (int i = 0; i<_top_bannerArray.count; i++)
+        {
+            NSDictionary *category_dict = [_top_bannerArray objectAtIndex:i];
+            NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"source_file"]];
+            urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+            
+            [bannerarry addObject:urlString];
+            
+            
+        }
+         [_imagePager reloadData];
+
+        self.top_categoriesArray = [homePageCategoriesDict objectForKey:@"topcategories"];
+        self.Electronics_Arr = [homePageCategoriesDict objectForKey:@"electronics_products"];
+        self.Womens_Arr=[homePageCategoriesDict objectForKey:@"womens_products"];
+        self.Mens_arr=[homePageCategoriesDict objectForKey:@"mens_products"];
+        self.Art_Arr=[homePageCategoriesDict objectForKey:@"arts_products"];
+        self.home_kichen_Arr=[homePageCategoriesDict objectForKey:@"homes_products"];
+       // self.baby_kids_Arr=[homePageCategoriesDict objectForKey:@"Kids"];
+       // self.sports_arr=[homePageCategoriesDict objectForKey:@"Sports & Fitness"];
+        //self.books_Arr=[homePageCategoriesDict objectForKey:@"Books & Media"];
+       // NSLog(@"Mens Array :%@", _Mens_arr);
+       // NSLog(@"womens array :%@", _Womens_Arr);
         dispatch_sync(dispatch_get_main_queue(), ^{
             // Set progress indicator to complete?
-            
+            [_imagePager reloadData];
+           [_Horizontal_CollectionVW reloadData];
             [_Electronics_collecVW reloadData];
             [_Womens_collecVW reloadData];
             [_Mens_collecVW reloadData];
@@ -230,44 +261,7 @@ AppDelegate *apdl;
         
     });
     
-    
-    
-    
-    
-    //    pageImages = [NSArray arrayWithObjects:
-    //                  [UIImage imageNamed:@"1.png"],
-    //                  [UIImage imageNamed:@"2.png"],
-    //                  [UIImage imageNamed:@"3.png"],
-    //                  [UIImage imageNamed:@"4.png"],
-    //                  nil];
-    
-    
-   /* New_Arraivals_Array = [NSArray arrayWithObjects:
-                           [UIImage imageNamed:@"new_arrivals.png"],
-                           [UIImage imageNamed:@"new_arrivals.png"],
-                           [UIImage imageNamed:@"new_arrivals.png"],
-                           [UIImage imageNamed:@"new_arrivals.png"],
-                           nil];
-    
-    offerzone_Array = [NSArray arrayWithObjects:
-                       [UIImage imageNamed:@"new_arrivals.png"],
-                       [UIImage imageNamed:@"new_arrivals.png"],
-                       [UIImage imageNamed:@"new_arrivals.png"],
-                       [UIImage imageNamed:@"new_arrivals.png"],
-                       nil];
-    
-    
-    BrandStore_Array = [NSArray arrayWithObjects:
-                        [UIImage imageNamed:@"brand_stores.png"],
-                        [UIImage imageNamed:@"brand_stores.png"],
-                        [UIImage imageNamed:@"brand_stores.png"],
-                        [UIImage imageNamed:@"brand_stores.png"],
-                        nil];
-    
-    */
-    
-    
-    //offerzone_Array = [childCategoriesDict objectForKey:@"Offers Zone"];
+
     
     
     NSInteger offerzone_pageCount  = offerzone_Array.count;
@@ -280,62 +274,12 @@ AppDelegate *apdl;
     self.offerPagecontroller.currentPage = 0;
     self.offerPagecontroller.numberOfPages = offerzone_pageCount;
     
-    // Set up the array to hold the views for each page
-    //Offerzone_views = [[NSMutableArray alloc] init];
-    //for (NSInteger i = 0; i < offerzone_pageCount; ++i) {
-      //  [Offerzone_views addObject:[NSNull null]];
-    //}
-    
-    
-    // Set up the offer page control
-    
-    //self.newarraivalpagecontroller.currentPage = 0;
-    //self.newarraivalpagecontroller.numberOfPages = newArraial_pageCount;
-    
-    // Set up the array to hold the views for each page
-    //newArra_views = [[NSMutableArray alloc] init];
-    //for (NSInteger i = 0; i < newArraial_pageCount; ++i) {
-      //  [newArra_views addObject:[NSNull null]];
-   // }
-    
-    
-    // Set up the offer page control
+       // Set up the offer page control
     
     self.brandstorePagecontroller.currentPage = 0;
     self.brandstorePagecontroller.numberOfPages = brandstore_pageCount;
     
-    // Set up the array to hold the views for each page
-    //brandstore_views = [[NSMutableArray alloc] init];
-   // for (NSInteger i = 0; i < brandstore_pageCount; ++i) {
-      //  [brandstore_views addObject:[NSNull null]];
-   // }
-    
-    
-//    _banner_Scroll.clipsToBounds = YES;
-//    _banner_Scroll.pagingEnabled = YES;
-//    _banner_Scroll.showsHorizontalScrollIndicator = NO;
-//    _banner_Scroll.showsVerticalScrollIndicator = NO;
-//    _banner_Scroll.scrollsToTop = NO;
-//    
-//    _offerZone_Scroll.clipsToBounds = YES;
-//    _offerZone_Scroll.pagingEnabled = YES;
-//    _offerZone_Scroll.showsHorizontalScrollIndicator = NO;
-//    _offerZone_Scroll.showsVerticalScrollIndicator = NO;
-//    _offerZone_Scroll.scrollsToTop = NO;
-//    
-//    _Arrival_Scroll.clipsToBounds = YES;
-//    _Arrival_Scroll.pagingEnabled = YES;
-//    _Arrival_Scroll.showsHorizontalScrollIndicator = NO;
-//    _Arrival_Scroll.showsVerticalScrollIndicator = NO;
-//    _Arrival_Scroll.scrollsToTop = NO;
-//    
-//    _brandStore_Scroll.clipsToBounds = YES;
-//    _brandStore_Scroll.pagingEnabled = YES;
-//    _brandStore_Scroll.showsHorizontalScrollIndicator = NO;
-//    _brandStore_Scroll.showsVerticalScrollIndicator = NO;
-//    _brandStore_Scroll.scrollsToTop = NO;
-//    
-//    
+  
     
     _banner_Scroll1.clipsToBounds = YES;
     _banner_Scroll1.pagingEnabled = YES;
@@ -382,9 +326,9 @@ AppDelegate *apdl;
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES];
-    self.mainScrollView.contentSize=CGSizeMake(self.mainScrollView.bounds.size.width, 2300);
+    self.mainScrollView.contentSize=CGSizeMake(self.mainScrollView.bounds.size.width, 2600);
     
-    CGSize pagesScrollViewSize = self.banner_Scroll.frame.size;
+  /*  CGSize pagesScrollViewSize = self.banner_Scroll.frame.size;
     CGSize pagesScrollViewSize1 = self.banner_Scroll1.frame.size;
     CGSize pagesScrollViewSize2 = self.offerZone_Scroll.frame.size;
     CGSize pagesScrollViewSize3 = self.Arrival_Scroll.frame.size;
@@ -393,6 +337,7 @@ AppDelegate *apdl;
     self.banner_Scroll.contentSize = CGSizeMake(pagesScrollViewSize.width * pageImages.count, pagesScrollViewSize.height);
     
     self.banner_Scroll1.contentSize = CGSizeMake(pagesScrollViewSize1.width * pageImages.count, pagesScrollViewSize1.height);
+   */
     
 //    self.offerZone_Scroll.contentSize = CGSizeMake(pagesScrollViewSize2.width * offerzone_Array.count, pagesScrollViewSize2.height);
 //    
@@ -759,7 +704,8 @@ AppDelegate *apdl;
     // NSLog(@"%s %lu", __PRETTY_FUNCTION__, (unsigned long)index);
     NSString *selectedItemID;
     //NSString *selectedItemType;
-    selectedItemID =[NSString stringWithFormat:@"%@",[banner_idarry objectAtIndex:index]];
+    NSDictionary *category_dict = [_top_categoriesArray objectAtIndex:index];
+    selectedItemID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category_id"]];
    // selectedItemType = @"Womens";
     NSLog(@"%@",selectedItemID);
     _WSConstScreenValue = @"Home";
@@ -791,13 +737,31 @@ AppDelegate *apdl;
 //    [self loadVisible_NewArraivalsPages];
 //    [self loadVisible_BrandStorePages];
 //}
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//     if (collectionView==_Electronics_collecVW)
+//    {
+//        return CGSizeMake(CGRectGetWidth(collectionView.frame), (CGRectGetHeight(collectionView.frame)));
+//    }
+//     else{
+//         
+//         return  CGSizeMake(0, 0);
+//     }
+//    
+//}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 200.0);
+}
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if (collectionView==_Horizontal_CollectionVW)
     {
-        return horizontal_titalArray.count;
+        return _top_categoriesArray.count;
     }
     else if (collectionView==_Electronics_collecVW)
     {
@@ -834,7 +798,7 @@ AppDelegate *apdl;
     else if (collectionView==_bannercol)
     {
         
-        NSURL*url=[NSURL URLWithString:@"https://www.fingoshop.com/restconnect/index/getHomePageBanners?SID=p5i1vm8klt4asns7b3us9fm671"];
+      /*  NSURL*url=[NSURL URLWithString:@"https://www.fingoshop.com/restconnect/index/getHomePageBanners?SID=p5i1vm8klt4asns7b3us9fm671"];
         
         
         NSData*jsondata=[NSData dataWithContentsOfURL:url];
@@ -858,12 +822,16 @@ AppDelegate *apdl;
        //[self mybanners];
 //
 //bannerarry=[datadic valueForKey:@"source_file"];
+        
+        
         return bannerarry.count;
         
-    
+    */
+        
+        return _top_bannerArray.count;
     }
     else
-        return 10;
+        return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -878,12 +846,13 @@ AppDelegate *apdl;
         {
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
-       // [cell.imageVW sd_setImageWithURL:[UIImage imageNamed:[horizontal_imageArray objectAtIndex:indexPath.row]] placeholderImage:[UIImage imageNamed:@"place"]];
-        
-        
-        cell.imageVW.image = [UIImage imageNamed:[horizontal_imageArray objectAtIndex:indexPath.row]];
-        
-         cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[horizontal_titalArray objectAtIndex:indexPath.row]];
+       
+        NSDictionary *category_dict = [_top_categoriesArray objectAtIndex:indexPath.row];
+        NSString *urlString = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"main_image"]];
+         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+        NSURL *url = [NSURL URLWithString:urlString];
+         [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"name"]];
         
         cell.layer.borderWidth = 0.3;
         cell.layer.borderColor = [[UIColor clearColor]CGColor];
@@ -899,25 +868,27 @@ AppDelegate *apdl;
         {
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
-        
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_Electronics_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
-        
-        // NSString *urlString =@"http://www.fingoshop.com/media/catalog/category/homedecors.png";
+        NSDictionary *category_dict = [_Electronics_Arr objectAtIndex:indexPath.row];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
         [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"name"]];
+        cell.oldPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"price"]];
+        cell.discount_lbl.text = [NSString stringWithFormat:@"%@ off",[category_dict objectForKey:@"discount"]];
+        cell.finalPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"final_price"]];
         
-        
-        // cell.imageVW.image=[_Electronics_Arr objectAtIndex:indexPath.row];
-        
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_Electronics_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
+        NSAttributedString * title =
+        [[NSAttributedString alloc] initWithString:cell.oldPrice_lbl.text
+                                        attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [cell.oldPrice_lbl setAttributedText:title];
         
         cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
+        cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         return cell;
     }
-    else if (collectionView== _bannercol){
+   /* else if (collectionView== _bannercol){
         
        bannerCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"mycell" forIndexPath:indexPath];
         
@@ -956,6 +927,66 @@ AppDelegate *apdl;
         return cell;
         
     }
+   else if (collectionView==_kids_collecVW)
+   {
+       DealCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dealCell" forIndexPath:indexPath];
+       if (cell==nil)
+       {
+           cell=[[DealCell alloc]initWithFrame:CGRectZero];
+       }
+       NSString *urlString =[NSString stringWithFormat:@"%@",[[_baby_kids_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
+       urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+       NSLog(@"prof img is %@",urlString);
+       NSURL *url = [NSURL URLWithString:urlString];
+       [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+       
+       cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_baby_kids_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
+       
+       cell.layer.borderWidth = 0.3;
+       cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+       return cell;
+   }
+   else if (collectionView==_sports_collecVW)
+   {
+       DealCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dealCell" forIndexPath:indexPath];
+       if (cell==nil)
+       {
+           cell=[[DealCell alloc]initWithFrame:CGRectZero];
+       }
+       NSString *urlString =[NSString stringWithFormat:@"%@",[[_sports_arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
+       urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+       NSLog(@"prof img is %@",urlString);
+       NSURL *url = [NSURL URLWithString:urlString];
+       [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+       
+       
+       cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_sports_arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
+       
+       cell.layer.borderWidth = 0.3;
+       cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+       return cell;
+   }
+   else if (collectionView==_books_collecVW)
+   {
+       DealCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dealCell" forIndexPath:indexPath];
+       if (cell==nil)
+       {
+           cell=[[DealCell alloc]initWithFrame:CGRectZero];
+       }
+       NSString *urlString =[NSString stringWithFormat:@"%@",[[_books_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
+       urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+       NSLog(@"prof img is %@",urlString);
+       NSURL *url = [NSURL URLWithString:urlString];
+       [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+       
+       
+       cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_books_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
+       
+       cell.layer.borderWidth = 0.3;
+       cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+       return cell;
+   }
+    */
     else if (collectionView==_Womens_collecVW)
     {
         DealCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dealCell" forIndexPath:indexPath];
@@ -963,19 +994,25 @@ AppDelegate *apdl;
         {
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_Womens_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
+        NSDictionary *category_dict = [_Womens_Arr objectAtIndex:indexPath.row];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
         [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"name"]];
+        cell.oldPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"price"]];
+        cell.discount_lbl.text = [NSString stringWithFormat:@"%@ off",[category_dict objectForKey:@"discount"]];
+        cell.finalPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"final_price"]];
         
-        
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_Womens_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
-        
+        NSAttributedString * title =
+        [[NSAttributedString alloc] initWithString:cell.oldPrice_lbl.text
+                                        attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [cell.oldPrice_lbl setAttributedText:title];
         
         
         cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
+        cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         return cell;
     }
     else if (collectionView==_Mens_collecVW)
@@ -985,17 +1022,24 @@ AppDelegate *apdl;
         {
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_Mens_arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
+        NSDictionary *category_dict = [_Mens_arr objectAtIndex:indexPath.row];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
         [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"name"]];
+        cell.oldPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"price"]];
+        cell.discount_lbl.text = [NSString stringWithFormat:@"%@ off",[category_dict objectForKey:@"discount"]];
+        cell.finalPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"final_price"]];
         
-        
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_Mens_arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
+        NSAttributedString * title =
+        [[NSAttributedString alloc] initWithString:cell.oldPrice_lbl.text
+                                        attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [cell.oldPrice_lbl setAttributedText:title];
         
         cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
+        cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         return cell;
     }
     else if (collectionView==_Art_collecVW)
@@ -1005,36 +1049,24 @@ AppDelegate *apdl;
         {
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_Art_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
+        NSDictionary *category_dict = [_Art_Arr objectAtIndex:indexPath.row];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
         [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"name"]];
+        cell.oldPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"price"]];
+        cell.discount_lbl.text = [NSString stringWithFormat:@"%@ off",[category_dict objectForKey:@"discount"]];
+        cell.finalPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"final_price"]];
         
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_Art_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
-        
-        
-        cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
-        return cell;
-    }
-    else if (collectionView==_kids_collecVW)
-    {
-        DealCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dealCell" forIndexPath:indexPath];
-        if (cell==nil)
-        {
-            cell=[[DealCell alloc]initWithFrame:CGRectZero];
-        }
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_baby_kids_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
-        urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        NSLog(@"prof img is %@",urlString);
-        NSURL *url = [NSURL URLWithString:urlString];
-        [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
-        
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_baby_kids_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
+        NSAttributedString * title =
+        [[NSAttributedString alloc] initWithString:cell.oldPrice_lbl.text
+                                        attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [cell.oldPrice_lbl setAttributedText:title];
         
         cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
+        cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         return cell;
     }
     else if (collectionView==_home_kichen_collecVW)
@@ -1044,58 +1076,26 @@ AppDelegate *apdl;
         {
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_home_kichen_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
+        NSDictionary *category_dict = [_home_kichen_Arr objectAtIndex:indexPath.row];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
         [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
+        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"name"]];
+        cell.oldPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"price"]];
+        cell.discount_lbl.text = [NSString stringWithFormat:@"%@ off",[category_dict objectForKey:@"discount"]];
+        cell.finalPrice_lbl.text =[NSString stringWithFormat:@"₹%@",[category_dict objectForKey:@"final_price"]];
         
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_home_kichen_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
-        
+        NSAttributedString * title =
+        [[NSAttributedString alloc] initWithString:cell.oldPrice_lbl.text
+                                        attributes:@{NSStrikethroughStyleAttributeName:@(NSUnderlineStyleSingle)}];
+        [cell.oldPrice_lbl setAttributedText:title];
         cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
+        cell.layer.borderColor = [[UIColor lightGrayColor]CGColor];
         return cell;
     }
-    else if (collectionView==_sports_collecVW)
-    {
-        DealCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dealCell" forIndexPath:indexPath];
-        if (cell==nil)
-        {
-            cell=[[DealCell alloc]initWithFrame:CGRectZero];
-        }
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_sports_arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
-        urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        NSLog(@"prof img is %@",urlString);
-        NSURL *url = [NSURL URLWithString:urlString];
-        [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
-        
-        
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_sports_arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
-        
-        cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
-        return cell;
-    }
-    else if (collectionView==_books_collecVW)
-    {
-        DealCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"dealCell" forIndexPath:indexPath];
-        if (cell==nil)
-        {
-            cell=[[DealCell alloc]initWithFrame:CGRectZero];
-        }
-        NSString *urlString =[NSString stringWithFormat:@"%@",[[_books_Arr objectAtIndex:indexPath.row] objectForKey:@"image_url"]];
-        urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
-        NSLog(@"prof img is %@",urlString);
-        NSURL *url = [NSURL URLWithString:urlString];
-        [cell.imageVW sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"place"]];
-        
-        
-        cell.lblCategoryTitle.text=[NSString stringWithFormat:@"%@",[[_books_Arr objectAtIndex:indexPath.row] objectForKey:@"name"]];
-        
-        cell.layer.borderWidth = 0.3;
-        cell.layer.borderColor = [[UIColor clearColor]CGColor];
-        return cell;
-    }
+ 
     return cell;
     
 }
@@ -1107,6 +1107,7 @@ AppDelegate *apdl;
     NSString *selectedItemType;
     if (collectionView==_Horizontal_CollectionVW)
     {
+      
         if (indexPath.row == 0) {
             
             UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VirtualShoppingVC"];
@@ -1115,63 +1116,102 @@ AppDelegate *apdl;
             
         }
         else{
-        
-        selectedItemID =[NSString stringWithFormat:@"%@",[horizontal_categoryIDArray objectAtIndex:indexPath.row]];
-       // selectedItemType = @"Electronics";
-        NSLog(@"%@",selectedItemID);
-        _WSConstScreenValue = @"Home";
-        _WSConstSelectedCategoryID = selectedItemID;
-       // _WSConstSelectedCategoryType = selectedItemType;
-        [self performSegueWithIdentifier:@"detailSegue" sender:self];
+            
+            NSDictionary *category_dict = [_top_categoriesArray objectAtIndex:indexPath.row];
+            selectedItemID =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"id"]];
+            
+            // selectedItemType = @"Electronics";
+            NSLog(@"%@",selectedItemID);
+            _WSConstScreenValue = @"Home";
+            _WSConstSelectedCategoryID = selectedItemID;
+            // _WSConstSelectedCategoryType = selectedItemType;
+            [self performSegueWithIdentifier:@"detailSegue" sender:self];
         }
+
+    
     }
    else if (collectionView==_Electronics_collecVW)
     {
-        selectedItemID =[NSString stringWithFormat:@"%@",[[_Electronics_Arr objectAtIndex:indexPath.row] objectForKey:@"id"]];
-        selectedItemType = @"Electronics";
+        NSDictionary *category_dict = [_Electronics_Arr objectAtIndex:indexPath.row];
+        selectedProduct = category_dict;
+        selectedItemID =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"entity_id"]];
+      /*  selectedItemType = @"Electronics";
         NSLog(@"%@",selectedItemID); _WSConstScreenValue = @"Home";
         _WSConstSelectedCategoryID = selectedItemID;
         _WSConstSelectedCategoryType = selectedItemType;
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
+       */
+        
+        [self callProductDetailsService:selectedItemID];
     }
     else if (collectionView==_Womens_collecVW)
     {
         
-        selectedItemID =[NSString stringWithFormat:@"%@",[[_Womens_Arr objectAtIndex:indexPath.row] objectForKey:@"id"]];
-        selectedItemType = @"Womens";
+        NSDictionary *category_dict = [_Womens_Arr objectAtIndex:indexPath.row];
+        selectedProduct = category_dict;
+        selectedItemID =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"entity_id"]];
+       /* selectedItemType = @"Womens";
         NSLog(@"%@",selectedItemID);
         _WSConstScreenValue = @"Home";
         _WSConstSelectedCategoryID = selectedItemID;
         _WSConstSelectedCategoryType = selectedItemType;
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
+        */
+        [self callProductDetailsService:selectedItemID];
         
     }
     else if (collectionView==_Mens_collecVW)
     {
-        
-        selectedItemID =[NSString stringWithFormat:@"%@",[[_Mens_arr objectAtIndex:indexPath.row] objectForKey:@"id"]];
+        NSDictionary *category_dict = [_Mens_arr objectAtIndex:indexPath.row];
+        selectedProduct = category_dict;
+        selectedItemID =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"entity_id"]];
+       /* selectedItemID =[NSString stringWithFormat:@"%@",[[_Mens_arr objectAtIndex:indexPath.row] objectForKey:@"entity_id"]];
         selectedItemType = @"Mens";
         NSLog(@"%@",selectedItemID); _WSConstScreenValue = @"Home";
         _WSConstSelectedCategoryID = selectedItemID;
         _WSConstSelectedCategoryType = selectedItemType;
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
-        
+        */
+        [self callProductDetailsService:selectedItemID];
         
     }
     else if (collectionView==_Art_collecVW)
     {
         
-        
-        selectedItemID =[NSString stringWithFormat:@"%@",[[_Art_Arr objectAtIndex:indexPath.row] objectForKey:@"id"]];
+        NSDictionary *category_dict = [_Art_Arr objectAtIndex:indexPath.row];
+        selectedProduct = category_dict;
+        selectedItemID =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"entity_id"]];
+ 
+      /*  selectedItemID =[NSString stringWithFormat:@"%@",[[_Art_Arr objectAtIndex:indexPath.row] objectForKey:@"entity_id"]];
         selectedItemType = @"Art";
         NSLog(@"%@",selectedItemID);
         _WSConstScreenValue = @"Home";
         _WSConstSelectedCategoryID = selectedItemID;
         _WSConstSelectedCategoryType = selectedItemType;
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
+       */
         
+         [self callProductDetailsService:selectedItemID];
     }
-    else if (collectionView==_kids_collecVW)
+    else if (collectionView==_home_kichen_collecVW)
+    {
+        
+        
+        NSDictionary *category_dict = [_home_kichen_Arr objectAtIndex:indexPath.row];
+        selectedProduct = category_dict;
+        selectedItemID =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"entity_id"]];
+       /* selectedItemType = @"Home";
+        NSLog(@"%@",selectedItemID);
+        _WSConstScreenValue = @"Home";
+        _WSConstSelectedCategoryID = selectedItemID;
+        _WSConstSelectedCategoryType = selectedItemType;
+        [self performSegueWithIdentifier:@"detailSegue" sender:self];
+        
+        */
+        [self callProductDetailsService:selectedItemID];
+    }
+
+  /*  else if (collectionView==_kids_collecVW)
     {
         
         selectedItemID =[NSString stringWithFormat:@"%@",[[_baby_kids_Arr objectAtIndex:indexPath.row] objectForKey:@"id"]];
@@ -1183,20 +1223,7 @@ AppDelegate *apdl;
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
         
     }
-    else if (collectionView==_home_kichen_collecVW)
-    {
-        
-        selectedItemID =[NSString stringWithFormat:@"%@",[[_home_kichen_Arr objectAtIndex:indexPath.row] objectForKey:@"id"]];
-        selectedItemType = @"Home";
-        NSLog(@"%@",selectedItemID);
-        _WSConstScreenValue = @"Home";
-        _WSConstSelectedCategoryID = selectedItemID;
-        _WSConstSelectedCategoryType = selectedItemType;
-        [self performSegueWithIdentifier:@"detailSegue" sender:self];
-        
-        
-    }
-    else if (collectionView==_sports_collecVW)
+      else if (collectionView==_sports_collecVW)
     {
         selectedItemID =[NSString stringWithFormat:@"%@",[[_sports_arr objectAtIndex:indexPath.row] objectForKey:@"id"]];
         selectedItemType = @"Sports";
@@ -1219,10 +1246,14 @@ AppDelegate *apdl;
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
         
     }
+   
+   
 //    _WSConstScreenValue = @"Home";
 //    _WSConstSelectedCategoryID = selectedItemID;
 //    _WSConstSelectedCategoryType = selectedItemType;
 //    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+   
+   */
 }
 
 #pragma mark - Button Action Methods
@@ -1240,53 +1271,58 @@ AppDelegate *apdl;
     
 }
 - (IBAction)btnViewAllClicked1:(id)sender {
+    
+    NSDictionary *category_dict = [_Mens_arr objectAtIndex:0];
+    selectedProduct = category_dict;
     _WSConstScreenValue = @"Home";
-    [self selectMainCategoryId:@"Electronics"];
+    _WSConstSelectedCategoryID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category"]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+ 
     
 }
 
 - (IBAction)btnViewAllClicked2:(id)sender {
     
-    [self selectMainCategoryId:@"Women"];
-    _WSConstSelectedCategoryType = @"Womens";
+//    [self selectMainCategoryId:@"Women"];
+//    _WSConstSelectedCategoryType = @"Womens";
+//    _WSConstScreenValue = @"Home";
+    NSDictionary *category_dict = [_Womens_Arr objectAtIndex:0];
+    selectedProduct = category_dict;
     _WSConstScreenValue = @"Home";
+    _WSConstSelectedCategoryID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category"]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
     
 }
 
 - (IBAction)btnViewAllClicked3:(id)sender {
-    [self selectMainCategoryId:@"Men"];
-    _WSConstSelectedCategoryType = @"Mens";
-    
-    
-    
-    
+//    [self selectMainCategoryId:@"Men"];
+//    _WSConstSelectedCategoryType = @"Mens";
+//    _WSConstScreenValue = @"Home";
+    NSDictionary *category_dict = [_Electronics_Arr objectAtIndex:0];
+    selectedProduct = category_dict;
     _WSConstScreenValue = @"Home";
+    _WSConstSelectedCategoryID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category"]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
 - (IBAction)btnViewAllClicked4:(id)sender {
-    [self selectMainCategoryId:@"Arts & Crafts"];
+   // [self selectMainCategoryId:@"Arts & Crafts"];
+  //  _WSConstScreenValue = @"Home";
+    NSDictionary *category_dict = [_Art_Arr objectAtIndex:0];
+    selectedProduct = category_dict;
     _WSConstScreenValue = @"Home";
+    _WSConstSelectedCategoryID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category"]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
 - (IBAction)btnViewAllClicked5:(id)sender {
-    [self selectMainCategoryId:@"Kids"];
+    NSDictionary *category_dict = [_home_kichen_Arr objectAtIndex:0];
+    selectedProduct = category_dict;
     _WSConstScreenValue = @"Home";
+    _WSConstSelectedCategoryID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category"]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
 }
 
-- (IBAction)btnViewAllClicked6:(id)sender {
-    [self selectMainCategoryId:@"Home & Kitchen"];
-    _WSConstScreenValue = @"Home";
-}
-
-- (IBAction)btnViewAllClicked7:(id)sender {
-    [self selectMainCategoryId:@"Sports & Fitness"];
-    _WSConstScreenValue = @"Home";
-}
-
-- (IBAction)btnViewAllClicked8:(id)sender {
-    [self selectMainCategoryId:@"Books & Media"];
-    _WSConstScreenValue = @"Home";
-}
 
 -(void)selectMainCategoryId:(NSString *)name {
     
@@ -1382,6 +1418,30 @@ AppDelegate *apdl;
     
     return NO;
 }
+- (IBAction)topbannerbuttonClicked:(id)sender {
+
+    NSDictionary *category_dict = [_banner_topArray objectAtIndex:0];
+    selectedProduct = category_dict;
+    _WSConstScreenValue = @"Home";
+    _WSConstSelectedCategoryID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category_id"]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+}
+- (IBAction)middlebannerbuttonClicked:(id)sender {
+    NSDictionary *category_dict = [_banner_middleArray objectAtIndex:0];
+    selectedProduct = category_dict;
+    _WSConstScreenValue = @"Home";
+    _WSConstSelectedCategoryID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category_id"]];
+    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+}
+
+//-(void)menproductSelectedButtonAction:(UIButton *)sender
+//{
+//    NSDictionary *category_dict = [_Electronics_Arr objectAtIndex:sender.tag];
+//    selectedProduct = category_dict;
+//     NSString *selectedItemID =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"entity_id"]];
+//    [self callProductDetailsService:selectedItemID];
+//    
+//}
 
 #pragma mark - ServiceConnection Methods
 
@@ -1409,13 +1469,14 @@ AppDelegate *apdl;
         return;
     }
     
-    NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
+   // NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
     
-    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/index.php/restconnect/index/getHomePageCategories?SID=%@",sessionid];
+   // NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/index.php/restconnect/index/getHomePageCategories?SID=%@",sessionid];
+  //  https://dev.fingoshop.com/restconnect/apihomepage/home
+    NSString *url_str1= @"https://dev.fingoshop.com/restconnect/apihomepage/home";
+    //NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    NSURL *url=[NSURL URLWithString:url_str];
+    NSURL *url=[NSURL URLWithString:url_str1];
     
     NSData *data=[NSData dataWithContentsOfURL:url];
     
@@ -1423,13 +1484,13 @@ AppDelegate *apdl;
     if (data) {
         NSMutableDictionary *Dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
         
-        homePageCategoriesArr=[Dic objectForKey:@"homepage_categories"];
+        homePageCategoriesDict = Dic;
         
-        categoriesArr=[[NSMutableArray alloc] init];
+      //  categoriesArr=[[NSMutableArray alloc] init];
         
-        childCategoriesDict=[[NSMutableDictionary alloc] init];
+      //  childCategoriesDict=[[NSMutableDictionary alloc] init];
     
-        for (int i=0; i<homePageCategoriesArr.count; i++) {
+     /*   for (int i=0; i<homePageCategoriesArr.count; i++) {
             
             NSMutableDictionary *childDict=[[NSMutableDictionary alloc] init];
             
@@ -1445,11 +1506,12 @@ AppDelegate *apdl;
             
             
         }
+      */
 
     }
-       NSLog(@"%@",categoriesArr);
-    NSLog(@"%@",childCategoriesDict);
-    NSLog(@"%@",[childCategoriesDict objectForKey:@"Arts & Crafts"]);
+       NSLog(@"%@",homePageCategoriesDict);
+   // NSLog(@"%@",childCategoriesDict);
+    //NSLog(@"%@",[childCategoriesDict objectForKey:@"Arts & Crafts"]);
     
     
 }
@@ -1464,16 +1526,40 @@ AppDelegate *apdl;
     [serviceconn GetMainMenu];
 }
 
+-(void)callProductDetailsService :(NSString *)ProductId
+{
+    
+    if(apdl.net == 0)
+    {
+        UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:apdl.alertTTL message:apdl.alertMSG preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        }]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
+    
+    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    
+    serviceconn = [[ServiceConnection alloc]init];
+    serviceconn.delegate = self;
+    ServiceType=@"Details";
+    [serviceconn GetProductDetails:ProductId];
+    
+}
+
 
 
 #pragma mark - ServiceConnection Delegate Methods
 
 - (void)jsonData:(NSMutableDictionary*)jsonDict
 {
-    if ([ServiceType isEqualToString:@"MainBannerImages"] ) {
+    if ([ServiceType isEqualToString:@"MainBannerImages"] )
+    {
        // NSLog(@"Banner Images: %@",jsonDict);
         
-    pagenewImages = [jsonDict valueForKey:@"source_file"];
+ /*   pagenewImages = [jsonDict valueForKey:@"source_file"];
        // myarr = [myarr addObject:pageImages];
         //myarr = [NSMutableArray new];
 //        [newdict addEntriesFromDictionary:pageImages];
@@ -1499,7 +1585,46 @@ AppDelegate *apdl;
         self.banner_Scroll.contentSize = CGSizeMake(pagesScrollViewSize.width * pageImages.count, pagesScrollViewSize.height);
         
         [self loadVisiblePages];
+        */
         }
+    
+    else if ([ServiceType isEqualToString:@"Details"]) {
+        
+        
+        _selectedProductDict = [jsonDict mutableCopy];
+        
+        
+        NSArray *attributeArr = (NSArray *)[_selectedProductDict objectForKey:@"configurable_attributes"];
+        
+        /*    if ([attributeArr count] == 0 || [attributeArr count] == 2) {
+         [self performSegueWithIdentifier:@"ProductDetail" sender:self];
+         }else{
+         
+         [self performSegueWithIdentifier:@"ProductDetail1" sender:self];
+         }
+         */
+        
+        if ([attributeArr count]>0) {
+           // [self performSegueWithIdentifier:@"ProductDetail1" sender:self];
+            
+            UIViewController *productDetailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductDetailNewVC"];
+            
+            [self.navigationController pushViewController:productDetailsVC animated:YES];
+            
+        }
+        else {
+            //[self performSegueWithIdentifier:@"ProductDetail" sender:self];
+            ProductDetailVC *productDetailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductDetail"];
+            productDetailsVC.productDetailsDict = [selectedProduct mutableCopy];
+            
+            productDetailsVC.productDetailsDict1 = [_selectedProductDict mutableCopy];
+            [self.navigationController pushViewController:productDetailsVC animated:YES];
+        }
+        
+        
+    }
+    
+    
     
     
     

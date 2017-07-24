@@ -349,9 +349,9 @@ AppDelegate *apdl_menu;
     NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
 
     
-   // NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/menu?SID=%@",sessionid];
+
     
-    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/categoriesmenu?SID=%@",sessionid];
+    NSString *url_str1=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/categoriesmenu?SID=%@",sessionid];
     
     NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
