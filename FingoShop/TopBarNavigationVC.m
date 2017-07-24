@@ -15,6 +15,7 @@
 #import "SearchViewController.h"
 #import "SVProgressHUD.h"
 #import "Constants.h"
+#import "FingoShopTags.pch"
 @interface TopBarNavigationVC ()
 
 @end
@@ -206,13 +207,29 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
+    /* SearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
+     vc.search_string = self.searchTextField.text;
+     [self.navigationController pushViewController:vc animated:YES];
+     */
     [textField resignFirstResponder];
     
-   /* SearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
-    vc.search_string = self.searchTextField.text;
-    [self.navigationController pushViewController:vc animated:YES];
-    */
-    [self searchandlerMethod:self.searchTextField.text];
+    if ([self.searchTextField.text length] == 0) {
+        UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Please enter product name" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            [textField becomeFirstResponder];
+        }]];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    }
+    else
+    {
+         [self searchandlerMethod:self.searchTextField.text];
+    }
+    
+   
     
     return YES;
 }
@@ -221,8 +238,8 @@
 
 -(void)searchandlerMethod:(NSString *)searchStr
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     NSString * post = searchStr;
     
     
@@ -238,7 +255,7 @@
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     if (jsonDict) {
         _searchFiltersProductsArray = [jsonDict objectForKey:@"products"];
         if ([_searchFiltersProductsArray count] > 0) {
@@ -273,7 +290,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

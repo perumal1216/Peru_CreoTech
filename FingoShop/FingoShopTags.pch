@@ -1,0 +1,21 @@
+//
+//  FingoShopTags.pch
+//  FingoShop
+//
+//  Created by rizenew on 7/24/17.
+//  Copyright © 2017 fis. All rights reserved.
+//
+
+#ifndef FingoShopTags_pch
+#define FingoShopTags_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "AppDelegate.h"
+
+#define APPDELEGATE ((AppDelegate *)[[UIApplication sharedApplication]delegate])
+//ModelClass
+#import "CustomLoader.h"
+
+#endif /* FingoShopTags_pch */

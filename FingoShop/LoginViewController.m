@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "SettingsNewViewController.h"
+#import "FingoShopTags.pch"
 @interface LoginViewController ()
 {
     BOOL show;
@@ -211,9 +212,10 @@ didSignInForUser:(GIDGoogleUser *)user
             
             
             
-            [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+           // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
             
-            [SVProgressHUD showWithStatus:@"Please wait"];
+           // [SVProgressHUD showWithStatus:@"Please wait"];
+            [APPDELEGATE showCustomLoader:self];
             
             _WSServiceType = @"normal";
             NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
@@ -265,7 +267,7 @@ didSignInForUser:(GIDGoogleUser *)user
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [SVProgressHUD dismiss];
+     [APPDELEGATE removeCustomLoader:self];
     
     if ([_WSServiceType isEqualToString:@"social"]) {
         NSError *error;
@@ -420,10 +422,10 @@ didSignInForUser:(GIDGoogleUser *)user
 }
 
 -(void)callSocialLoginService:(NSString *)mailID {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     
-    [SVProgressHUD showWithStatus:@"Please wait"];
-    
+   // [SVProgressHUD showWithStatus:@"Please wait"];
+     [APPDELEGATE showCustomLoader:self];
     
     NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
     
@@ -443,8 +445,8 @@ didSignInForUser:(GIDGoogleUser *)user
 
 -(void)callLoginService:(NSMutableDictionary *)loginDict
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     [serviceconn performLogin:loginDict];
@@ -452,8 +454,8 @@ didSignInForUser:(GIDGoogleUser *)user
 
 -(void)callGetCartInfoService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     //    ServiceType=@"GetCartInfo";
@@ -472,14 +474,14 @@ didSignInForUser:(GIDGoogleUser *)user
     NSLog(@"Cart Count: %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"CartCount"]);
     [[NSNotificationCenter defaultCenter] postNotificationName: @"loginNotification" object:nil];
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

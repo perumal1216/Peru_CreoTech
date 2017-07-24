@@ -8,6 +8,7 @@
 
 #import "MyRewardPointsVC.h"
 #import "SVProgressHUD.h"
+#import "FingoShopTags.pch"
 @interface MyRewardPointsVC ()
 {
     NSString *serviceType;
@@ -36,8 +37,8 @@
 
 -(void)callGetPointsBalance
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     serviceType = @"GetYourBalance";
@@ -75,7 +76,7 @@
         }
     
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
 }
 

@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "DetailViewController.h"
 #import "ViewController.h"
+#import "FingoShopTags.pch"
 @interface AddToCartViewController ()
 {
     NSInteger itemTotal,discount,total;
@@ -265,8 +266,8 @@
 
 -(void)callUpdateCartServiceWithItemId:(NSString *)itemId andQuantity: (NSString *)qty
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"Update";
@@ -276,8 +277,8 @@
 
 -(void)callDeleteCartItemService :(NSString *)Post
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"Delete";
@@ -286,8 +287,8 @@
 
 -(void)callApplyCouponService :(NSString *)Post
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"ApplyCoupon";
@@ -297,8 +298,8 @@
 
 -(void)callGetCartInfoService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"GetCartInfo";
@@ -547,14 +548,15 @@
         
     }
     
-    [SVProgressHUD dismiss];
-    
+   // [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+   // [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 @end

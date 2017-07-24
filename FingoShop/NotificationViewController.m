@@ -14,6 +14,7 @@
 #import "UIBarButtonItem+Badge.h"
 #import "UIViewController+HeaderContainer.h"
 #import "TopBarNavigationVC.h"
+#import "FingoShopTags.pch"
 @interface NotificationViewController ()
 {
         UIBarButtonItem *AP_barbutton2,*AP_barbutton3,*AP_barbutton4;
@@ -228,8 +229,8 @@
 
 -(void)callNotificationService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     [serviceconn GetNotificationsList];
@@ -257,14 +258,14 @@
     
    // [notificationArray addObjectsFromArray:jsonDict];
     [_notificationTableView reloadData];
-    [SVProgressHUD dismiss];
+   [APPDELEGATE removeCustomLoader:self];
     
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+     [APPDELEGATE removeCustomLoader:self];
 }
 
 @end

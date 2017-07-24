@@ -10,7 +10,7 @@
 #import "ForgotpwdViewController.h"
 #import "SVProgressHUD.h"
 #import "AppDelegate.h"
-
+#import "FingoShopTags.pch"
 @interface ForgotpwdViewController ()
 {
    
@@ -58,8 +58,8 @@ AppDelegate *apdl_Forgot;
 
 - (IBAction)btnResetClicked:(id)sender {
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-
+   [APPDELEGATE showCustomLoader:self]; // Progress
+    
     
     if ([_txtEmail.text length]>0)
     {
@@ -67,7 +67,9 @@ AppDelegate *apdl_Forgot;
         {
             if(apdl_Forgot.net == 0)
             {
-                [SVProgressHUD dismiss];
+                [APPDELEGATE removeCustomLoader:self];
+                [APPDELEGATE removeCustomLoader:self];
+                
                 alertController = [UIAlertController alertControllerWithTitle:apdl_Forgot.alertTTL message:apdl_Forgot.alertMSG preferredStyle:UIAlertControllerStyleAlert];
                 
                 [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -105,7 +107,7 @@ AppDelegate *apdl_Forgot;
         }
         else
         {
-            [SVProgressHUD dismiss];
+            [APPDELEGATE removeCustomLoader:self];
             alertController = [UIAlertController alertControllerWithTitle:@"Fingoshop" message:@"Please Enter Valid Email ID" preferredStyle:UIAlertControllerStyleAlert];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -119,7 +121,7 @@ AppDelegate *apdl_Forgot;
     
     else
     {
-        [SVProgressHUD dismiss];
+        [APPDELEGATE removeCustomLoader:self];
         alertController = [UIAlertController alertControllerWithTitle:@"Fingoshop" message:@"Please Enter MailID" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -149,7 +151,7 @@ AppDelegate *apdl_Forgot;
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
     NSError *error;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];
@@ -208,7 +210,7 @@ AppDelegate *apdl_Forgot;
 
 -(void)callForgotPwdService:(NSString *)EmailId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+   [APPDELEGATE showCustomLoader:self]; // Progress
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     [seviceconn performForgotpwd:EmailId];
@@ -221,14 +223,14 @@ AppDelegate *apdl_Forgot;
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

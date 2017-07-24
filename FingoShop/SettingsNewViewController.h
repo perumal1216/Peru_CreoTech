@@ -14,5 +14,6 @@
     ServiceConnection *seviceconn;
    
 }
+@property (strong, nonatomic) IBOutlet UIImageView *signin_image;
 
 @end

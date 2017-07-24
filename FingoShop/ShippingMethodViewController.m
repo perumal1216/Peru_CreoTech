@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 #import "Constants.h"
 #import "ShippingMethodCellCell.h"
+#import "FingoShopTags.pch"
 
 @interface ShippingMethodViewController ()
 @property(strong,nonatomic)NSMutableArray *shippingMethodsArr;
@@ -29,8 +30,8 @@
 
 -(void)callShipmentDetails
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"ShipmentDetails";
@@ -78,8 +79,8 @@
 
 -(void)saveShipmentDetails
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"SaveShipmentDetails";
@@ -95,7 +96,7 @@
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
     if ([ServiceType isEqualToString:@"ShipmentDetails"]) {
         NSLog(@"Shiment : %@",jsonDict);
@@ -133,7 +134,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

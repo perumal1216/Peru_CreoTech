@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 #import "AppDelegate.h"
 #import "Constants.h"
+#import "FingoShopTags.pch"
 @interface ChangePasswordVC ()
 
 @end
@@ -71,11 +72,11 @@ AppDelegate *apdl_signup;
     {
         if ([_txt_newPswd.text isEqualToString:[NSString stringWithFormat:@"%@",_txt_confirmPswd.text]]) {
 
-                    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+                   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
                     // [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-                    [SVProgressHUD showWithStatus:@"Please wait"];
-                    
-                    
+                   // [SVProgressHUD showWithStatus:@"Please wait"];
+                    [APPDELEGATE showCustomLoader:self];
+            
                     NSURLConnection *conn=[NSURLConnection connectionWithRequest:request delegate:self];
                     [conn start];
                 }
@@ -116,8 +117,8 @@ AppDelegate *apdl_signup;
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [SVProgressHUD dismiss];
-    
+    //[SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     NSError *error;
     NSMutableDictionary *dictObj = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];
     NSLog(@"%@",dictObj);

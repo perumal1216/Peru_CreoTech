@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "OrdersListCell.h"
 #import "DetailMyOrdersNewViewController.h"
+#import "FingoShopTags.pch"
 
 @interface OrdersListViewController ()
 {
@@ -159,8 +160,8 @@
     NSDictionary *dict = [ProductArr objectAtIndex:0];
 //    NSDictionary *additionalDataDict = [[ordersArray objectAtIndex:sender.tag] objectForKey:@"additional_data"];
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     serviceType = @"CancelOrder";
@@ -180,8 +181,8 @@
 
 -(void)callGetOrdersService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     serviceType = @"GetOrders";
@@ -242,7 +243,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

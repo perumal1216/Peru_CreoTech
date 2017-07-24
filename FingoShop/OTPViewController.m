@@ -10,7 +10,7 @@
 #import "SVProgressHUD.h"
 #import "AppDelegate.h"
 #import "Constants.h"
-
+#import "FingoShopTags.pch"
 @interface OTPViewController ()
 {
     NSString  *serviceType ;
@@ -66,10 +66,10 @@
     [request setHTTPBody:postData];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     // [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-    [SVProgressHUD showWithStatus:@"Please wait"];
-    
+   // [SVProgressHUD showWithStatus:@"Please wait"];
+    [APPDELEGATE showCustomLoader:self];
     
     NSURLConnection *conn=[NSURLConnection connectionWithRequest:request delegate:self];
     [conn start];
@@ -114,10 +114,10 @@
     if ([self.otpTextField.text length]>0)
     {
         
-            [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+           // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
             // [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-            [SVProgressHUD showWithStatus:@"Please wait"];
-            
+           // [SVProgressHUD showWithStatus:@"Please wait"];
+             [APPDELEGATE showCustomLoader:self];
             
             NSURLConnection *conn=[NSURLConnection connectionWithRequest:request delegate:self];
             [conn start];
@@ -151,7 +151,7 @@
     }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
     {
-        [SVProgressHUD dismiss];
+        [APPDELEGATE removeCustomLoader:self];
         
         NSError *error;
         NSMutableDictionary *dictObj = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];

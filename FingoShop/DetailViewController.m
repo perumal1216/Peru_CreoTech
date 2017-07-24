@@ -24,6 +24,7 @@
 #import "SortViewController.h"
 #import "UIViewController+HeaderContainer.h"
 #import "TopBarNavigationVC.h"
+#import "FingoShopTags.pch"
 
 
 #define IS_IPHONE5 ( [ [ UIScreen mainScreen ] bounds ].size.height == 568 )
@@ -181,14 +182,14 @@ AppDelegate *apdl_detail;
         }
         else{
             
-            [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack];
+            [APPDELEGATE showCustomLoader:self];
             // Dispatch a block of code to a background queue
             dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
             dispatch_async(queue, ^{
                 // Do initialisation in the background
                 /*dispatch_sync(dispatch_get_main_queue(), ^{
                  // Set progress indicator to complete?
-                 [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack];
+                 [APPDELEGATE showCustomLoader:self];
                  });
                  
                  */
@@ -202,7 +203,8 @@ AppDelegate *apdl_detail;
                     [self callProductListService:_WSConstSelectedCategoryID];
                     // Set progress indicator to complete?
                     [_Detail_collecVW reloadData];
-                    [SVProgressHUD dismiss];
+                    //[SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+                    [APPDELEGATE removeCustomLoader:self];
                 });
             });
         }
@@ -374,7 +376,8 @@ AppDelegate *apdl_detail;
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [SVProgressHUD dismiss];
+   // [SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+    [APPDELEGATE removeCustomLoader:self];
     
     NSError *error;
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];
@@ -654,15 +657,15 @@ AppDelegate *apdl_detail;
     }
     
 
-    
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack];
+    [APPDELEGATE showCustomLoader:self];
+    //[APPDELEGATE showCustomLoader:self];
     // Dispatch a block of code to a background queue
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     dispatch_async(queue, ^{
         // Do initialisation in the background
         /*dispatch_sync(dispatch_get_main_queue(), ^{
          // Set progress indicator to complete?
-         [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack];
+         [APPDELEGATE showCustomLoader:self];
          });
          
          */
@@ -678,7 +681,8 @@ AppDelegate *apdl_detail;
             [self callSortProductListService:_WSConstSelectedCategoryID order:order dir:direction];
             // Set progress indicator to complete?
             [_Detail_collecVW reloadData];
-            [SVProgressHUD dismiss];
+            //[SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+            [APPDELEGATE removeCustomLoader:self];
         });
     });
     
@@ -709,7 +713,7 @@ AppDelegate *apdl_detail;
 -(void)callVirtualDetailsService :(NSString *)ProductId
 {
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
@@ -822,7 +826,7 @@ AppDelegate *apdl_detail;
     
     
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
     
@@ -867,7 +871,8 @@ AppDelegate *apdl_detail;
              [_Detail_collecVW reloadData];
          }
          
-         [SVProgressHUD dismiss];
+        // [SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+         [APPDELEGATE removeCustomLoader:self];
          
          //   if ([data length] > 0 && error == nil)
          //   [self.delegate jsonData:jsonDict];
@@ -878,7 +883,7 @@ AppDelegate *apdl_detail;
 
 -(void)callGetProductListService:(NSString *)CategoryId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
@@ -890,7 +895,7 @@ AppDelegate *apdl_detail;
 
 -(void)callAddToWishListService:(NSString *)ProductId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     
     NSString * post = [[NSString alloc]initWithFormat:@"SID=%@&product=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"],ProductId];
@@ -905,7 +910,7 @@ AppDelegate *apdl_detail;
 
 -(void)callRemoveFromWishListService:(NSString *)ProductId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     NSString * post = [[NSString alloc]initWithFormat:@"SID=%@&product=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"],ProductId];
     
@@ -930,7 +935,7 @@ AppDelegate *apdl_detail;
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
@@ -1073,13 +1078,15 @@ AppDelegate *apdl_detail;
         
     }
     
-    [SVProgressHUD dismiss];
+    //[SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+   // [SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

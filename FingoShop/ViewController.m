@@ -23,6 +23,7 @@
 #import "TopBarNavigationVC.h"
 #import "UIViewController+HeaderContainer.h"
 #import "ProductDetailVC.h"
+#import "FingoShopTags.pch"
 
 @interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource,UICollectionViewDelegateFlowLayout>
 {
@@ -84,6 +85,9 @@ AppDelegate *apdl;
         [self performSegueWithIdentifier:@"detailSegue" sender:self];
         
     }
+    
+    
+
 
     // TopBar Navigation
     TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
@@ -136,13 +140,16 @@ AppDelegate *apdl;
     
     */
 
-    UITapGestureRecognizer *imagetap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollimagehandleOneTap:)];
+  /*  UITapGestureRecognizer *imagetap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollimagehandleOneTap:)];
     [imagetap setDelegate:self];
     imagetap.numberOfTapsRequired = 1;
     imagetap.numberOfTouchesRequired = 1;
     [_banner_Scroll addGestureRecognizer:imagetap];
     
     [self callMainBannerImagesService];
+    
+    */
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutNotification) name:@"logoutNotification" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginNotification) name:@"loginNotification" object:nil];
     
@@ -198,7 +205,8 @@ AppDelegate *apdl;
     
     */
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     
     dispatch_async(queue, ^{
@@ -239,12 +247,7 @@ AppDelegate *apdl;
         self.Mens_arr=[homePageCategoriesDict objectForKey:@"mens_products"];
         self.Art_Arr=[homePageCategoriesDict objectForKey:@"arts_products"];
         self.home_kichen_Arr=[homePageCategoriesDict objectForKey:@"homes_products"];
-       // self.baby_kids_Arr=[homePageCategoriesDict objectForKey:@"Kids"];
-       // self.sports_arr=[homePageCategoriesDict objectForKey:@"Sports & Fitness"];
-        //self.books_Arr=[homePageCategoriesDict objectForKey:@"Books & Media"];
-       // NSLog(@"Mens Array :%@", _Mens_arr);
-       // NSLog(@"womens array :%@", _Womens_Arr);
-        dispatch_sync(dispatch_get_main_queue(), ^{
+       dispatch_sync(dispatch_get_main_queue(), ^{
             // Set progress indicator to complete?
             [_imagePager reloadData];
            [_Horizontal_CollectionVW reloadData];
@@ -256,36 +259,37 @@ AppDelegate *apdl;
             [_home_kichen_collecVW reloadData];
             [_sports_collecVW reloadData];
             [_books_collecVW reloadData];
-            [SVProgressHUD dismiss];
-        });
+           // [SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+           [APPDELEGATE removeCustomLoader:self];
+       });
         
     });
     
 
     
     
-    NSInteger offerzone_pageCount  = offerzone_Array.count;
-    NSInteger newArraial_pageCount = New_Arraivals_Array.count;
-    NSInteger brandstore_pageCount = BrandStore_Array.count;
+//    NSInteger offerzone_pageCount  = offerzone_Array.count;
+//    NSInteger newArraial_pageCount = New_Arraivals_Array.count;
+//    NSInteger brandstore_pageCount = BrandStore_Array.count;
     
     
     // Set up the offer page control
     
-    self.offerPagecontroller.currentPage = 0;
-    self.offerPagecontroller.numberOfPages = offerzone_pageCount;
-    
-       // Set up the offer page control
-    
-    self.brandstorePagecontroller.currentPage = 0;
-    self.brandstorePagecontroller.numberOfPages = brandstore_pageCount;
+//    self.offerPagecontroller.currentPage = 0;
+//    self.offerPagecontroller.numberOfPages = offerzone_pageCount;
+//    
+//       // Set up the offer page control
+//    
+//    self.brandstorePagecontroller.currentPage = 0;
+//    self.brandstorePagecontroller.numberOfPages = brandstore_pageCount;
     
   
     
-    _banner_Scroll1.clipsToBounds = YES;
-    _banner_Scroll1.pagingEnabled = YES;
-    _banner_Scroll1.showsHorizontalScrollIndicator = NO;
-    _banner_Scroll1.showsVerticalScrollIndicator = NO;
-    _banner_Scroll1.scrollsToTop = NO;
+//    _banner_Scroll1.clipsToBounds = YES;
+//    _banner_Scroll1.pagingEnabled = YES;
+//    _banner_Scroll1.showsHorizontalScrollIndicator = NO;
+//    _banner_Scroll1.showsVerticalScrollIndicator = NO;
+//    _banner_Scroll1.scrollsToTop = NO;
     
     
     
@@ -751,11 +755,6 @@ AppDelegate *apdl;
 //}
 
 #pragma mark - UICollectionViewDelegateFlowLayout
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
-    return CGSizeMake([[UIScreen mainScreen] bounds].size.width, 200.0);
-}
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -1447,8 +1446,8 @@ AppDelegate *apdl;
 
 
 -(void)callMainBannerImagesService {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType = @"MainBannerImages";
@@ -1519,8 +1518,8 @@ AppDelegate *apdl;
 
 -(void)callMainMenuService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     [serviceconn GetMainMenu];
@@ -1540,7 +1539,8 @@ AppDelegate *apdl;
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
@@ -1628,14 +1628,15 @@ AppDelegate *apdl;
     
     
     
-    [SVProgressHUD dismiss];
-    
+   // [SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+//    [SVProgressHUD [APPDELEGATE showCustomLoader:self];];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 -(void)CheckCart
@@ -1652,7 +1653,8 @@ AppDelegate *apdl;
 
 -(void)callGetCartInfoService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;

@@ -13,6 +13,7 @@
 #import "PrivacyPolicyVC.h"
 #import "UIViewController+HeaderContainer.h"
 #import "TopBarNavigationVC.h"
+#import "FingoShopTags.pch"
 
 @interface SettingsNewViewController ()
 {
@@ -170,6 +171,7 @@
         self.lblUserName.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
 
         [_btnSignOut setTitle:@"Sign Out" forState:UIControlStateNormal];
+        [self.signin_image setImage:[UIImage imageNamed:@"signout_menu"]];
         type = @"LOGOUT";
        // [_changePswdButton setHidden:false];
        // [_changedPswdLabel setHidden:false];
@@ -181,6 +183,7 @@
     {
         self.lblUserName.text = @"Guest";
         [_btnSignOut setTitle:@"Sign In" forState:UIControlStateNormal];
+        [self.signin_image setImage:[UIImage imageNamed:@"signin_menu"]];
         type = @"LOGIN";
       //  [_changePswdButton setHidden:true];
        // [_changedPswdLabel setHidden:true];
@@ -244,6 +247,7 @@
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
         [self.navigationController pushViewController:vc animated:YES];
         [_btnSignOut setTitle:@"Sign Out" forState:UIControlStateNormal];
+        [self.signin_image setImage:[UIImage imageNamed:@"signout_menu"]];
         type = @"LOGOUT";
     }
     else {
@@ -342,7 +346,7 @@
 
 -(void)callLogoutService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
@@ -352,8 +356,8 @@
 
 -(void)callGetOrdersService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     serviceType = @"GetOrder";
@@ -375,6 +379,7 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             [[NSNotificationCenter defaultCenter] postNotificationName: @"logoutNotification" object:nil];
             [_btnSignOut setTitle:@"Sign In" forState:UIControlStateNormal];
+           [self.signin_image setImage:[UIImage imageNamed:@"signin_menu"]];
             self.lblUserName.text = @"Guest";
             type = @"LOGIN";
             [_changePswdButton setHidden:true];
@@ -422,7 +427,7 @@
     }
     
     
-    [SVProgressHUD dismiss];
+   [APPDELEGATE removeCustomLoader:self];
     
 }
 
@@ -430,7 +435,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

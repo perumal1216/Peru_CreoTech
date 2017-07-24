@@ -10,7 +10,10 @@
 		06F9C7913C1E5EDFD8526A8A /* libPods-FingoShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43826EB93772A8A5AE4B9CFB /* libPods-FingoShop.a */; };
 		2B0404711DD783CA00AA4CF2 /* GGFullscreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0404701DD783CA00AA4CF2 /* GGFullscreenImageViewController.m */; };
 		2B72C2531DC304A700A0C232 /* MEMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72C2521DC304A700A0C232 /* MEMenuViewController.m */; };
+		2B92A2D71F25D150000DC4CF /* CustomLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A2D61F25D150000DC4CF /* CustomLoader.m */; };
+		2B92A2DB1F25D177000DC4CF /* flightLoader.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B92A2D91F25D177000DC4CF /* flightLoader.png */; };
 		2B980CBF1E52BCEA00CC7747 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B980CBE1E52BCEA00CC7747 /* SignupViewController.m */; };
+		2BA051C01F25EC0A00E6A8DE /* CustomLoader.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BA051BF1F25EC0A00E6A8DE /* CustomLoader.png */; };
 		2BA110431ECC59C800AB67C8 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA110421ECC59C800AB67C8 /* SortViewController.m */; };
 		2BBCF8EB1E7A96A600F3283E /* ReachabilityTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F768D1D42487B00AB84AD /* ReachabilityTM.m */; };
 		2BE6680F1E6698CA000DB721 /* arts_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE668051E6698CA000DB721 /* arts_icon.png */; };
@@ -256,11 +259,16 @@
 		237C96981F2A319358F03390 /* Pods-FingoShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FingoShop.release.xcconfig"; path = "Pods/Target Support Files/Pods-FingoShop/Pods-FingoShop.release.xcconfig"; sourceTree = "<group>"; };
 		2801275BA8D0497BC047C9B3 /* Pods-FingoShopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FingoShopUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FingoShopUITests/Pods-FingoShopUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2B04046F1DD783CA00AA4CF2 /* GGFullscreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullscreenImageViewController.h; sourceTree = "<group>"; };
-		2B0404701DD783CA00AA4CF2 /* GGFullscreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGFullscreenImageViewController.m; sourceTree = "<group>"; };
+		2B0404701DD783CA00AA4CF2 /* GGFullscreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GGFullscreenImageViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2B72C2511DC304A700A0C232 /* MEMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMenuViewController.h; sourceTree = "<group>"; };
 		2B72C2521DC304A700A0C232 /* MEMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMenuViewController.m; sourceTree = "<group>"; };
+		2B92A2D51F25D150000DC4CF /* CustomLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLoader.h; sourceTree = "<group>"; };
+		2B92A2D61F25D150000DC4CF /* CustomLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLoader.m; sourceTree = "<group>"; };
+		2B92A2D91F25D177000DC4CF /* flightLoader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flightLoader.png; sourceTree = "<group>"; };
 		2B980CBD1E52BCEA00CC7747 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		2B980CBE1E52BCEA00CC7747 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		2BA051BE1F25D80300E6A8DE /* FingoShopTags.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FingoShopTags.pch; sourceTree = "<group>"; };
+		2BA051BF1F25EC0A00E6A8DE /* CustomLoader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CustomLoader.png; sourceTree = "<group>"; };
 		2BA110411ECC59C800AB67C8 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
 		2BA110421ECC59C800AB67C8 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
 		2BE668051E6698CA000DB721 /* arts_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arts_icon.png; sourceTree = "<group>"; };
@@ -287,7 +295,7 @@
 		43826EB93772A8A5AE4B9CFB /* libPods-FingoShop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FingoShop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C5FB4341D1FE7250056902E /* add-to-cart-light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-to-cart-light.png"; sourceTree = "<group>"; };
 		4C5FB4371D1FEC3F0056902E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		4C5FB4381D1FEC3F0056902E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4C5FB4381D1FEC3F0056902E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = DetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4C5FB43A1D1FECCC0056902E /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		4C5FB43B1D1FECCC0056902E /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
 		4C6726011D24548D002F669B /* ic_home_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_home_1x.png; sourceTree = "<group>"; };
@@ -297,7 +305,7 @@
 		4C6726091D24595E002F669B /* ic_cart_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_cart_1x.png; sourceTree = "<group>"; };
 		4C67260A1D24595E002F669B /* ic_search_white_1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_search_white_1x.png; sourceTree = "<group>"; };
 		4C7A8D901D2E9DCF0007B321 /* AddToCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToCartViewController.h; sourceTree = "<group>"; };
-		4C7A8D911D2E9DCF0007B321 /* AddToCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToCartViewController.m; sourceTree = "<group>"; };
+		4C7A8D911D2E9DCF0007B321 /* AddToCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AddToCartViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4C7A8D951D2EAEF70007B321 /* CartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartCell.h; sourceTree = "<group>"; };
 		4C7A8D961D2EAEF70007B321 /* CartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartCell.m; sourceTree = "<group>"; };
 		4CFF7E4F1D1E964D006B1780 /* FingoShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FingoShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -364,7 +372,7 @@
 		7B8F32D31D29768900D1F9E4 /* ProductDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailVC.h; sourceTree = "<group>"; };
 		7B8F32D41D29768900D1F9E4 /* ProductDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailVC.m; sourceTree = "<group>"; };
 		7BB6C0FE1D36644F0022A7FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		7BB6C0FF1D3664500022A7FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7BB6C0FF1D3664500022A7FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7BB6C1021D3665F00022A7FB /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
 		7BB6C1031D3665F00022A7FB /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
 		7BB6C1041D3665F00022A7FB /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
@@ -403,7 +411,7 @@
 		82C98F791D634D830046AF72 /* ChoicePaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoicePaymentViewController.h; sourceTree = "<group>"; };
 		82C98F7A1D634D840046AF72 /* ChoicePaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoicePaymentViewController.m; sourceTree = "<group>"; };
 		82F191421D3E42520026CD78 /* ForgotpwdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotpwdViewController.h; sourceTree = "<group>"; };
-		82F191431D3E42520026CD78 /* ForgotpwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotpwdViewController.m; sourceTree = "<group>"; };
+		82F191431D3E42520026CD78 /* ForgotpwdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ForgotpwdViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8EF0ADA3DB9D0CDB51BE8111 /* Pods-FingoShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FingoShop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FingoShop/Pods-FingoShop.debug.xcconfig"; sourceTree = "<group>"; };
 		9857F90AE05257323223D28E /* Pods-FingoShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FingoShopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FingoShopTests/Pods-FingoShopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F6B0A937B29DF8B6B588F93 /* libPods-FingoShopUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FingoShopUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -438,7 +446,7 @@
 		BE21AF0D1D381F4C00DB8E96 /* mastercard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mastercard.png; sourceTree = "<group>"; };
 		BE21AF0E1D381F4C00DB8E96 /* master & visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "master & visa.png"; sourceTree = "<group>"; };
 		BE21AF121D381FEC00DB8E96 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
-		BE21AF131D381FEC00DB8E96 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
+		BE21AF131D381FEC00DB8E96 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = InformationViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		BE21AF141D381FEC00DB8E96 /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentViewController.h; sourceTree = "<group>"; };
 		BE21AF151D381FEC00DB8E96 /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentViewController.m; sourceTree = "<group>"; };
 		BE21AF181D38225B00DB8E96 /* CardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardCell.h; sourceTree = "<group>"; };
@@ -806,6 +814,7 @@
 			isa = PBXGroup;
 			children = (
 				4CFF7E531D1E964D006B1780 /* main.m */,
+				2BA051BE1F25D80300E6A8DE /* FingoShopTags.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1147,6 +1156,10 @@
 		BE9B85211D2E4F0500233BA4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2BA051BF1F25EC0A00E6A8DE /* CustomLoader.png */,
+				2B92A2D91F25D177000DC4CF /* flightLoader.png */,
+				2B92A2D51F25D150000DC4CF /* CustomLoader.h */,
+				2B92A2D61F25D150000DC4CF /* CustomLoader.m */,
 				C3FF3BBA1F1FD97F009D87EF /* UIViewController+HeaderContainer.h */,
 				C3FF3BBB1F1FD97F009D87EF /* UIViewController+HeaderContainer.m */,
 				C3FF3BB71F1FD88E009D87EF /* TopBarNavigationVC.h */,
@@ -1613,6 +1626,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BA051C01F25EC0A00E6A8DE /* CustomLoader.png in Resources */,
 				BEF8A6401D6E2A980078F19F /* splash_screen_xhdpi.png in Resources */,
 				C3FF3BDA1F1FE0C3009D87EF /* women.png in Resources */,
 				C315137D1F23776D00EF6CF1 /* minus.png in Resources */,
@@ -1666,6 +1680,7 @@
 				BEF8A63F1D6E2A980078F19F /* splash_screen_mdpi.png in Resources */,
 				82B40DCF1D704481008198A4 /* DetailMyOrdersNewViewController.xib in Resources */,
 				C3FF3BD01F1FE0BA009D87EF /* fashion1.png in Resources */,
+				2B92A2DB1F25D177000DC4CF /* flightLoader.png in Resources */,
 				7B3BF9EB1D35641100F7FF26 /* arrow.png in Resources */,
 				2BFFEE6D1DB8E96E0041B02D /* filter_30.png in Resources */,
 				BAB0274C1D38EB3B00A1F103 /* RATableViewCell.xib in Resources */,
@@ -1872,6 +1887,7 @@
 				C3DE68721F23011B000A10EF /* ViewController.m in Sources */,
 				82B40DD71D70450D008198A4 /* MyOrdersCell.m in Sources */,
 				C3C260361ED74FF0008A7880 /* PrivacyPolicyVC.m in Sources */,
+				2B92A2D71F25D150000DC4CF /* CustomLoader.m in Sources */,
 				C3F18E361EAC9E860081B827 /* VirtualDetailsVC.m in Sources */,
 				7B3BF9E81D35480E00F7FF26 /* ComplexMainTableViewCell.m in Sources */,
 				82C98F7B1D634D840046AF72 /* ChoicePaymentViewController.m in Sources */,

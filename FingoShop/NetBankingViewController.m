@@ -8,6 +8,7 @@
 
 #import "NetBankingViewController.h"
 #import "NetBankingCell.h"
+#import "FingoShopTags.pch"
 
 @interface NetBankingViewController ()
 @property(strong,nonatomic)NSMutableArray *bankListArr;

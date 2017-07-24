@@ -28,6 +28,10 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+
+-(void)showCustomLoader:(UIViewController *)senderController;
+-(void)removeCustomLoader:(UIViewController *)senderController;
+
 // comited from perumal macbook pro .... date is 5/3/2017 time is 9 AM
 
 @end

@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "UIViewController+HeaderContainer.h"
 #import "TopBarNavigationVC.h"
+#import "FingoShopTags.pch"
 
 
 @interface SearchViewController ()
@@ -68,7 +69,7 @@
 
 -(void)searchandlerMethod:(NSString *)searchStr
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     NSString * post = searchStr;
     
@@ -89,7 +90,7 @@
 - (void)btnDoneClicked:(id)sender
 {
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     NSString * post = _txtfldSearch.text;
     
@@ -107,7 +108,7 @@
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     if (jsonDict) {
         _searchFiltersProductsArray = [jsonDict objectForKey:@"products"];
         if ([_searchFiltersProductsArray count] > 0) {
@@ -142,7 +143,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

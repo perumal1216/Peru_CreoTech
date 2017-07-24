@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="3OI-Mh-OzA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="3OI-Mh-OzA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1555,7 +1555,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="myrewards_menu" id="vhJ-z4-MNd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="wishlist_menu" id="vhJ-z4-MNd">
                                 <rect key="frame" x="20" y="283" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1578,7 +1578,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="myrewards_menu" id="mki-4a-KH1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="privacypolicy_menu" id="mki-4a-KH1">
                                 <rect key="frame" x="20" y="330" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1601,7 +1601,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="myrewards_menu" id="tEY-iQ-lmL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="termsconditions_menu" id="tEY-iQ-lmL">
                                 <rect key="frame" x="20" y="378" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1624,7 +1624,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="myorders_menu" id="q3B-uE-Gvd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="signin_menu" id="q3B-uE-Gvd">
                                 <rect key="frame" x="20" y="420" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1675,6 +1675,7 @@
                         <outlet property="changePswdButton" destination="taf-uV-SrH" id="Rxe-zc-3Cf"/>
                         <outlet property="changedPswdLabel" destination="RP4-nb-p21" id="BNg-25-Vl9"/>
                         <outlet property="lblUserName" destination="y1Q-mE-H66" id="dJ2-hE-wUt"/>
+                        <outlet property="signin_image" destination="q3B-uE-Gvd" id="UHc-Ot-I4h"/>
                         <outlet property="userImageView" destination="gAR-eB-b67" id="3nG-Hg-eGv"/>
                         <segue destination="aDv-I7-7Qn" kind="push" identifier="OrdersList" id="Cyt-iQ-zkY"/>
                         <segue destination="yOT-9D-du8" kind="push" identifier="WishList" id="WRc-h6-F1v"/>
@@ -5590,7 +5591,7 @@ Tk9USUZJQ0FUSU9OUwM
                                         <rect key="frame" x="0.0" y="28" width="375" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7tZ-sS-N06" id="ibO-Vv-qfI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -5635,12 +5636,12 @@ Tk9USUZJQ0FUSU9OUwM
                                         <rect key="frame" x="0.0" y="70" width="375" height="526"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="121.jpg" id="Uu4-FP-xK0">
-                                        <rect key="frame" x="50" y="183" width="275" height="300"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="images.jpg" id="iq0-le-rbX">
                                         <rect key="frame" x="124" y="255" width="126" height="157"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="121.jpg" id="Uu4-FP-xK0">
+                                        <rect key="frame" x="50" y="183" width="275" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -5904,7 +5905,7 @@ Tk9USUZJQ0FUSU9OUwM
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ez8-hZ-Xya">
-                                        <rect key="frame" x="10" y="30" width="35" height="30"/>
+                                        <rect key="frame" x="5" y="25" width="40" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="back-white.png"/>
                                         <connections>
@@ -5975,7 +5976,6 @@ Tk9USUZJQ0FUSU9OUwM
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.43529411759999997" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="MxW-jR-Enb"/>
                     <connections>
@@ -6433,7 +6433,7 @@ Tk9USUZJQ0FUSU9OUwM
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dealCell" id="WSK-or-o4A" customClass="DealCell">
-                                                        <rect key="frame" x="14" y="0.0" width="90" height="85"/>
+                                                        <rect key="frame" x="13" y="0.0" width="90" height="85"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="90" height="85"/>
@@ -6595,14 +6595,18 @@ Tk9USUZJQ0FUSU9OUwM
         <image name="offer-banner.jpg" width="1280" height="448"/>
         <image name="offers" width="24" height="24"/>
         <image name="place" width="300" height="330"/>
+        <image name="privacypolicy_menu" width="64" height="64"/>
         <image name="search_background" width="375" height="38"/>
+        <image name="signin_menu" width="64" height="64"/>
         <image name="sort_image" width="50" height="50"/>
         <image name="specail1.jpg" width="1210" height="402"/>
+        <image name="termsconditions_menu" width="64" height="64"/>
         <image name="user_image" width="83" height="83"/>
         <image name="virtual.png" width="62" height="54"/>
         <image name="virtualicon" width="36" height="36"/>
         <image name="vs_bg.jpg" width="700" height="1100"/>
         <image name="wishlist" width="36" height="36"/>
+        <image name="wishlist_menu" width="64" height="64"/>
         <image name="wome_fashion.jpg" width="400" height="209"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

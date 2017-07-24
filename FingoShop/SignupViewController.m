@@ -10,6 +10,7 @@
 #import "SVProgressHUD.h"
 #import "OTPViewController.h"
 #import "Constants.h"
+#import "FingoShopTags.pch"
 
 @interface SignupViewController ()
 - (IBAction)btnSignupClicked:(id)sender;
@@ -107,10 +108,10 @@
             {
                 if ([self validatePhone:_txt_Telephone.text])
                 {
-                    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+                   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
                     // [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-                    [SVProgressHUD showWithStatus:@"Please wait"];
-                    
+                   // [SVProgressHUD showWithStatus:@"Please wait"];
+                    [APPDELEGATE showCustomLoader:self];
                     NSURLConnection *conn=[NSURLConnection connectionWithRequest:request delegate:self];
                     [conn start];
                     
@@ -189,8 +190,8 @@
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [SVProgressHUD dismiss];
-    
+//    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     NSError *error;
     NSMutableDictionary *dictObj = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];
     NSLog(@"%@",dictObj);
@@ -295,8 +296,8 @@
 
 -(void)callSignupService:(NSMutableDictionary *)signupDict
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     [seviceconn performSignup:signupDict];
@@ -331,14 +332,14 @@
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

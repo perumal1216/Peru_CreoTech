@@ -8,7 +8,7 @@
 
 #import "MyAccountVC.h"
 #import "SVProgressHUD.h"
-
+#import "FingoShopTags.pch"
 @interface MyAccountVC ()
 {
     NSString *serviceType;
@@ -34,8 +34,8 @@
 
 -(void)callGetAccountInfo
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     serviceType = @"GetAccountInfo";
@@ -51,8 +51,8 @@
     
     
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     serviceType = @"SetAccountInfo";
@@ -134,7 +134,7 @@
     }
     
     
-    [SVProgressHUD dismiss];
+     [APPDELEGATE removeCustomLoader:self];
     
 }
 
@@ -142,7 +142,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

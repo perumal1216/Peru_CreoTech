@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "ReachabilityTM.h"
 #import "ReachabilityManagerTM.h"
-
+#define tagForCustomLoader          9100
+#import "CustomLoader.h"
+#import "FingoShopTags.pch"
 @interface AppDelegate ()
 
 @end
@@ -21,7 +23,7 @@
     
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
+   
     
     //*********** Internet Starts Here **************
     
@@ -240,5 +242,85 @@
         }
     }
 }
+
+// MARK:- Custom Loader
+
+//Loader Methods
+-(void)showCustomLoader:(UIViewController *)senderController
+{
+    if( [self.window viewWithTag:tagForCustomLoader])
+        [[self.window viewWithTag:tagForCustomLoader] removeFromSuperview];
+    
+    CustomLoader *custLoader=[[CustomLoader alloc]initWithFrame:self.window.frame];
+    custLoader.tag=tagForCustomLoader;
+    [custLoader loadView];
+    
+    //    windowObj = [UIApplication sharedApplication].keyWindow;
+    //    if (!windowObj) {
+    //        windowObj = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    //    }
+    [self.window insertSubview:custLoader aboveSubview:senderController.view];
+    [self.window bringSubviewToFront:custLoader];
+    // [senderController.view addSubview:custLoader];
+    custLoader=nil;
+}
+-(void)removeCustomLoader:(UIViewController *)senderController
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if([self.window viewWithTag:tagForCustomLoader])
+                [[self.window viewWithTag:tagForCustomLoader] removeFromSuperview];
+        });
+    });
+}
+
+//-(void)showCustomLoader:(UIViewController *)senderController
+//{
+//    if ([senderController.view viewWithTag:tagForCustomLoader] != nil) {
+//        [senderController.view viewWithTag:tagForCustomLoader].removeFromSuperview;
+//    }
+//    
+//}
+//
+//func showCustomLoaderForBottom(_ senderController: UIViewController) {
+//    if (senderController.view!.viewWithTag(tagForCustomLoader) != nil) {
+//        senderController.view!.viewWithTag(tagForCustomLoader)!.removeFromSuperview()
+//    }
+//    
+//    
+//    
+//    let winodBoud : CGRect! = CGRect(x: 0.0, y: 0.0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+//    let custLoader: CustomLoader = CustomLoader(frame:winodBoud)
+//    custLoader.tag = tagForCustomLoader
+//    custLoader.loadViewForPresentViewControllers()
+//    senderController.view!.addSubview(custLoader)
+//    //custLoader.removeFromSuperview()
+//}
+//
+//func showCustomLoader(_ senderController: UIViewController) {
+//    if (senderController.view!.viewWithTag(tagForCustomLoader) != nil) {
+//        senderController.view!.viewWithTag(tagForCustomLoader)!.removeFromSuperview()
+//    }
+//    
+//    let winodBoud : CGRect! = CGRect(x: 0.0, y: 0.0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+//    let custLoader: CustomLoader = CustomLoader(frame:winodBoud)
+//    custLoader.tag = tagForCustomLoader
+//    custLoader.loadView()
+//    senderController.view!.addSubview(custLoader)
+//    //custLoader.removeFromSuperview()
+//}
+//
+//func removeCustomLoader(_ senderController: UIViewController) {
+//    DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {() -> Void in
+//        DispatchQueue.main.async(execute: {() -> Void in
+//            if (senderController.view!.viewWithTag(self.tagForCustomLoader) != nil) {
+//                senderController.view!.viewWithTag(self.tagForCustomLoader)!.removeFromSuperview()
+//            }
+//        })
+//    })
+//}
+
+
+
 
 @end

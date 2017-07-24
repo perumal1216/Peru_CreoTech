@@ -14,6 +14,7 @@
 #import "ProductDetailVC.h"
 #import "ProductDetailNewVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FingoShopTags.pch"
 @interface VirtualDetailsVC ()
 {
    
@@ -372,7 +373,8 @@
 //        return;
 //    }
 //    
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
@@ -450,7 +452,7 @@
     }
     */
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

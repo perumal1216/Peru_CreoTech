@@ -23,6 +23,7 @@
 #import "DetailViewController.h"
 #import "TopBarNavigationVC.h"
 #import "UIViewController+HeaderContainer.h"
+#import "FingoShopTags.pch"
 
 @interface ProductDetailVC ()
 {
@@ -802,8 +803,8 @@ AppDelegate *apdl_product;
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-
+   // [APPDELEGATE showCustomLoader:self]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"Details";
@@ -825,7 +826,7 @@ AppDelegate *apdl_product;
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
@@ -837,7 +838,7 @@ AppDelegate *apdl_product;
 
 -(void)callCashOnDeliveryAvailability :(NSString *)pinCode
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
@@ -848,7 +849,7 @@ AppDelegate *apdl_product;
 
 -(void)callProductGalleryService :(NSString *)ProductId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
@@ -860,7 +861,7 @@ AppDelegate *apdl_product;
 
 -(void)callAddToCartService:(NSString*)qty
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
@@ -871,7 +872,7 @@ AppDelegate *apdl_product;
 
 -(void)callGetCartInfoService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
@@ -887,7 +888,8 @@ AppDelegate *apdl_product;
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
+    
 
     if ([ServiceType isEqualToString:@"Gallery"]) {
         
@@ -1028,7 +1030,7 @@ AppDelegate *apdl_product;
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 
@@ -1074,7 +1076,7 @@ AppDelegate *apdl_product;
 
 -(void)callAddToWishListService:(NSString *)ProductId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self]; // Progress
     
     
     NSString * post = [[NSString alloc]initWithFormat:@"SID=%@&product=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"],ProductId];

@@ -71,7 +71,11 @@
    
 }
 
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

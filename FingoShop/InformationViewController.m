@@ -9,6 +9,7 @@
 #import "InformationViewController.h"
 #import "SVProgressHUD.h"
 #define ACCEPTABLE_CHARECTERS @"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+#import "FingoShopTags.pch"
 @interface InformationViewController ()
 {
     CGRect actualSize1;
@@ -231,8 +232,8 @@
 
 -(void)callCashOnDeliveryAvailability :(NSString *)pinCode
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+      [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"CashOnDelivery";
@@ -243,11 +244,10 @@
 
 -(void)callAddAddressService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     
-    
+    [APPDELEGATE showCustomLoader:self];
 
-    
     NSString * poststr = [[NSString alloc]initWithFormat:@"firstname=%@&lastname=%@&street=%@&city=%@&country_id=IN&region=%@&postcode=%@&telephone=%@",_txtfldFirstName.text,_txtfldLastName.text,_txtfldAddress.text,_txtfldCity.text,_txtfldState.text,_txtfldZipCode.text,_txtfldMobileNo.text];
     
     NSLog(@"post string is : %@",poststr);
@@ -262,8 +262,8 @@
 
 -(void)callUpdateAddressService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+  [APPDELEGATE showCustomLoader:self];
     NSString * poststr = [[NSString alloc]initWithFormat:@"firstname=%@&lastname=%@&street=%@&city=%@&country_id=IN&region=%@&postcode=%@&telephone=%@",_txtfldFirstName.text,_txtfldLastName.text,_txtfldAddress.text,_txtfldCity.text,_txtfldState.text,_txtfldZipCode.text,_txtfldMobileNo.text];
     
     NSLog(@"post string is : %@",poststr);
@@ -346,8 +346,8 @@
         
        
         
-         [SVProgressHUD dismiss];
-        
+         //[SVProgressHUD dismiss];
+        [APPDELEGATE removeCustomLoader:self];
         
         
         
@@ -369,7 +369,7 @@
     
     [self presentViewController:alertController animated:YES completion:nil];
          
-         [SVProgressHUD dismiss];
+        [APPDELEGATE removeCustomLoader:self];
     
      }
     
@@ -385,7 +385,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+     [APPDELEGATE removeCustomLoader:self];
 }
 
 

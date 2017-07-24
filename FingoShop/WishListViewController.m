@@ -20,6 +20,7 @@
 #import "UIViewController+ECSlidingViewController.h"
 #import "DetailViewController.h"
 #import "ViewController.h"
+#import "FingoShopTags.pch"
 
 
 #define IS_IPHONE5 ( [ [ UIScreen mainScreen ] bounds ].size.height == 568 )
@@ -209,8 +210,8 @@ AppDelegate *apdl_detail2;
 
 -(void)callGetProductListService:(NSString *)CategoryId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
     serviceType=@"ProductList";
@@ -232,7 +233,7 @@ AppDelegate *apdl_detail2;
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
     NSError *error;
     NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];
@@ -260,8 +261,8 @@ AppDelegate *apdl_detail2;
     
     
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
     
     
@@ -305,7 +306,7 @@ AppDelegate *apdl_detail2;
             // [_Detail_collecVW reloadData];
          }
          
-         [SVProgressHUD dismiss];
+         [APPDELEGATE removeCustomLoader:self];
          
          //   if ([data length] > 0 && error == nil)
          //   [self.delegate jsonData:jsonDict];
@@ -326,8 +327,8 @@ AppDelegate *apdl_detail2;
         return;
     }
     
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
     serviceType=@"Details";
@@ -400,8 +401,8 @@ AppDelegate *apdl_detail2;
 
 -(void)callRemoveFromWishListService:(NSString *)ProductId
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
     serviceType=@"RemoveFromWishList";
@@ -414,8 +415,8 @@ AppDelegate *apdl_detail2;
     
     NSString * post = [[NSString alloc]initWithFormat:@"SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
-    
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     serviceType=@"GetWishList";
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;
@@ -554,7 +555,7 @@ AppDelegate *apdl_detail2;
 
     }
         
-     [SVProgressHUD dismiss];
+      [APPDELEGATE removeCustomLoader:self];
     
     
 }
@@ -562,7 +563,7 @@ AppDelegate *apdl_detail2;
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

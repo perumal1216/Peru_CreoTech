@@ -15,6 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "ViewController.h"
 #import "DetailViewController.h"
+#import "FingoShopTags.pch"
 
 @interface ShippingDetailsViewController ()
 
@@ -162,14 +163,14 @@
 //- (void)jsonData:(NSDictionary *)jsonDict
 //{
 //
-//    [SVProgressHUD dismiss];
+//    [APPDELEGATE removeCustomLoader:self];
 //
 //}
 //
 //
 //- (void)errorMessage:(NSString *)errMsg
 //{
-//    [SVProgressHUD dismiss];
+//    [APPDELEGATE removeCustomLoader:self];
 //}
 
 
@@ -665,8 +666,8 @@
 
 -(void)callGetCartInfoService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     serviceType=@"GetCartInfo";
@@ -675,8 +676,8 @@
 
 -(void)callDeleteCartItemService :(NSString *)Post
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     serviceType=@"DeleteCartInfo";
@@ -687,8 +688,8 @@
 -(void)callAddressService
 {
     serviceType = @"GetAddressInfo";
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     [serviceconn getAddressList];
@@ -696,7 +697,8 @@
 
 -(void)callAddressDeleteService:(NSString *)string {
     serviceType = @"DeleteAddressInfo";
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     [serviceconn DeleteAddress:string];
@@ -705,7 +707,8 @@
 
 -(void)callAddressSaveService:(NSString *)string {
     serviceType = @"SaveAddressInfo";
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     [serviceconn SaveAddress:string];
@@ -714,8 +717,8 @@
 
 -(void)saveShipmentDetails
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     serviceType=@"ShipmentDetails";
@@ -827,14 +830,14 @@
         
     }
 
-    [SVProgressHUD dismiss];
+   [APPDELEGATE removeCustomLoader:self];
     
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

@@ -10,6 +10,7 @@
 #import "MyOrdersCell.h"
 #import "SVProgressHUD.h"
 #import "DetailMyOrdersNewViewController.h"
+#import "FingoShopTags.pch"
 @interface MyOrdersViewController ()
 {
     NSMutableArray *ordersArray;
@@ -144,8 +145,8 @@
 
 -(void)callGetOrdersService
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     seviceconn = [[ServiceConnection alloc]init];
     seviceconn.delegate = self;
     [seviceconn GetCustomerOrders];
@@ -168,7 +169,7 @@
     }
     [self.tblMyOrders reloadData];
     
-    [SVProgressHUD dismiss];
+   [APPDELEGATE removeCustomLoader:self];
     
 }
 
@@ -176,7 +177,7 @@
 - (void)errorMessage:(NSString *)errMsg
 {
     
-    [SVProgressHUD dismiss];
+   [APPDELEGATE removeCustomLoader:self];
 }
 
 

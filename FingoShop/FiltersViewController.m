@@ -42,6 +42,11 @@
     
     [self.btnApply setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+    
+}
 
 #pragma mark - UITableView Delegate Methods
 

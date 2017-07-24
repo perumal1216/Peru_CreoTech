@@ -12,6 +12,7 @@
 #import "PayUUIPaymentUIWebViewController.h"
 #import "PayUUIConstants.h"
 #import "iOSDefaultActivityIndicator.h"
+#import "FingoShopTags.pch"
 
 @interface PaymentViewController ()
 {
@@ -279,8 +280,8 @@
 
 -(void)callPaymentService:(NSMutableDictionary *)loginDict
 {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-
+    [APPDELEGATE showCustomLoader:self]; // Progress
+    
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
    // [serviceconn performLogin:loginDict];
@@ -293,14 +294,14 @@
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
 }
 
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 

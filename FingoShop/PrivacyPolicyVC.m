@@ -8,7 +8,7 @@
 
 #import "PrivacyPolicyVC.h"
 #import "SVProgressHUD.h"
-
+#import "FingoShopTags.pch"
 @interface PrivacyPolicyVC ()
 
 @end
@@ -44,8 +44,8 @@
     webDesc.delegate = self;
     webDesc.backgroundColor = [UIColor clearColor];
     [webDesc loadHTMLString: embedHTML baseURL: nil];
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
    // [self.navigationItem.backBarButtonItem setTitle:@"Title here"];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -67,7 +67,7 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     NSLog(@"finish");
 }
 

@@ -14,6 +14,7 @@
 #import "UIBarButtonItem+Badge.h"
 #import "UIViewController+HeaderContainer.h"
 #import "TopBarNavigationVC.h"
+#import "FingoShopTags.pch"
 
 @interface OffersViewController ()
 {
@@ -244,8 +245,8 @@
 }
 
 -(void)callGetOffersList {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+     [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     [serviceconn GetOffersList];
@@ -257,7 +258,7 @@
 - (void)jsonData:(NSDictionary *)jsonDict
 {
     NSLog(@"Offers: %@",jsonDict);
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     if (![jsonDict isEqual:[NSNull null]]) {
         offersArray = [jsonDict objectForKey:@"offers"];
         [self.tblOffers reloadData];
@@ -268,7 +269,7 @@
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 @end

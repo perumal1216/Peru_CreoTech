@@ -17,7 +17,7 @@
 #import "PayUSAGetTransactionID.h"
 #import "NetBankingViewController.h"
 #import "PaymentViewController.h"
-
+#import "FingoShopTags.pch"
 
 @interface ChoicePaymentViewController ()
 {
@@ -432,8 +432,8 @@ heightForFooterInSection:(NSInteger)section {
 #pragma mark - ServiceConnection Methods
 
 -(void)CallGetPaymentMethods {
-    
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
 //    paymentMethod = [paymentMethod stringByReplacingOccurrencesOfString:@" " withString:@""];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
@@ -443,8 +443,8 @@ heightForFooterInSection:(NSInteger)section {
 }
 
 -(void)callSavePayment:(NSString*)paymentMethod {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+    //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"SavePayment";
@@ -452,8 +452,8 @@ heightForFooterInSection:(NSInteger)section {
 
 }
 -(void)callMobileverify:(NSString*)url_Method type:(NSString*)Type {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType= Type;
@@ -463,8 +463,8 @@ heightForFooterInSection:(NSInteger)section {
 
 
 -(void)callsubmitOrder {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"SubmitOrder";
@@ -473,8 +473,8 @@ heightForFooterInSection:(NSInteger)section {
 }
 
 -(void)callDestroyCartItems {
-    [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-    
+   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+    [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"DestroyCart";
@@ -497,7 +497,8 @@ heightForFooterInSection:(NSInteger)section {
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [SVProgressHUD dismiss];
+//    [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
     
     NSError *error;
     NSMutableDictionary *dictObj = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONReadingAllowFragments error:&error];
@@ -844,7 +845,8 @@ heightForFooterInSection:(NSInteger)section {
     {
     }
     else{
-        [SVProgressHUD dismiss];
+       // [SVProgressHUD dismiss];
+        [APPDELEGATE removeCustomLoader:self];
     }
    
     
@@ -854,7 +856,8 @@ heightForFooterInSection:(NSInteger)section {
 
 - (void)errorMessage:(NSString *)errMsg
 {
-    [SVProgressHUD dismiss];
+   // [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 
@@ -886,8 +889,8 @@ heightForFooterInSection:(NSInteger)section {
         NSLog(@"Post: %@",post);
         
         //PAYUALERT(@"Status", message);
-        [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-        
+       // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
+        [APPDELEGATE showCustomLoader:self];
         serviceconn = [[ServiceConnection alloc]init];
         serviceconn.delegate = self;
         ServiceType=@"SubmitPayU";
