@@ -351,7 +351,7 @@ AppDelegate *apdl_menu;
     
 
     
-    NSString *url_str1=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/categoriesmenu?SID=%@",sessionid];
+    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/categoriesmenu?SID=%@",sessionid];
     
     NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     

@@ -31,7 +31,7 @@
     
     
     //    NSURL *hashURL = [NSURL URLWithString:@"https://payu.herokuapp.com/get_hash"];
-    NSURL *hashURL = [NSURL URLWithString:@"https://dev.fingoshop.com/restconnect/checkout/getHashes"];
+    NSURL *hashURL = [NSURL URLWithString:@"https://www.fingoshop.com/restconnect/checkout/getHashes"];
     
      
     // create the request

@@ -391,7 +391,7 @@
 
     
     UIImage *chosenImage = info[UIImagePickerControllerOriginalImage];
-    _bagRoundImage.image = chosenImage;
+    self.bagRoundImage.image = chosenImage;
      [self dismissViewControllerAnimated:YES completion:nil];
 
 }

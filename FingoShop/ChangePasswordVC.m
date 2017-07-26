@@ -62,7 +62,7 @@ AppDelegate *apdl_signup;
     NSString *post=[NSString stringWithFormat:@"email=%@&oldpassword=%@&newpass=%@",emailid,_txt_oldPswd.text,_txt_newPswd.text];
     NSData *postData=[post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
     NSString *postLength=[NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
-    NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/changepwd"]]];
+    NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/changepwd"]]];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:postData];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];

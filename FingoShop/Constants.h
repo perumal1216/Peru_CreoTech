@@ -30,7 +30,7 @@ extern NSString* _WSConstSelectedCategoryID;
 extern NSString* _backNavigationName;
 extern NSString* _backNavigationName1;
 extern NSString* _backNavigationSortOption;
-static NSString *const BaseURL = @"https://dev.fingoshop.com/restconnect/customer/";
+static NSString *const BaseURL = @"https://www.fingoshop.com/restconnect/customer/";
 
 
 

@@ -85,7 +85,7 @@
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"])
     {
         
-        NSString *url_str=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/"];
+        NSString *url_str=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/"];
         
         
         NSData *data=[NSData dataWithContentsOfURL:[NSURL URLWithString:url_str]];

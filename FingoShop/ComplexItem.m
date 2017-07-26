@@ -17,7 +17,7 @@
     {
         
         
-        NSString *url_str1=[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/index/menu"];
+        NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/menu"];
         
         NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         

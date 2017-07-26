@@ -1471,8 +1471,8 @@ AppDelegate *apdl;
    // NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
     
    // NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/index.php/restconnect/index/getHomePageCategories?SID=%@",sessionid];
-  //  https://dev.fingoshop.com/restconnect/apihomepage/home
-    NSString *url_str1= @"https://dev.fingoshop.com/restconnect/apihomepage/home";
+  //  https://www.fingoshop.com/restconnect/apihomepage/home
+    NSString *url_str1= @"https://www.fingoshop.com/restconnect/apihomepage/home";
     //NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url=[NSURL URLWithString:url_str1];

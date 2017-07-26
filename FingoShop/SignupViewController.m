@@ -93,7 +93,7 @@
     NSString *post=[NSString stringWithFormat:@"firstname=%@&lastname=%@&email=%@&password=%@&Sid=%@&telephone=%@",_txtName.text,_txt_lastname.text,_txtEmail.text,_txtPassword.text,sessionid,_txt_Telephone.text];
     NSData *postData=[post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
     NSString *postLength=[NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
-    NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://dev.fingoshop.com/restconnect/customer/register"]]];
+    NSMutableURLRequest *request=[[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/register"]]];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:postData];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
