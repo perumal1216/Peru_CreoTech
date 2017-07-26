@@ -65,11 +65,7 @@
     self.movingView.transform = CGAffineTransformScale(self.movingView.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
     
     pinchGestureRecognizer.scale = 1.0;
-    
-    
-    
-    
-    
+
     
 }
 

@@ -21,8 +21,6 @@
     UIButton *imageClickButton;
 }
 @property(nonatomic,strong) NSMutableArray*imageArray;
-@property (strong, nonatomic) IBOutlet UIImageView *ScrollimageView;
-@property (strong, nonatomic) IBOutlet UIView *contentView;
 @property (strong, nonatomic) IBOutlet UIImageView *movingView;
 @property (strong, nonatomic) IBOutlet UIImageView *bagRoundImage;
 @property (nonatomic,strong) UIImage *bag_Image;
