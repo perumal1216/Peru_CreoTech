@@ -95,9 +95,8 @@ AppDelegate *apdl;
     [topVC.menu_button setHidden :NO];
     [topVC.back_button setHidden :YES];
     
-    
+    // Configure layout
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
-     // Configure layout
     [layout setItemSize:CGSizeMake(self.view.frame.size.width - 10, 150)];
     layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     layout.minimumLineSpacing = 5;
@@ -105,11 +104,21 @@ AppDelegate *apdl;
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [self.Mens_collecVW setCollectionViewLayout:layout];
     [self.Art_collecVW setCollectionViewLayout:layout];
-    
-    
-   
      [self.Art_collecVW setScrollEnabled:NO];
      [self.Mens_collecVW setScrollEnabled:NO];
+    
+    
+   /* UICollectionViewFlowLayout *layout1=[[UICollectionViewFlowLayout alloc] init];
+    [layout1 setItemSize:CGSizeMake(self.view.frame.size.width/2 - 10, 150)];
+    layout1.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout1.minimumLineSpacing = 5;
+    layout1.minimumInteritemSpacing = 5;
+    [layout1 setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [self.Electronics_collecVW setCollectionViewLayout:layout1];
+    */
+    
+    
+    
   /*   horizontal_imageArray = [[NSArray alloc]initWithObjects:@"virtual.png",@"men.png",@"women.png",@"kids.png",@"men.png",@"women.png",@"kids.png",@"kids.png",@"kids.png",@"kids.png",@"kids.png", nil];
     
    // horizontal_imageArray = [[NSArray alloc]initWithObjects:@"virtual_shopping.png",@"electronics_icon.png",@"kitchen_icon.png",@"kids_icon.png",@"beauty_icon.png",@"women_acc_icon.png",@"men_acc_icon.png",@"elec_app_icon.png",@"arts_icon.png",@"crazy_icon.png",@"sports_icon.png", nil];
