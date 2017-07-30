@@ -184,7 +184,8 @@
 
 -(void)GetProductDetails:(NSString *)productId
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/products/getproductdetail?productid=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/api/getProductDetail?productid=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    //[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/products/getproductdetail?productid=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -298,7 +299,8 @@
 -(void)GetOffersList
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/offers?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apioffer/getNotification"];
+    //[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/offers?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -309,7 +311,9 @@
 -(void)GetNotificationsList
 {
     
-    NSString *url_Method= [NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getNotification"];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getNotification"];
+    //[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apioffer/getNotification"];
+    
     //[NSString stringWithFormat:@"http://www.fingoshop.com/restconnect/index/trackOrder?email=rakesh.akkineni@ctouchproducts.com&order_id=100000004"];
     
     NSURL *url=[NSURL URLWithString:url_Method];

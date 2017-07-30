@@ -740,7 +740,7 @@ AppDelegate *apdl_detail;
     }
     
     
-    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getCategoryProductsList?id=%@&sid=%@",CategoryId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/api/getCategoryProductsList?id=%@&sid=%@",CategoryId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -763,7 +763,7 @@ AppDelegate *apdl_detail;
     
     */
 
-    NSMutableArray *productsarr=[resultsDict objectForKey:@"products"];
+    NSMutableArray *productsarr=[resultsDict objectForKey:@"records"];
     
     _itemsListArr=[[NSMutableArray alloc]init];
     [_itemsListArr addObjectsFromArray:productsarr];
