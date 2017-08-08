@@ -257,7 +257,7 @@
     
     [APPDELEGATE removeCustomLoader:self];
     if (jsonDict) {
-        _searchFiltersProductsArray = [jsonDict objectForKey:@"products"];
+        _searchFiltersProductsArray = [jsonDict objectForKey:@"records"];
         if ([_searchFiltersProductsArray count] > 0) {
             UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
             _WSConstScreenValue = @"Search";

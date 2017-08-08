@@ -264,7 +264,7 @@ AppDelegate *apdl_detail;
         
     }
     
-    NSString *urlString =[NSString stringWithFormat:@"%@",[itemDict objectForKey:@"image_url"]];
+    NSString *urlString =[NSString stringWithFormat:@"%@",[itemDict objectForKey:@"main_image"]];
     
     urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSLog(@"prof img is %@",urlString);
@@ -338,7 +338,7 @@ AppDelegate *apdl_detail;
     else
     {
     
-    [self callProductDetailsService:[[_itemsListArr objectAtIndex:indexPath.row] objectForKey:@"entity_id"]];
+    [self callProductDetailsService:[[_itemsListArr objectAtIndex:indexPath.row] objectForKey:@"id"]];
     selectedProduct = [_itemsListArr objectAtIndex:indexPath.row];
     NSLog(@"selected product is %@",selectedProduct);
     }

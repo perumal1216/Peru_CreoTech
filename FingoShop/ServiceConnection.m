@@ -189,7 +189,6 @@
   //New API
     
     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/api/getProductDetail?productid=%@",productId];
-
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -284,7 +283,7 @@
      NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apisearch/search?q=%@",Post];
     NSString* urlText = url_Method;
 //    [string stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]
-    NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
+NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
                                NSUTF8StringEncoding];
     //[urlText stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSURL *main_url = [NSURL URLWithString: urlTextEscaped];
@@ -509,9 +508,6 @@
     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicart/add?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
    // https://www.fingoshop.com/restconnect/apicart/add?SID=5aqo7e3mjnnenn85uuoojvgil5&product=225027&qty=1
      NSString *post = [NSString stringWithFormat:@"product=%@&qty=%@",PoductID,qty];
-    
-   // NSString *post = [NSString stringWithFormat:@"product=%@&qty=%@&super_attribute=%@",PoductID,qty];
-    
     NSURL *url=[NSURL URLWithString:url_Method];
     [self postRequestForUrl:url postBody:post];
     
