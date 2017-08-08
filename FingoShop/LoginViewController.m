@@ -225,6 +225,9 @@ didSignInForUser:(GIDGoogleUser *)user
             NSString *postLength=[NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
             NSMutableURLRequest *request=[[NSMutableURLRequest alloc]init];
             [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/login?SID=%@",sessionid]]];
+            // New API call
+            
+           // [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicustomer/login"]]];
             [request setHTTPMethod:@"POST"];
             [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
             [request setHTTPBody:postData];

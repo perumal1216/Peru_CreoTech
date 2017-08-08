@@ -178,7 +178,7 @@ AppDelegate *apdl_product1;
     }
     
 
-    NSString *urlString =[NSString stringWithFormat:@"%@",[productDetailsDict objectForKey:@"image_small_url"]];
+    NSString *urlString =[NSString stringWithFormat:@"%@",[productDetailsDict objectForKey:@"main_image"]];
     
     urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSLog(@"prof img is %@",urlString);
@@ -217,14 +217,15 @@ AppDelegate *apdl_product1;
     }
 
     
-    NSDictionary *additionalDict = [productDetailsDict1 objectForKey:@"additional"];
-    NSArray *keysArr = [additionalDict allKeys];
-   
+    //NSDictionary *additionalDict = [productDetailsDict1 objectForKey:@"additional"];
+   // NSArray *keysArr = [additionalDict allKeys];
+    
+   NSArray *keysArr = [productDetailsDict1 objectForKey:@"additional"];
     switch (keysArr.count) {
         case 1:
-            _lblSKU.text = [[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"value"];
+            _lblSKU.text = [[keysArr objectAtIndex:0] objectForKey:@"value"];
             
-            _lblTitle0.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            _lblTitle0.text = [[[[keysArr objectAtIndex:0] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             
             _lblWeight.hidden = YES;
             _lblBrand.hidden = YES;
@@ -237,11 +238,12 @@ AppDelegate *apdl_product1;
             
             break;
         case 2:
-            _lblSKU.text = [[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"value"];
-            _lblWeight.text = [[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"value"];
+            _lblSKU.text = [[keysArr objectAtIndex:0] objectForKey:@"value"];
+            _lblWeight.text = [[keysArr objectAtIndex:1] objectForKey:@"value"];
             
-            _lblTitle0.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle1.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            _lblTitle0.text = [[[[keysArr objectAtIndex:0] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle1.text = [[[[keysArr objectAtIndex:0] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             
             _lblBrand.hidden = YES;
             _lblTitle.hidden = YES;
@@ -252,13 +254,15 @@ AppDelegate *apdl_product1;
             _lblTitle4.hidden = YES;
             break;
         case 3:
-            _lblSKU.text = [[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"value"];
-            _lblWeight.text = [[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"value"];
-            _lblBrand.text = [[additionalDict objectForKey:[keysArr objectAtIndex:2]] objectForKey:@"value"];
+            _lblSKU.text = [[keysArr objectAtIndex:0] objectForKey:@"value"];
+            _lblWeight.text = [[keysArr objectAtIndex:1] objectForKey:@"value"];
+            _lblBrand.text = [[keysArr objectAtIndex:2] objectForKey:@"value"];
             
-            _lblTitle0.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle1.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle2.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:2]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            _lblTitle0.text = [[[[keysArr objectAtIndex:0] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle1.text = [[[[keysArr objectAtIndex:1] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle2.text = [[[[keysArr objectAtIndex:2] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             
             _lblTitle.hidden = YES;
             _lblColor.hidden = YES;
@@ -267,35 +271,42 @@ AppDelegate *apdl_product1;
             _lblTitle4.hidden = YES;
             break;
         case 4:
-            _lblSKU.text = [[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"value"];
-            _lblWeight.text = [[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"value"];
-            _lblBrand.text = [[additionalDict objectForKey:[keysArr objectAtIndex:2]] objectForKey:@"value"];
-            _lblTitle.text = [[additionalDict objectForKey:[keysArr objectAtIndex:3]] objectForKey:@"value"];
+            _lblSKU.text = [[keysArr objectAtIndex:0] objectForKey:@"value"];
+            _lblWeight.text = [[keysArr objectAtIndex:1] objectForKey:@"value"];
+            _lblBrand.text = [[keysArr objectAtIndex:2] objectForKey:@"value"];
+            _lblTitle.text = [[keysArr objectAtIndex:3] objectForKey:@"value"];
             
-            _lblTitle0.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle1.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle2.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:2]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle3.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:3]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            _lblTitle0.text = [[[[keysArr objectAtIndex:0] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle1.text = [[[[keysArr objectAtIndex:1] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle2.text = [[[[keysArr objectAtIndex:2] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle3.text =[[[[keysArr objectAtIndex:3] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             
             _lblColor.hidden = YES;
             
             _lblTitle4.hidden = YES;
             break;
         default:
-            _lblSKU.text = [[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"value"];
-            _lblWeight.text = [[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"value"];
-            _lblBrand.text = [[additionalDict objectForKey:[keysArr objectAtIndex:2]] objectForKey:@"value"];
-            _lblTitle.text = [[additionalDict objectForKey:[keysArr objectAtIndex:3]] objectForKey:@"value"];
-            _lblColor.text = [[additionalDict objectForKey:[keysArr objectAtIndex:4]] objectForKey:@"value"];
+            _lblSKU.text = [[keysArr objectAtIndex:0] objectForKey:@"value"];
+            _lblWeight.text =[[keysArr objectAtIndex:1] objectForKey:@"value"];
+            _lblBrand.text = [[keysArr objectAtIndex:2] objectForKey:@"value"];
+            _lblTitle.text = [[keysArr objectAtIndex:3] objectForKey:@"value"];
+            _lblColor.text = [[keysArr objectAtIndex:4] objectForKey:@"value"];
             
-            _lblTitle0.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:0]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle1.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:1]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle2.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:2]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle3.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:3]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            _lblTitle4.text = [[[[additionalDict objectForKey:[keysArr objectAtIndex:4]] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            _lblTitle0.text = [[[[keysArr objectAtIndex:0] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle1.text = [[[[keysArr objectAtIndex:1] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle2.text = [[[[keysArr objectAtIndex:2] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle3.text = [[[[keysArr objectAtIndex:3] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            
+            _lblTitle4.text = [[[[keysArr objectAtIndex:4] objectForKey:@"label"] stringByReplacingOccurrencesOfString:@"Product" withString:@""] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
             break;
     }
-    
+  
     
     
 //    _lblSKU.text = [[additionalDict objectForKey:@"sku"] objectForKey:@"value"];
@@ -364,7 +375,7 @@ AppDelegate *apdl_product1;
     
     [self callProductGalleryService:[_selectedProductDict objectForKey:@"entity_id"]];
     _descriptionTextView.text = [_selectedProductDict objectForKey:@"description"];
-    [self callSimilarProductsService:[_selectedProductDict objectForKey:@"entity_id"]];
+   
 
     UITapGestureRecognizer *oneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imagehandleOneTap:)];
     [oneTap setDelegate:self];
@@ -1148,7 +1159,7 @@ AppDelegate *apdl_product1;
             [self.productsCollectionView reloadData];
 
         }
-        
+     [self callSimilarProductsService:[_selectedProductDict objectForKey:@"entity_id"]];
         
     }
     else if([ServiceType isEqualToString:@"SimilarProducts"])
@@ -1157,10 +1168,12 @@ AppDelegate *apdl_product1;
             _similarProductsCollectionView.hidden = YES;
             _lblSimilarProducts.hidden = YES;
         }
+        else {
+            _similarProductsCollectionView.hidden = NO;
+            _lblSimilarProducts.hidden = NO;
+        }
         NSLog(@"%@",jsonDict);
         [_similarProductsCollectionView reloadData];
-        
-        
         
     }
     else if([ServiceType isEqualToString:@"AddtoCart"])

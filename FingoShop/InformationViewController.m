@@ -253,7 +253,7 @@
     NSLog(@"post string is : %@",poststr);
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
-   ServiceType=@"addAddress";
+    ServiceType=@"addAddress";
     [serviceconn AddAddress:poststr];
 
     

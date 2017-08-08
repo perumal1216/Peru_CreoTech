@@ -226,7 +226,7 @@
     }
     
   
-    NSString *urlString =[NSString stringWithFormat:@"%@",[[offersArray objectAtIndex:indexPath.section] objectForKey:@"image_url"]];
+    NSString *urlString =[NSString stringWithFormat:@"%@",[[offersArray objectAtIndex:indexPath.section] objectForKey:@"main_image"]];
     
     urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSLog(@"prof img is %@",urlString);
@@ -260,7 +260,7 @@
     NSLog(@"Offers: %@",jsonDict);
     [APPDELEGATE removeCustomLoader:self];
     if (![jsonDict isEqual:[NSNull null]]) {
-        offersArray = [jsonDict objectForKey:@"offers"];
+        offersArray = [jsonDict objectForKey:@"records"];
         [self.tblOffers reloadData];
     }
     

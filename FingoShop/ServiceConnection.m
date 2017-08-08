@@ -84,7 +84,7 @@
     
     
 }
--(void)sendOTP:(NSString *)url_Method
+-(void)sendOTP:(NSString *)url_Method post_params:(NSString *)post
 {
     
    // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/sendotpcod?telephone=%@",params];
@@ -92,8 +92,8 @@
     
     NSURL *url=[NSURL URLWithString:urlPath];
     
-    [self startRequestForUrl:url];
-    
+    //[self startRequestForUrl:url];
+    [self postRequestForUrl:url postBody:post];
     
 }
 
@@ -506,7 +506,6 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
     
     // New API
     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicart/add?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
-   // https://www.fingoshop.com/restconnect/apicart/add?SID=5aqo7e3mjnnenn85uuoojvgil5&product=225027&qty=1
      NSString *post = [NSString stringWithFormat:@"product=%@&qty=%@",PoductID,qty];
     NSURL *url=[NSURL URLWithString:url_Method];
     [self postRequestForUrl:url postBody:post];
@@ -570,7 +569,6 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 
     //New API
     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicart/getCartInfo?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
-   // https://www.fingoshop.com/restconnect/apicart/getCartInfo?SID=5aqo7e3mjnnenn85uuoojvgil5
     NSURL *url=[NSURL URLWithString:url_Method];
     
     [self startRequestForUrl:url];

@@ -63,7 +63,7 @@
 -(void)GetCustomerAccount;
 -(void)UpdateAccountDetails:(NSString *)post;
 -(void)GetPointsBalance;
--(void)sendOTP:(NSString *)params;
+-(void)sendOTP:(NSString *)url_Method post_params:(NSString *)post;
 
 //
 //
