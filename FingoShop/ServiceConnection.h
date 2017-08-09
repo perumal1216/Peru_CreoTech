@@ -64,7 +64,7 @@
 -(void)UpdateAccountDetails:(NSString *)post;
 -(void)GetPointsBalance;
 -(void)sendOTP:(NSString *)url_Method post_params:(NSString *)post;
-
+-(void)sendOTP_postDict:(NSString *)url_Method post_params:(NSDictionary *)postDict;
 //
 //
 //-(void)AddtoCart:(NSString *)productId Qty:(NSString *)qty;

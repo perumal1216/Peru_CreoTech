@@ -339,14 +339,10 @@ heightForFooterInSection:(NSInteger)section {
    // [self performSegueWithIdentifier:@"Home" sender:self];
 }
 - (IBAction)resendButtonAction:(id)sender {
-//      self.optwithmobileLabel.text = [NSString stringWithFormat:@"OTP resent to %@",[postDict objectForKey:@"mobile"]];
-    
-  //  NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/resendotp?mobile=%@",_telephoneL.text];
-    
-   // [self callMobileverify:url_Method type:@"ResendOTP"post_params:<#(NSString *)#>];
+
     NSString *url_Method = @"https://www.fingoshop.com/restconnect/apicheckout/otp";
-    NSString * poststr = [[NSString alloc]initWithFormat:@"mobile=%@",_telephoneL.text];
-    [self callMobileverify:url_Method type:@"ResendOTP"post_params:poststr];
+    NSDictionary *post_dict = @{@"mobile":_telephoneL.text};
+    [self callMobileverify:url_Method type:@"ResendOTP"post_params:post_dict];
     
 }
 - (IBAction)verifyButtonAction:(id)sender
@@ -355,13 +351,11 @@ heightForFooterInSection:(NSInteger)section {
     
     if ([self.enterOtpTxt.text length]>0)
     {
-        
-//        NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/verifyotpcod?otp=%@&mobile=%@",_enterOtpTxt.text,_telephoneL.text];
-//        
-//        [self callMobileverify:url_Method type:@"VerifyOTP"];
+
         NSString *url_Method = @"https://www.fingoshop.com/restconnect/apicheckout/verify";
-        NSString * poststr = [[NSString alloc]initWithFormat:@"otp=%@",_enterOtpTxt.text];
-        [self callMobileverify:url_Method type:@"VerifyOTP"post_params:poststr];
+       // NSString * poststr = [[NSString alloc]initWithFormat:@"otp=%@",_enterOtpTxt.text];
+        NSDictionary *post_dict = @{@"otp":_enterOtpTxt.text};
+        [self callMobileverify:url_Method type:@"VerifyOTP"post_params:post_dict];
         
     }
     else
@@ -405,8 +399,9 @@ heightForFooterInSection:(NSInteger)section {
              
              NSString *url_Method = @"https://www.fingoshop.com/restconnect/apicheckout/otp";
              //[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/sendotpcod?telephone=%@",_telephoneL.text];
-             NSString * poststr = [[NSString alloc]initWithFormat:@"mobile=%@",_telephoneL.text];
-             [self callMobileverify:url_Method type:@"OTPSend"post_params:poststr];
+            // NSString * poststr = [[NSString alloc]initWithFormat:@"mobile=%@",_telephoneL.text];
+             NSDictionary *post_dict = @{@"mobile":_telephoneL.text};
+             [self callMobileverify:url_Method type:@"OTPSend"post_params:post_dict];
              
          }
          else{
@@ -457,14 +452,15 @@ heightForFooterInSection:(NSInteger)section {
     [serviceconn savePayment:paymentMethod];
 
 }
--(void)callMobileverify:(NSString*)url_Method type:(NSString*)Type post_params :(NSString *)post {
+-(void)callMobileverify:(NSString*)url_Method type:(NSString*)Type post_params :(NSDictionary *)postDict {
    // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType= Type;
-    [serviceconn sendOTP:url_Method post_params:post];
-    
+   [serviceconn sendOTP_postDict:url_Method post_params:postDict];
+ 
+   
 }
 
 

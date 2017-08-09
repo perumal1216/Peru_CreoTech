@@ -218,19 +218,22 @@ didSignInForUser:(GIDGoogleUser *)user
             [APPDELEGATE showCustomLoader:self];
             
             _WSServiceType = @"normal";
-            NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
+           // NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
             
-            NSString *post=[NSString stringWithFormat:@"username=%@&password=%@",_txtUsername.text,_txtPassword.text];
-            NSData *postData=[post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
-            NSString *postLength=[NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
-            NSMutableURLRequest *request=[[NSMutableURLRequest alloc]init];
-            [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/login?SID=%@",sessionid]]];
-            // New API call
-            
-           // [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicustomer/login"]]];
+            NSDictionary *post_dict = @{@"username":_txtUsername.text,@"password":_txtPassword.text};
+            NSURL *main_url = [NSURL URLWithString:@"https://www.fingoshop.com/restconnect/apicustomer/login"];
+            NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:main_url
+                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                               timeoutInterval:60.0];
+            NSError *error;
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
             [request setHTTPMethod:@"POST"];
-            [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+            
+            NSData *postData = [NSJSONSerialization dataWithJSONObject:post_dict options:0 error:&error];
             [request setHTTPBody:postData];
+
+            
             
             NSURLConnection * conn=[[NSURLConnection alloc]initWithRequest:request delegate:self];
             [conn start];
@@ -327,7 +330,7 @@ didSignInForUser:(GIDGoogleUser *)user
             NSLog(@"JSON Parsing Error %@",[error localizedDescription]);
         }
         
-        else if([dict objectForKey:@"code"])
+        else if([[dict objectForKey:@"code"] integerValue] != 1)
         {
             
             alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[dict objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];

@@ -96,6 +96,15 @@
     [self postRequestForUrl:url postBody:post];
     
 }
+-(void)sendOTP_postDict:(NSString *)url_Method post_params:(NSDictionary *)postDict
+{
+
+    NSString *urlPath = [url_Method stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
+    
+    NSURL *url=[NSURL URLWithString:urlPath];
+    [self postRequestForUrlRawdata:url postBody:postDict];
+    
+}
 
 -(void)submitOrder
 {
@@ -696,6 +705,55 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
             else if(error != nil)
                 [self.delegate errorMessage:@"Some thing wrong! Please try again."];
         }];
+    
+}
+
+- (void)postRequestForUrlRawdata:(NSURL *)url postBody:(NSDictionary *)postDict
+{
+
+    // NSURL SESSIONS
+    
+    NSError *error;
+    
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+    NSURL *main_url = url;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:main_url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPMethod:@"POST"];
+    
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:postDict options:0 error:&error];
+    [request setHTTPBody:postData];
+    
+    
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSDictionary * jsonDict;
+        if (data) {
+            jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        }
+        
+        if ([data length] > 0 && error == nil)
+            [self.delegate jsonData:jsonDict];
+        else if ([data length] == 0 && error == nil)
+            [self.delegate errorMessage:@"No Data"];
+        else if (error != nil && error.code == kCFURLErrorTimedOut)
+            [self.delegate errorMessage:@"The Connection Timed Out!"];
+        else if (error != nil && error.code == kCFURLErrorCannotConnectToHost)
+            [self.delegate errorMessage:@"No Internet Connection"];
+        else if(error != nil)
+            [self.delegate errorMessage:@"Some thing wrong! Please try again."];
+        
+        
+        
+    }];
+    
+    [postDataTask resume];
+    
+    
     
 }
 

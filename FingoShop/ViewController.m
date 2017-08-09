@@ -86,9 +86,6 @@ AppDelegate *apdl;
         
     }
     
-    
-
-
     // TopBar Navigation
     TopBarNavigationVC *topVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TopBarNavigationVC"];
     [self displayContentController:topVC];

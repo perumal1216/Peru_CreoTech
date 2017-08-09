@@ -89,7 +89,7 @@
     }
     
     
-    NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
+  /*  NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
     NSString *post=[NSString stringWithFormat:@"firstname=%@&lastname=%@&email=%@&password=%@&Sid=%@&telephone=%@",_txtName.text,_txt_lastname.text,_txtEmail.text,_txtPassword.text,sessionid,_txt_Telephone.text];
     NSData *postData=[post dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES];
     NSString *postLength=[NSString stringWithFormat:@"%lu",(unsigned long)[postData length]];
@@ -101,6 +101,24 @@
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody:postData];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    */
+    
+    //  New API call
+    
+    
+    NSDictionary *post_dict = @{@"firstname":_txtName.text,@"lastname":_txt_lastname.text,@"email":_txtEmail.text,@"password":_txtPassword.text,@"mobile":_txt_Telephone.text};
+    NSURL *main_url = [NSURL URLWithString:@"https://www.fingoshop.com/restconnect/apicustomer/register"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:main_url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    NSError *error;
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setHTTPMethod:@"POST"];
+    
+    NSData *postData = [NSJSONSerialization dataWithJSONObject:post_dict options:0 error:&error];
+    [request setHTTPBody:postData];
+    
     
     
     if ([_txtName.text length]>0 && [_txt_lastname.text length]>0 && [_txtEmail.text length]>0 && [_txtPassword.text length]>0 && [_txt_Telephone.text length]>0)
@@ -112,9 +130,6 @@
             {
                 if ([self validatePhone:_txt_Telephone.text])
                 {
-                   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
-                    // [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
-                   // [SVProgressHUD showWithStatus:@"Please wait"];
                     [APPDELEGATE showCustomLoader:self];
                     NSURLConnection *conn=[NSURLConnection connectionWithRequest:request delegate:self];
                     [conn start];
@@ -225,7 +240,7 @@
             
             NSMutableDictionary * dict = [[NSMutableDictionary alloc]init];
             
-            [dict setObject:[NSString stringWithFormat:@"%@",_txtEmail.text]forKey:@"email"];
+             [dict setObject:[NSString stringWithFormat:@"%@",_txtEmail.text]forKey:@"email"];
              [dict setObject:[NSString stringWithFormat:@"%@",_txtPassword.text]forKey:@"password"];
              [dict setObject:[NSString stringWithFormat:@"%@",_txt_Telephone.text]forKey:@"mobile"];
              [dict setObject:[NSString stringWithFormat:@"%@",_txtName.text]forKey:@"fname"];
