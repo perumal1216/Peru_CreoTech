@@ -31,7 +31,7 @@
 -(void)GetUserInfo;
 -(void)performLogout;
 -(void)GetWishList:(NSString *)Post;
--(void)AddToWishList:(NSString *)productId;
+-(void)AddToWishList:(NSDictionary *)post;
 -(void)RemoveFromWishList:(NSString *)productId;
 -(void)getAddressList;
 -(void)AddAddress:(NSString *)post;

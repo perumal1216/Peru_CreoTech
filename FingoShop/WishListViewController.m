@@ -101,7 +101,7 @@ AppDelegate *apdl_detail2;
 
         }
     
-    NSMutableDictionary *wishListDict=[WishListArr objectAtIndex:indexPath.row];
+    NSMutableDictionary *wishListDict=[[WishListArr objectAtIndex:indexPath.row] objectForKey:@"variant"];
     cell.Name_lbl.text=[wishListDict objectForKey:@"name"];
     cell.lblSeller.text=[wishListDict objectForKey:@"seller_info"];
     NSLog(@" wishlist is %@", WishListArr);
@@ -142,7 +142,7 @@ AppDelegate *apdl_detail2;
     }
     
 
-    NSString *urlString =[NSString stringWithFormat:@"%@",[wishListDict objectForKey:@"image_small_url"]];
+    NSString *urlString =[NSString stringWithFormat:@"%@",[wishListDict objectForKey:@"main_image"]];
     
     urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     NSLog(@"prof img is %@",urlString);
@@ -412,11 +412,9 @@ AppDelegate *apdl_detail2;
 
 -(void)callGetWishListService
 {
-    
-    NSString * post = [[NSString alloc]initWithFormat:@"SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString * post = [[NSString alloc]initWithFormat:@"customer_id=%@&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"customer_id"],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
      [APPDELEGATE showCustomLoader:self];
-   // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     serviceType=@"GetWishList";
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;

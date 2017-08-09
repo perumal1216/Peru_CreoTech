@@ -348,6 +348,8 @@ didSignInForUser:(GIDGoogleUser *)user
             [[NSUserDefaults standardUserDefaults] setObject:[dict objectForKey:@"sessionid"] forKey:@"sessionid"];
             [[NSUserDefaults standardUserDefaults] setObject:[dict objectForKey:@"email"] forKey:@"email"];
             [[NSUserDefaults standardUserDefaults] setObject:[dict objectForKey:@"name"] forKey:@"name"];
+              [[NSUserDefaults standardUserDefaults] setObject:[dict objectForKey:@"id"] forKey:@"customer_id"];
+            
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             NSLog(@"%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]);

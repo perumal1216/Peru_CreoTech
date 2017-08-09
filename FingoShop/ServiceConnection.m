@@ -337,7 +337,10 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 -(void)GetWishList:(NSString *)Post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/getWishlist?%@",Post];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apiwishlist/getWishlist?%@",Post];
+    
+    //[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]
+   // else if ([[NSUserDefaults standardUserDefaults] stringForKey:@"email"] && ![[[NSUserDefaults standardUserDefaults] stringForKey:@"email"] isEqualToString:@""]) {
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -348,24 +351,20 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 
 }
 
--(void)AddToWishList:(NSString *)post
+-(void)AddToWishList:(NSDictionary *)post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/addtowishlist"];
+   // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/addtowishlist"];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apiwishlist/addtowishlist"];
+    
 
     NSURL *url=[NSURL URLWithString:url_Method];
     
-    [self postRequestForUrl:url postBody:post];
+    //[self postRequestForUrl:url postBody:post];
+    
+    [self postRequestForUrlRawdata:url postBody:post];
     
 
-    
-    
-  /*  NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/addtowishlist?%@",post];
-    NSURL *url=[NSURL URLWithString:url_Method];
-    
-    [self startRequestForUrl:url];
-    
-*/
 
    
 

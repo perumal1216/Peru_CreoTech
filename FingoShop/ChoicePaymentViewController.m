@@ -615,7 +615,7 @@ heightForFooterInSection:(NSInteger)section {
     }
     else if ([ServiceType isEqualToString:@"OTPSend"])
     {
-        if ([[jsonDict objectForKey:@"status"]boolValue] == YES) {
+        if ([[jsonDict objectForKey:@"code"] integerValue] == 1) {
             
             alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -648,7 +648,7 @@ heightForFooterInSection:(NSInteger)section {
     
     else if ([ServiceType isEqualToString:@"VerifyOTP"])
     {
-        if ([[jsonDict objectForKey:@"status"] boolValue] == YES) {
+        if ([[jsonDict objectForKey:@"code"] integerValue] == 1) {
             
             alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -669,22 +669,28 @@ heightForFooterInSection:(NSInteger)section {
         }
         else
         {
-            alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
             
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            dispatch_async(dispatch_get_main_queue(), ^{
                 
-                self.verify_view.hidden = NO;
+                alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
                 
-            }]];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                    self.verify_view.hidden = NO;
+                    
+                }]];
+                
+                [self presentViewController:alertController animated:YES completion:nil];
+                
+            });
             
-            [self presentViewController:alertController animated:YES completion:nil];
             
         }
         
     }
     else if ([ServiceType isEqualToString:@"ResendOTP"])
     {
-        if ([[jsonDict objectForKey:@"status"]boolValue] == YES) {
+        if ([[jsonDict objectForKey:@"code"] integerValue] == 1) {
             
             alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
             
@@ -695,10 +701,6 @@ heightForFooterInSection:(NSInteger)section {
                 self.resendTelephoneL.hidden = NO;
                 self.resendTelephoneL.text = [NSString stringWithFormat:@"OTP resent to %@",[shippingdict objectForKey:@"telephone"]];
                 
-              //  NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:0 inSection:1];
-              //  NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
-             //   [_tblPayment reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationNone];
-                
             }]];
             
             [self presentViewController:alertController animated:YES completion:nil];
@@ -707,15 +709,20 @@ heightForFooterInSection:(NSInteger)section {
         }
         else
         {
-            alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
             
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            dispatch_async(dispatch_get_main_queue(), ^{
                 
-                self.verify_view.hidden = NO;
+                alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
                 
-            }]];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                    self.verify_view.hidden = NO;
+                    
+                }]];
+                
+                [self presentViewController:alertController animated:YES completion:nil];
+            });
+           
             
         }
         
