@@ -473,7 +473,7 @@ AppDelegate *apdl_detail;
             
 //            {"product":351886,"customer_id":10455,"SID":"dope4dr25ihdu8e6h30pj22v50"}
             
-            NSDictionary *post_dict = @{@"product":[[_itemsListArr objectAtIndex:indexVal] objectForKey:@"entity_id"],@"customer_id":[[NSUserDefaults standardUserDefaults] objectForKey:@"customer_id"],@"SID":[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]};
+            NSDictionary *post_dict = @{@"product":[[_itemsListArr objectAtIndex:indexVal] objectForKey:@"id"],@"customer_id":[[NSUserDefaults standardUserDefaults] objectForKey:@"customer_id"],@"SID":[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]};
             
             [self callAddToWishListService:post_dict];
             

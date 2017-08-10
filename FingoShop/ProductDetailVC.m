@@ -1066,8 +1066,10 @@ AppDelegate *apdl_product;
         {
             
             
-            [self callAddToWishListService:[productDetailsDict objectForKey:@"entity_id"]];
+          //  [self callAddToWishListService:[productDetailsDict objectForKey:@"entity_id"]];
+            NSDictionary *post_dict = @{@"product":[productDetailsDict objectForKey:@"id"],@"customer_id":[[NSUserDefaults standardUserDefaults] objectForKey:@"customer_id"],@"SID":[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]};
             
+            [self callAddToWishListService:post_dict];
             
         }
     
@@ -1085,18 +1087,28 @@ AppDelegate *apdl_product;
     }
 }
 
--(void)callAddToWishListService:(NSString *)ProductId
+//-(void)callAddToWishListService:(NSString *)ProductId
+//{
+//    [APPDELEGATE showCustomLoader:self]; // Progress
+//    
+//    
+//    NSString * post = [[NSString alloc]initWithFormat:@"SID=%@&product=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"],ProductId];
+//    
+//    
+//    serviceconn = [[ServiceConnection alloc]init];
+//    serviceconn.delegate = self;
+//    ServiceType=@"AddToWishList";
+//    [serviceconn AddToWishList:post];
+//}
+
+-(void)callAddToWishListService:(NSDictionary *)postDict
 {
     [APPDELEGATE showCustomLoader:self]; // Progress
-    
-    
-    NSString * post = [[NSString alloc]initWithFormat:@"SID=%@&product=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"],ProductId];
-    
     
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"AddToWishList";
-    [serviceconn AddToWishList:post];
+    [serviceconn AddToWishList:postDict];
 }
 
 - (IBAction)plusBtnAction:(id)sender {
