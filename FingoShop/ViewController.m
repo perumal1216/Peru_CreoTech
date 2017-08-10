@@ -715,7 +715,7 @@ AppDelegate *apdl;
     NSString *selectedItemID;
     //NSString *selectedItemType;
     NSDictionary *category_dict = [_top_categoriesArray objectAtIndex:index];
-    selectedItemID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"category_id"]];
+    selectedItemID = [NSString stringWithFormat:@"%@",[category_dict objectForKey:@"id"]];
    // selectedItemType = @"Womens";
     NSLog(@"%@",selectedItemID);
     _WSConstScreenValue = @"Home";

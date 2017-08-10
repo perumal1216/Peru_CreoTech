@@ -768,11 +768,19 @@ AppDelegate *apdl_detail;
     NSArray *optionsArray = [[resultsDict valueForKeyPath:@"avaulable_filters.vesbrand"] valueForKey:@"options"];
     
     */
-
-    NSMutableArray *productsarr=[resultsDict objectForKey:@"records"];
     
-    _itemsListArr=[[NSMutableArray alloc]init];
-    [_itemsListArr addObjectsFromArray:productsarr];
+    if ([resultsDict objectForKey:@"records"] == [NSNull null]) {
+       
+        
+      
+    }
+    else{
+         NSMutableArray *productsarr=[resultsDict objectForKey:@"records"];
+        _itemsListArr=[[NSMutableArray alloc]init];
+        [_itemsListArr addObjectsFromArray:productsarr];
+    }
+    
+   
    
     
     

@@ -183,8 +183,8 @@ AppDelegate *apdl_detail2;
   //  [self callProductDetailsService:<#(NSString *)#>]
     
     
-    [self callProductDetailsService:[[WishListArr objectAtIndex:indexPath.row] objectForKey:@"entity_id"]];
-    selectedProduct = [WishListArr objectAtIndex:indexPath.row];
+    [self callProductDetailsService:[[WishListArr objectAtIndex:indexPath.row] objectForKey:@"id"]];
+    selectedProduct = [[WishListArr objectAtIndex:indexPath.row] objectForKey:@"variant"];
     NSLog(@"selected Product is %@",selectedProduct);
 
 }
@@ -367,7 +367,7 @@ AppDelegate *apdl_detail2;
 
 -(void)btnLikeClicked:(UIButton*)sender {
     NSMutableDictionary *wishListDict=[WishListArr objectAtIndex:sender.tag];
-    NSString *productID = [wishListDict objectForKey:@"item_id"];
+    NSString *productID = [wishListDict objectForKey:@"id"];
     [self callRemoveFromWishListService:productID];
 }
 

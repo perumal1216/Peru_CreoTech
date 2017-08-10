@@ -286,9 +286,7 @@
 
 -(void)GetSearchList:(NSString *)Post
 {
-    //https://www.fingoshop.com/restconnect/search/searchnew?q=fidget
-    // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/search?q=%@&SID=%@",Post,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
-   // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/search/searchnew?q=%@",Post];
+
      NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apisearch/search?q=%@",Post];
     NSString* urlText = url_Method;
 //    [string stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]]
@@ -296,12 +294,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
                                NSUTF8StringEncoding];
     //[urlText stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLHostAllowedCharacterSet]];
     NSURL *main_url = [NSURL URLWithString: urlTextEscaped];
-    NSLog(@"urlText:        '%@'", urlText);
-    NSLog(@"urlTextEscaped: '%@'", urlTextEscaped);
-    NSLog(@"url:            '%@'", main_url);
-    
-
-   // NSURL *url=[NSURL URLWithString:main_url];
+    // NSURL *url=[NSURL URLWithString:main_url];
     
     [self startRequestForUrl:main_url];
     
@@ -373,7 +366,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 -(void)RemoveFromWishList:(NSString *)productId
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/wishlist/removewishlistitem?id=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apiwishlist/removewishlistitem?id=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -462,8 +455,8 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/getCustomerOrders?page=1&limit=10&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
-    
+    //NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/getCustomerOrders?page=1&limit=10&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/getCustomerOrders?page=1&limit=5&SID=%@&customer_id=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"],[[NSUserDefaults standardUserDefaults] objectForKey:@"customer_id"]];
     NSURL *url=[NSURL URLWithString:url_Method];
     
     [self startRequestForUrl:url];
@@ -472,7 +465,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 -(void)GetPointsBalance
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/getPointBalance?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicart/getPointBalance?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -585,7 +578,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 
 -(void)RemoveItemFromcart:(NSString *)post
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/remove?cart_item_id=%ld&SID=%@",(long)[post integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicart/remove?cart_item_id=%ld&SID=%@",(long)[post integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -594,7 +587,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 }
 -(void)ApplyCoupon:(NSString *)post
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/postCoupon?coupon_code=%@&SID=%@",post,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicart/postCoupon?coupon_code=%@&SID=%@",post,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -603,7 +596,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 }
 -(void)UpdateCartWithItemId:(NSString *)itemId andQuantity:(NSString *)qty
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/cart/update?cart_item_id=%ld&qty=%ld&SID=%@",(long)[itemId integerValue],(long)[qty integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicart/update?cart_item_id=%ld&qty=%ld&SID=%@",(long)[itemId integerValue],(long)[qty integerValue],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
