@@ -325,7 +325,7 @@ AppDelegate *apdl_detail;
         navigationFlag = @"";
         
         selectedProduct = [_itemsListArr objectAtIndex:indexPath.row];
-        [self callVirtualDetailsService:[selectedProduct objectForKey:@"entity_id"]];
+        [self callVirtualDetailsService:[selectedProduct objectForKey:@"id"]];
         
         NSData *dataSave = [NSKeyedArchiver archivedDataWithRootObject:selectedProduct];
         [[NSUserDefaults standardUserDefaults] setObject:dataSave forKey:@"SelectedProduct"];

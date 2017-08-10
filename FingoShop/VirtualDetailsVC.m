@@ -59,7 +59,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(imageEditingMethod:) name:@"virtualShopping" object:nil];
     
     self.popUpImageView.backgroundColor = [UIColor whiteColor];
-    //[[UIColor blackColor]colorWithAlphaComponent:0.5];
+    [[UIColor blackColor]colorWithAlphaComponent:0.5];
 
     
    }
@@ -117,7 +117,7 @@
     
     
     [self.movingView setCenter:newCenter];
-    //    [self.bagRoundImage addSubview:self.movingView];
+   [self.bagRoundImage addSubview:self.movingView];
     
 }
 -(void)handlePinchWithGestureRecognizer:(UIPinchGestureRecognizer *)pinchGestureRecognizer{
@@ -356,7 +356,7 @@
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:@"SelectedProduct"];
         selectedProduct = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         
-        [self callProductDetailsService:[NSString stringWithFormat:@"%@",[selectedProduct objectForKey:@"entity_id"]]];
+        [self callProductDetailsService:[NSString stringWithFormat:@"%@",[selectedProduct objectForKey:@"id"]]];
     }
 
 }

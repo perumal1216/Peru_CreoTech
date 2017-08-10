@@ -236,8 +236,8 @@
     }
     
     
-    [SVProgressHUD dismiss];
-    
+   // [SVProgressHUD dismiss];
+    [APPDELEGATE removeCustomLoader:self];
 }
 
 
