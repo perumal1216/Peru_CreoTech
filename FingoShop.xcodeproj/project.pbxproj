@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		06F9C7913C1E5EDFD8526A8A /* libPods-FingoShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43826EB93772A8A5AE4B9CFB /* libPods-FingoShop.a */; };
 		2B0404711DD783CA00AA4CF2 /* GGFullscreenImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B0404701DD783CA00AA4CF2 /* GGFullscreenImageViewController.m */; };
+		2B6DECA71F444AB00030123A /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6DECA61F444AB00030123A /* HockeySDK.framework */; };
+		2B6DECA91F444B780030123A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6DECA81F444B780030123A /* Foundation.framework */; };
+		2B6DECAB1F444B860030123A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6DECAA1F444B860030123A /* Security.framework */; };
+		2B6DECAC1F444B940030123A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D9937B1E529F56002ACBC4 /* UIKit.framework */; };
+		2B6DECAE1F444BAE0030123A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6DECAD1F444BAE0030123A /* libc++.tbd */; };
 		2B72C2531DC304A700A0C232 /* MEMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B72C2521DC304A700A0C232 /* MEMenuViewController.m */; };
 		2B92A2D71F25D150000DC4CF /* CustomLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B92A2D61F25D150000DC4CF /* CustomLoader.m */; };
 		2B92A2DB1F25D177000DC4CF /* flightLoader.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B92A2D91F25D177000DC4CF /* flightLoader.png */; };
@@ -260,6 +265,10 @@
 		2801275BA8D0497BC047C9B3 /* Pods-FingoShopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FingoShopUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FingoShopUITests/Pods-FingoShopUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2B04046F1DD783CA00AA4CF2 /* GGFullscreenImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGFullscreenImageViewController.h; sourceTree = "<group>"; };
 		2B0404701DD783CA00AA4CF2 /* GGFullscreenImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GGFullscreenImageViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2B6DECA61F444AB00030123A /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
+		2B6DECA81F444B780030123A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2B6DECAA1F444B860030123A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2B6DECAD1F444BAE0030123A /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		2B72C2511DC304A700A0C232 /* MEMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMenuViewController.h; sourceTree = "<group>"; };
 		2B72C2521DC304A700A0C232 /* MEMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMenuViewController.m; sourceTree = "<group>"; };
 		2B92A2D51F25D150000DC4CF /* CustomLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLoader.h; sourceTree = "<group>"; };
@@ -654,6 +663,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6DECAE1F444BAE0030123A /* libc++.tbd in Frameworks */,
+				2B6DECAC1F444B940030123A /* UIKit.framework in Frameworks */,
+				2B6DECAB1F444B860030123A /* Security.framework in Frameworks */,
+				2B6DECA91F444B780030123A /* Foundation.framework in Frameworks */,
 				7BB6C11E1D3668190022A7FB /* SystemConfiguration.framework in Frameworks */,
 				7BB6C11C1D3667FC0022A7FB /* AddressBook.framework in Frameworks */,
 				BEA6FBB51D6F8A6B00EB8401 /* libPayU_iOS_CoreSDK.a in Frameworks */,
@@ -670,6 +683,7 @@
 				7BB6C10E1D3665F00022A7FB /* GoogleSignIn.bundle in Frameworks */,
 				7BB6C10D1D3665F00022A7FB /* GoogleAuthUtilities.framework in Frameworks */,
 				06F9C7913C1E5EDFD8526A8A /* libPods-FingoShop.a in Frameworks */,
+				2B6DECA71F444AB00030123A /* HockeySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +769,7 @@
 				C3FF3BC31F1FDECC009D87EF /* wome_fashion.jpg */,
 				C3FF3BC41F1FDECC009D87EF /* specail1.jpg */,
 				4CFF7E511D1E964D006B1780 /* FingoShop */,
+				2B6DECA61F444AB00030123A /* HockeySDK.framework */,
 				7BB6C11D1D3668190022A7FB /* SystemConfiguration.framework */,
 				7BB6C11B1D3667FC0022A7FB /* AddressBook.framework */,
 				7BB6C1191D3667BF0022A7FB /* SafariServices.framework */,
@@ -955,6 +970,9 @@
 		8768B3B2F29D82CBADD47CEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B6DECAD1F444BAE0030123A /* libc++.tbd */,
+				2B6DECAA1F444B860030123A /* Security.framework */,
+				2B6DECA81F444B780030123A /* Foundation.framework */,
 				C3D9937D1E529F71002ACBC4 /* libstdc++.6.tbd */,
 				C3D9937B1E529F56002ACBC4 /* UIKit.framework */,
 				43826EB93772A8A5AE4B9CFB /* libPods-FingoShop.a */,
@@ -2052,8 +2070,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Divya Jogipeta (798M8WG355)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Divya Jogipeta (798M8WG355)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = Y2MC3JYYTY;
@@ -2076,7 +2094,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "93dbf200-8c43-4cec-87f6-5342c6c28353";
+				PROVISIONING_PROFILE = "23667c95-fbee-4519-8951-7cc789f37e67";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2098,8 +2116,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Divya Jogipeta (798M8WG355)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Divya Jogipeta (798M8WG355)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = Y2MC3JYYTY;
@@ -2115,7 +2133,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "93dbf200-8c43-4cec-87f6-5342c6c28353";
+				PROVISIONING_PROFILE = "23667c95-fbee-4519-8951-7cc789f37e67";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2127,13 +2145,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Divya Jogipeta (798M8WG355)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Divya Jogipeta (798M8WG355)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
 				DEVELOPMENT_TEAM = Y2MC3JYYTY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FingoShop",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FingoShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -2148,8 +2167,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingoshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "93dbf200-8c43-4cec-87f6-5342c6c28353";
-				PROVISIONING_PROFILE_SPECIFIER = Fingo_Dev;
+				PROVISIONING_PROFILE = "23667c95-fbee-4519-8951-7cc789f37e67";
+				PROVISIONING_PROFILE_SPECIFIER = Fingo_Hockey_Distribution;
 			};
 			name = Debug;
 		};
@@ -2159,13 +2178,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Divya Jogipeta (798M8WG355)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Divya Jogipeta (798M8WG355)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
 				DEVELOPMENT_TEAM = Y2MC3JYYTY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FingoShop",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = FingoShop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
@@ -2180,8 +2200,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingoshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "93dbf200-8c43-4cec-87f6-5342c6c28353";
-				PROVISIONING_PROFILE_SPECIFIER = Fingo_Dev;
+				PROVISIONING_PROFILE = "23667c95-fbee-4519-8951-7cc789f37e67";
+				PROVISIONING_PROFILE_SPECIFIER = Fingo_Hockey_Distribution;
 			};
 			name = Release;
 		};

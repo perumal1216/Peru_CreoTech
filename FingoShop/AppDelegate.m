@@ -12,6 +12,7 @@
 #define tagForCustomLoader          9100
 #import "CustomLoader.h"
 #import "FingoShopTags.pch"
+#import <HockeySDK/HockeySDK.h>
 @interface AppDelegate ()
 
 @end
@@ -23,6 +24,13 @@
     
     
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    //*********** Hockey app Starts Here **************
+    
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"982551b3f8e44e1b9b87da0a5f303c13"];
+    // Do some additional configuration if needed here
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator authenticateInstallation]; // This line is obsolete in the crash only builds
    
     
     //*********** Internet Starts Here **************
