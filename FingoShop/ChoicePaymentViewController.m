@@ -691,20 +691,23 @@ heightForFooterInSection:(NSInteger)section {
     else if ([ServiceType isEqualToString:@"ResendOTP"])
     {
         if ([[jsonDict objectForKey:@"code"] integerValue] == 1) {
+        
             
-            alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
-            
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            dispatch_async(dispatch_get_main_queue(), ^{
                 
+                alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
                 
-                self.verify_view.hidden = NO;
-                self.resendTelephoneL.hidden = NO;
-                self.resendTelephoneL.text = [NSString stringWithFormat:@"OTP resent to %@",[shippingdict objectForKey:@"telephone"]];
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                    
+                    self.verify_view.hidden = NO;
+                    self.resendTelephoneL.hidden = NO;
+                    self.resendTelephoneL.text = [NSString stringWithFormat:@"OTP resent to %@",[shippingdict objectForKey:@"telephone"]];
+                    
+                }]];
                 
-            }]];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
-            
+                [self presentViewController:alertController animated:YES completion:nil];
+            });
             
         }
         else

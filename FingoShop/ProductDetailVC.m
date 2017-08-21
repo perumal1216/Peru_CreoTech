@@ -306,9 +306,9 @@ AppDelegate *apdl_product;
     self.navigationItem.rightBarButtonItems =
     [NSArray arrayWithObjects:AP_barbutton2,AP_barbutton4,AP_barbutton3,nil];
     
-    
-    [self callProductGalleryService:[_selectedProductDict objectForKey:@"entity_id"]];
-    _descriptionTextView.text = [_selectedProductDict objectForKey:@"description"];
+    NSDictionary *dict_obj = [_selectedProductDict objectForKey:@"product"];
+    [self callProductGalleryService:[dict_obj objectForKey:@"entity_id"]];
+    _descriptionTextView.text = [dict_obj objectForKey:@"description"];
     
     UITapGestureRecognizer *oneTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imagehandleOneTap:)];
     [oneTap setDelegate:self];
