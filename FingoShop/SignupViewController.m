@@ -224,7 +224,7 @@
 
        // if ([[NSString stringWithFormat:@"%@",[[array objectAtIndex:0] objectForKey:@"status"]] isEqualToString:@"1"]
            // )
-        if ([[NSString stringWithFormat:@"%@",[dictObj objectForKey:@"status"]] isEqualToString:@"1"])
+        if (![[NSString stringWithFormat:@"%@",[dictObj objectForKey:@"code"]] isEqualToString:@"-1"])
         {
           
             /*alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[dictObj objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];

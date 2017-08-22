@@ -958,11 +958,11 @@ AppDelegate *apdl_detail;
 
 #pragma mark - ServiceConnection Delegate Methods
 
-- (void)jsonData:(NSDictionary *)jsonDict
+- (void)jsonData:(NSDictionary *)jsonObjt
 {
-    NSLog(@"JSON Dict is:%@",jsonDict);
+    NSLog(@"JSON Dict is:%@",jsonObjt);
     
-    
+    NSDictionary *jsonDict = [jsonObjt objectForKey:@"product"];
     
     if ([serviceType isEqualToString:@"RemoveFromWishList"]) {
         

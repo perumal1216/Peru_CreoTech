@@ -23,6 +23,7 @@
 #import "TopBarNavigationVC.h"
 #import "UIViewController+HeaderContainer.h"
 #import "ProductDetailVC.h"
+#import "ProductDetailNewVC.h"
 #import "FingoShopTags.pch"
 
 @interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource,UICollectionViewDelegateFlowLayout>
@@ -1596,8 +1597,9 @@ AppDelegate *apdl;
     
     else if ([ServiceType isEqualToString:@"Details"]) {
         
+        NSDictionary *productDict = [jsonDict objectForKey:@"product"];
         
-        _selectedProductDict = [jsonDict mutableCopy];
+        _selectedProductDict = [productDict mutableCopy];
         
         
         NSArray *attributeArr = (NSArray *)[_selectedProductDict objectForKey:@"configurable_attributes"];
@@ -1613,9 +1615,10 @@ AppDelegate *apdl;
         if ([attributeArr count]>0) {
            // [self performSegueWithIdentifier:@"ProductDetail1" sender:self];
             
-            UIViewController *productDetailsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductDetailNewVC"];
-            
-            [self.navigationController pushViewController:productDetailsVC animated:YES];
+            ProductDetailNewVC *productDetailsNewVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductDetailNewVC"];
+            productDetailsNewVC.productDetailsDict = [selectedProduct mutableCopy];
+            productDetailsNewVC.productDetailsDict1 = [_selectedProductDict mutableCopy];
+            [self.navigationController pushViewController:productDetailsNewVC animated:YES];
             
         }
         else {

@@ -257,13 +257,37 @@
     
     [APPDELEGATE removeCustomLoader:self];
     if (jsonDict) {
-        _searchFiltersProductsArray = [jsonDict objectForKey:@"records"];
-        if ([_searchFiltersProductsArray count] > 0) {
-            UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
-            _WSConstScreenValue = @"Search";
-            [self.navigationController pushViewController:vc animated:YES];
+        
+        if([NSNull null] != [jsonDict objectForKey:@"records"]) {
+            
+            _searchFiltersProductsArray = [jsonDict objectForKey:@"records"];
+            if ([_searchFiltersProductsArray count] > 0) {
+                UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+                _WSConstScreenValue = @"Search";
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                UIAlertController * alert = [UIAlertController
+                                             alertControllerWithTitle:@"FIGOSHOP"
+                                             message:@"Please Specify a Product"
+                                             preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* okButton = [UIAlertAction
+                                           actionWithTitle:@"ok"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action) {
+                                               //Handle your yes please button action here
+                                           }];
+                
+                
+                [alert addAction:okButton];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+
+            
         }
-        else {
+        else{
+            
             UIAlertController * alert = [UIAlertController
                                          alertControllerWithTitle:@"FIGOSHOP"
                                          message:@"Please Specify a Product"
@@ -280,6 +304,24 @@
             [alert addAction:okButton];
             [self presentViewController:alert animated:YES completion:nil];
         }
+}
+    else{
+        
+        UIAlertController * alert = [UIAlertController
+                                     alertControllerWithTitle:@"FIGOSHOP"
+                                     message:@"Please Specify a Product"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* okButton = [UIAlertAction
+                                   actionWithTitle:@"ok"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       //Handle your yes please button action here
+                                   }];
+        
+        
+        [alert addAction:okButton];
+        [self presentViewController:alert animated:YES completion:nil];
     }
     
     
