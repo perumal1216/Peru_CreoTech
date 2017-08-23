@@ -12,7 +12,7 @@
 -(void)displayContentController:(UIViewController *)content
 {
   [self addChildViewController:content];
-  [content.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 130)];
+  [content.view setFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 150)];
     [self.view addSubview:content.view];
     [content didMoveToParentViewController:self];
     

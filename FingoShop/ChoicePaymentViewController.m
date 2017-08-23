@@ -650,20 +650,24 @@ heightForFooterInSection:(NSInteger)section {
     {
         if ([[jsonDict objectForKey:@"code"] integerValue] == 1) {
             
-            alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
+                
+                [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    
+                    
+                    self.verify_view.hidden = YES;
+                    
+                    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:0 inSection:1];
+                    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+                    [_tblPayment reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationNone];
+                    
+                }]];
+                
+                [self presentViewController:alertController animated:YES completion:nil];
+            });
             
-            [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                
-                
-                self.verify_view.hidden = YES;
-                
-                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:0 inSection:1];
-                NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
-                [_tblPayment reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationNone];
-                
-            }]];
-            
-            [self presentViewController:alertController animated:YES completion:nil];
             
             
         }
