@@ -18,7 +18,7 @@
 -(void)submitPayUResponse:(NSString *)Post
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/processPayUResponse?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicheckout/processPayUResponse?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -42,7 +42,7 @@
 -(void)GetShipmentDetails
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/getShippingRates?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicheckout/getShippingRates?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -54,7 +54,7 @@
 -(void)SaveShipmentDetails:(NSString *)method
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/saveShipping?shipping_method=%@&SID=%@",method,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicheckout/saveShipping?shipping_method=%@&SID=%@",method,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -64,7 +64,7 @@
 }
 
 -(void)getPaymentMethods {
-    NSString *url_Method=[NSString stringWithFormat:@"http://swadeshcabs.com/restconnect/checkout/getPaymentMethods?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"http://swadeshcabs.com/restconnect/apicheckout/getPaymentMethods?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -75,7 +75,7 @@
 -(void)savePayment:(NSString *)paymentMethod
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/savePayment?method=%@&SID=%@",paymentMethod,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicheckout/savePayment?method=%@&SID=%@",paymentMethod,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     url_Method = [url_Method stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -108,8 +108,9 @@
 
 -(void)submitOrder
 {
-    
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/submitOrder?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+   
+   // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/submitOrder?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicheckout/placeorder?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
@@ -303,7 +304,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 -(void)GetOffersList
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apioffer/getNotification"];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apioffer/offers"];
     //[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/offers?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
@@ -331,6 +332,8 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 {
     
     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apiwishlist/getWishlist?%@",Post];
+    
+   // https://www.fingoshop.com/restconnect/apiwishlist/getWishlist?SID=1hpmtik07c09ihnr1ppn2bpoe4
     
     //[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]
    // else if ([[NSUserDefaults standardUserDefaults] stringForKey:@"email"] && ![[[NSUserDefaults standardUserDefaults] stringForKey:@"email"] isEqualToString:@""]) {
@@ -367,7 +370,7 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 {
     
     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apiwishlist/removewishlistitem?id=%@&SID=%@",productId,[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
-
+    
     NSURL *url=[NSURL URLWithString:url_Method];
     
     [self startRequestForUrl:url];
@@ -653,6 +656,42 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
         else if(error != nil)
             [self.delegate errorMessage:@"Some thing wrong! Please try again."];
     }];
+   
+   
+    
+  /*  NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      // ...
+                                      NSLog(@"%@",response);
+                                      NSDictionary * jsonDict;
+                                      
+                                      
+                                      
+                                      if (data) {
+                                          jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                      }
+                                      
+                                      if ([data length] > 0 && error == nil)
+                                          [self.delegate jsonData:jsonDict];
+                                      else if ([data length] == 0 && error == nil)
+                                          [self.delegate errorMessage:@"No Data"];
+                                      else if (error != nil && error.code == kCFURLErrorTimedOut)
+                                          [self.delegate errorMessage:@"The Connection Timed Out!"];
+                                      else if (error != nil && error.code == kCFURLErrorCannotConnectToHost)
+                                          [self.delegate errorMessage:@"No Internet Connection"];
+                                      else if(error != nil)
+                                          [self.delegate errorMessage:@"Some thing wrong! Please try again."];
+                                      
+                                      
+                                      
+                                      
+                                  }];
+    
+    [task resume];
+    
+    */
     
 }
 
@@ -697,6 +736,34 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
             else if(error != nil)
                 [self.delegate errorMessage:@"Some thing wrong! Please try again."];
         }];
+        
+       
+    
+ /*   NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request
+                                            completionHandler:
+                                  ^(NSData *data, NSURLResponse *response, NSError *error) {
+                                      // ...
+                                      NSLog(@"%@",response);
+                                      NSDictionary * jsonDict;
+                                      if (data) {
+                                          jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                                      }
+                                      
+                                      if ([data length] > 0 && error == nil)
+                                          [self.delegate jsonData:jsonDict];
+                                      else if ([data length] == 0 && error == nil)
+                                          [self.delegate errorMessage:@"No Data"];
+                                      else if (error != nil && error.code == kCFURLErrorTimedOut)
+                                          [self.delegate errorMessage:@"The Connection Timed Out!"];
+                                      else if (error != nil && error.code == kCFURLErrorCannotConnectToHost)
+                                          [self.delegate errorMessage:@"No Internet Connection"];
+                                      else if(error != nil)
+                                          [self.delegate errorMessage:@"Some thing wrong! Please try again."];                                  }];
+    
+    [task resume];
+  
+  */
     
 }
 

@@ -238,7 +238,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    _WSConstSelectedCategoryID = [[offersArray objectAtIndex:indexPath.section] objectForKey:@"categoryid"];
+    _WSConstSelectedCategoryID = [[offersArray objectAtIndex:indexPath.section] objectForKey:@"id"];
     _WSConstScreenValue = @"Offers";
     UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
     [self.navigationController pushViewController:vc animated:YES];

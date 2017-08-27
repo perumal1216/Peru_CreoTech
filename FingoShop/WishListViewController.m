@@ -183,8 +183,9 @@ AppDelegate *apdl_detail2;
   //  [self callProductDetailsService:<#(NSString *)#>]
     
     
-    [self callProductDetailsService:[[WishListArr objectAtIndex:indexPath.row] objectForKey:@"id"]];
-    selectedProduct = [[WishListArr objectAtIndex:indexPath.row] objectForKey:@"variant"];
+  selectedProduct = [[WishListArr objectAtIndex:indexPath.row] objectForKey:@"variant"];
+    [self callProductDetailsService:[NSString stringWithFormat:@"%@",[selectedProduct objectForKey:@"entity_id"]]];
+    
     NSLog(@"selected Product is %@",selectedProduct);
 
 }
@@ -412,9 +413,11 @@ AppDelegate *apdl_detail2;
 
 -(void)callGetWishListService
 {
-    NSString * post = [[NSString alloc]initWithFormat:@"customer_id=%@&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"customer_id"],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+   // NSString * post = [[NSString alloc]initWithFormat:@"customer_id=%@&SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"customer_id"],[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    
+    NSString * post = [[NSString alloc]initWithFormat:@"SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
-     [APPDELEGATE showCustomLoader:self];
+    [APPDELEGATE showCustomLoader:self];
     serviceType=@"GetWishList";
     serviceConn = [[ServiceConnection alloc]init];
     serviceConn.delegate = self;

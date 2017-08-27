@@ -617,7 +617,7 @@ heightForFooterInSection:(NSInteger)section {
     {
         if ([[jsonDict objectForKey:@"code"] integerValue] == 1) {
             
-            alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
+            alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Your OTP has been sent to your mobile no." preferredStyle:UIAlertControllerStyleAlert];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                 
@@ -699,7 +699,7 @@ heightForFooterInSection:(NSInteger)section {
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
+                alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Your OTP has been sent to your mobile no." preferredStyle:UIAlertControllerStyleAlert];
                 
                 [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     

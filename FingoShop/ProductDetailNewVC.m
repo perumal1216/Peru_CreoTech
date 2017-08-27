@@ -213,7 +213,7 @@ AppDelegate *apdl_product1;
     else
     {
         _lblAvailability.text=@"Sold out";
-        
+        _lblAvailability.textColor = [UIColor redColor];
     }
 
     

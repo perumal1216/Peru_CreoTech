@@ -351,7 +351,9 @@ AppDelegate *apdl_menu;
     
 
     
-    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/categoriesmenu?SID=%@",sessionid];
+    //NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/categoriesmenu?SID=%@",sessionid];
+    NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/menu/navigation"];
+    
     
     NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -371,7 +373,7 @@ AppDelegate *apdl_menu;
     
     
     //NSArray *arr=[Dic allKeys];
-    NSArray *arrs=[Dic allValues];
+    NSArray *arrs=[Dic valueForKey:@"navigation"];
     
     
     NSMutableDictionary *ddd1=[[NSMutableDictionary alloc]init];
@@ -382,7 +384,8 @@ AppDelegate *apdl_menu;
         
         NSMutableDictionary *chidrendict=[mdict objectForKey:@"children"];
         
-        NSArray *childrenvalues=[chidrendict allValues];
+        NSArray *childrenvalues=[mdict objectForKey:@"children"];
+        //[chidrendict allValues];
         NSMutableArray *childrenMain=[[NSMutableArray alloc] init];
         
         
@@ -404,7 +407,8 @@ AppDelegate *apdl_menu;
                 }
                 else
                 {
-                    NSArray *ssdarr=[kdict allValues];
+                    NSArray *ssdarr=[ckdict objectForKey:@"children"];
+                    //[kdict allValues];
                     NSMutableArray *sdict=[[NSMutableArray alloc] init];
                     
                     for (int j=0; j< ssdarr.count; j++) {
@@ -442,8 +446,9 @@ AppDelegate *apdl_menu;
         
     
         
-        NSArray *childrenvalues=[chidrendict allValues];
-        NSLog(@"childrenValues :%@", childrenvalues);
+        NSArray *childrenvalues=[mdict objectForKey:@"children"];
+        //[chidrendict allValues];
+       // NSLog(@"childrenValues :%@", childrenvalues);
         NSMutableArray *childrenMain=[[NSMutableArray alloc] init];
         
         

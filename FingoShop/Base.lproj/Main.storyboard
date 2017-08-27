@@ -1026,8 +1026,8 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="mPL-Yh-IPN">
-                                <rect key="frame" x="0.0" y="100" width="320" height="354"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="334"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.87058823529999996" green="0.90588235289999997" blue="0.92549019610000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="5" id="Pc2-ua-fz9">
                                     <size key="itemSize" width="152" height="300"/>
@@ -3362,7 +3362,7 @@
                                         <rect key="frame" x="0.0" y="28" width="300" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G4D-TC-o0Y" id="LFj-SQ-xx3">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="39.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Payment Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="okz-qY-B04">
@@ -3382,7 +3382,7 @@
                                         <rect key="frame" x="0.0" y="68" width="300" height="246"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m4s-nl-pvX" id="jky-ta-9QW">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="245.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="246"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RlE-8w-7hn">
@@ -6610,11 +6610,11 @@ Tk9USUZJQ0FUSU9OUwM
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="94b-Jx-gqs"/>
-        <segue reference="iuI-QZ-t40"/>
-        <segue reference="SDP-1y-6Vp"/>
-        <segue reference="asR-GW-FGx"/>
-        <segue reference="eVl-oM-R9M"/>
         <segue reference="cNk-id-wgS"/>
+        <segue reference="asR-GW-FGx"/>
+        <segue reference="iuI-QZ-t40"/>
+        <segue reference="94b-Jx-gqs"/>
+        <segue reference="SDP-1y-6Vp"/>
+        <segue reference="eVl-oM-R9M"/>
     </inferredMetricsTieBreakers>
 </document>

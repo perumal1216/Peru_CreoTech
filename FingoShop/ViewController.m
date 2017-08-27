@@ -337,7 +337,7 @@ AppDelegate *apdl;
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES];
-    self.mainScrollView.contentSize=CGSizeMake(self.mainScrollView.bounds.size.width, 2600);
+    self.mainScrollView.contentSize=CGSizeMake(self.mainScrollView.bounds.size.width, 2350);
     
   /*  CGSize pagesScrollViewSize = self.banner_Scroll.frame.size;
     CGSize pagesScrollViewSize1 = self.banner_Scroll1.frame.size;

@@ -761,9 +761,24 @@
         
     }
     else if ([serviceType isEqualToString:@"GetAddressInfo"]) {
-        [addressListArray removeAllObjects];
-        addressListArray=[jsonDict mutableCopy];
-        [_tbladdress reloadData];
+        
+      /*  if ([[jsonDict objectForKey:@"status"] isEqualToString:@"FAIL"]) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Fingoshop" message:[jsonDict objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
+           
+        }
+        else {
+      */
+            [addressListArray removeAllObjects];
+            addressListArray=[jsonDict mutableCopy];
+            [_tbladdress reloadData];
+       // }
+
+       
         
         
     }
