@@ -464,13 +464,13 @@ heightForFooterInSection:(NSInteger)section {
 }
 
 
--(void)callsubmitOrder {
+-(void)callsubmitOrder :(NSDictionary *)postDict {
    // [SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress
     [APPDELEGATE showCustomLoader:self];
     serviceconn = [[ServiceConnection alloc]init];
     serviceconn.delegate = self;
     ServiceType=@"SubmitOrder";
-    [serviceconn submitOrder];
+    [serviceconn submitOrder:postDict];
     
 }
 
@@ -771,8 +771,26 @@ heightForFooterInSection:(NSInteger)section {
                 }
            
            */
+                 //   selectedPaymentType = @"Cash on Delivery";
+                  //  selectedPaymentMethod = @"cashondelivery";
 
-            [self callsubmitOrder];
+        //{"shipping_type":"dlastmile_dlastmile","payment_type":"cashondelivery","address":{"name":"Jignesh Fdafds","street1":"Plot No 96\/A Sector 19","street2":"Opp. Ex CM Bunglow","city":"Gandhinagar","postcode":"382021","email":"jc.mca1985@gmail.com","telephone":"7359445570","firstname":"Jignesh","lastname":"Fdafds"},"note":""}
+                    
+                    if (_SelectedaddressDict) {
+                        
+                        NSString *post = [NSString stringWithFormat:@"email=%@&firstname=%@&lastname=%@&street=%@&city=%@&postcode=%@&telephone=%@&country_id=%@&region=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"email"],[_SelectedaddressDict objectForKey:@"firstname"],[_SelectedaddressDict objectForKey:@"lastname"],[_SelectedaddressDict objectForKey:@"street"],[_SelectedaddressDict objectForKey:@"city"],[_SelectedaddressDict objectForKey:@"postcode"],[_SelectedaddressDict objectForKey:@"telephone"],[_SelectedaddressDict objectForKey:@"country_id"],[_SelectedaddressDict objectForKey:@"region"]];
+                        
+                        NSDictionary *addressDict = @{@"email":[[NSUserDefaults standardUserDefaults] objectForKey:@"email"],@"firstname":[_SelectedaddressDict objectForKey:@"firstname"],@"lastname":[_SelectedaddressDict objectForKey:@"lastname"],@"street":[_SelectedaddressDict objectForKey:@"street"],@"city":[_SelectedaddressDict objectForKey:@"city"],@"postcode":[_SelectedaddressDict objectForKey:@"postcode"],@"telephone":[_SelectedaddressDict objectForKey:@"telephone"],@"country_id":[_SelectedaddressDict objectForKey:@"country_id"],@"region":[_SelectedaddressDict objectForKey:@"region"]};
+                        
+                         NSDictionary *post_dict = @{@"shipping_type":@"Cash on Delivery",@"payment_type":@"cashondelivery",@"address":addressDict};
+                        
+                        [self callsubmitOrder:post_dict];
+                    }
+               
+                    
+                    
+                    
+            
         }
     }
     }
@@ -799,6 +817,7 @@ heightForFooterInSection:(NSInteger)section {
         }
         else
         {
+             [APPDELEGATE removeCustomLoader:self];
             UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:@"Somthing went wrong,call customer care." preferredStyle:UIAlertControllerStyleAlert];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
@@ -837,6 +856,7 @@ heightForFooterInSection:(NSInteger)section {
                 
             }
         else{
+             [APPDELEGATE removeCustomLoader:self];
             UIAlertController*  alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[NSString stringWithFormat:@"%@",[jsonDict objectForKey:@"message"]] preferredStyle:UIAlertControllerStyleAlert];
             
             [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

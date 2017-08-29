@@ -47,7 +47,7 @@
 -(void)cashOnDeliveyAvailability:(NSString *)post;
 -(void)GetMainBannerImages;
 -(void)savePayment:(NSString *)paymentMethod;
--(void)submitOrder;
+-(void)submitOrder:(NSDictionary *)postDict;
 -(void)SaveAddress:(NSString *)post;
 -(void)GetShipmentDetails;
 -(void)SaveShipmentDetails:(NSString *)method;

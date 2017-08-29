@@ -16,6 +16,7 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 #import "FingoShopTags.pch"
+#import "Constants.h"
 
 @interface ShippingDetailsViewController ()
 
@@ -454,9 +455,9 @@
 -(void)continueBtnClicked:(UIButton*)sender
 {
       addressDict=[addressListArray objectAtIndex:selectedIndexVal];
-     
+     _SelectedaddressDict = [addressListArray objectAtIndex:selectedIndexVal];
      if (addressDict) {
-     
+    
      NSString *post = [NSString stringWithFormat:@"email=%@&firstname=%@&lastname=%@&street=%@&city=%@&postcode=%@&telephone=%@&country_id=%@&region=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"email"],[addressDict objectForKey:@"firstname"],[addressDict objectForKey:@"lastname"],[addressDict objectForKey:@"street"],[addressDict objectForKey:@"city"],[addressDict objectForKey:@"postcode"],[addressDict objectForKey:@"telephone"],[addressDict objectForKey:@"country_id"],[addressDict objectForKey:@"region"]];
      [self callAddressSaveService:post];
      }
@@ -762,7 +763,7 @@
     }
     else if ([serviceType isEqualToString:@"GetAddressInfo"]) {
         
-      /*  if ([[jsonDict objectForKey:@"status"] isEqualToString:@"FAIL"]) {
+      if (![jsonDict isKindOfClass:[NSArray class]]) {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Fingoshop" message:[jsonDict objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -772,11 +773,11 @@
            
         }
         else {
-      */
+      
             [addressListArray removeAllObjects];
             addressListArray=[jsonDict mutableCopy];
             [_tbladdress reloadData];
-       // }
+     }
 
        
         

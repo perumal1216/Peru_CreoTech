@@ -1474,10 +1474,7 @@ AppDelegate *apdl;
         
         return;
     }
-    
-   // NSString *sessionid=[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"];
-    
-   // NSString *url_str1=[NSString stringWithFormat:@"https://www.fingoshop.com/index.php/restconnect/index/getHomePageCategories?SID=%@",sessionid];
+
   //  https://www.fingoshop.com/restconnect/apihomepage/home
     NSString *url_str1= @"https://www.fingoshop.com/restconnect/apihomepage/home";
     //NSString *url_str = [url_str1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];

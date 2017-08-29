@@ -32,6 +32,8 @@ NSString* _backNavigationName;
 NSString* _backNavigationName1;
 NSString* _backNavigationSortOption;
 
+NSMutableDictionary* _SelectedaddressDict;
+
 @implementation Constants
 
 @end

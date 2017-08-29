@@ -106,16 +106,16 @@
     
 }
 
--(void)submitOrder
+-(void)submitOrder:(NSDictionary *)postDict
 {
-   
-   // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/checkout/submitOrder?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    
     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicheckout/placeorder?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     
-    [self startRequestForUrl:url];
-    
+   // [self startRequestForUrl:url];
+    [self postRequestForUrlRawdata:url postBody:postDict];
+
     
 }
 
