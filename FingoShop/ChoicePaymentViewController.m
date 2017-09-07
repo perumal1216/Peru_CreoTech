@@ -354,7 +354,7 @@ heightForFooterInSection:(NSInteger)section {
 
         NSString *url_Method = @"https://www.fingoshop.com/restconnect/apicheckout/verify";
        // NSString * poststr = [[NSString alloc]initWithFormat:@"otp=%@",_enterOtpTxt.text];
-        NSDictionary *post_dict = @{@"otp":_enterOtpTxt.text};
+        NSDictionary *post_dict = @{@"otp":_enterOtpTxt.text,@"mobile":_telephoneL.text};
         [self callMobileverify:url_Method type:@"VerifyOTP"post_params:post_dict];
         
     }
