@@ -1078,7 +1078,7 @@ AppDelegate *apdl_detail;
                 NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
                 [notificationCenter postNotificationName:@"virtualShopping"
                                                   object:nil
-                                                userInfo:jsonDict];
+                                                userInfo:jsonObjt];
                 
                 [self.navigationController popToViewController:controller animated:YES];
                 

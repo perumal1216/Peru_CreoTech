@@ -246,13 +246,18 @@
              [dict setObject:[NSString stringWithFormat:@"%@",_txtName.text]forKey:@"fname"];
              [dict setObject:[NSString stringWithFormat:@"%@",_txt_lastname.text]forKey:@"lname"];
             
-            OTPViewController *otpVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"OTPViewController"];
+           /* OTPViewController *otpVC  = [self.storyboard instantiateViewControllerWithIdentifier:@"OTPViewController"];
             otpVC.postString = post;
             otpVC.postDict = dict;
             
             [self.navigationController pushViewController:otpVC animated:YES];
             
-            
+            */
+            _backNavigationName = @"SendOTP";
+            _backNavigationName1 = @"SendOTP";
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"Login"];
+            [self.navigationController pushViewController:vc animated:YES];
 
         }
         else

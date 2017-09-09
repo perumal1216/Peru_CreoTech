@@ -150,7 +150,7 @@ AppDelegate *apdl_product;
     else
     {
         _lblAvailability.text=@"Sold out";
-        
+        _lblAvailability.textColor = [UIColor redColor];
     }
 
     
@@ -306,7 +306,8 @@ AppDelegate *apdl_product;
     self.navigationItem.rightBarButtonItems =
     [NSArray arrayWithObjects:AP_barbutton2,AP_barbutton4,AP_barbutton3,nil];
     
-    NSDictionary *dict_obj = [_selectedProductDict objectForKey:@"product"];
+    NSDictionary *dict_obj = _selectedProductDict;
+    //[_selectedProductDict objectForKey:@"product"];
     [self callProductGalleryService:[dict_obj objectForKey:@"entity_id"]];
     _descriptionTextView.text = [dict_obj objectForKey:@"description"];
     

@@ -49,47 +49,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=@"Order Details";
-    
+
     
     
     NSLog(@"product array is %@",productsArray);
     productsArray = [orderDict objectForKey:@"products"];
     NSLog(@"product array is %@",productsArray);
     NSLog(@"order dict :%@", orderDict);
-    NSString *dateString = [orderDict objectForKey:@"order_date"];
+   NSString *dateString = [orderDict objectForKey:@"order_date"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *date = [dateFormatter dateFromString:dateString];
     NSDateFormatter *dateFormatter1 = [[NSDateFormatter alloc] init];
     [dateFormatter1 setDateFormat:@"dd-MMM-YY"];
     _lblOrderDate.text = [dateFormatter1 stringFromDate:date];
-    // _lblname.text = [orderDict objectForKey:@"parent_id"];
+   // _lblname.text = [orderDict objectForKey:@"parent_id"];
     NSDictionary*newdict = [orderDict objectForKey:@"shipment"];
     _lblname.text = [newdict objectForKey:@"firstname"];
-    _city.text = [self nsnullToEmptyString:[newdict objectForKey:@"city"]];
-    _region.text = [self nsnullToEmptyString:[newdict objectForKey:@"region"]];
-    //[newdict objectForKey:@"region"];
+    _city.text = [newdict objectForKey:@"city"];
+    _region.text = [newdict objectForKey:@"region"];
     
     //_emailid.text = [newdict objectForKey:@"email"];
     _telephone.text = [newdict objectForKey:@"telephone"];
-    //   if (_lbl2name == (id)[NSNull null]) {
-    //     _lbl2name.text = [newdict objectForKey:@"street"];
+ //   if (_lbl2name == (id)[NSNull null]) {
+   //     _lbl2name.text = [newdict objectForKey:@"street"];
     //}
-    _lbl2name.text =[self nsnullToEmptyString:[newdict objectForKey:@"street"]];
-    
+_lbl2name.text = [newdict objectForKey:@"street"];
     _post.text = [newdict objectForKey:@"postcode"];
     _lbl3name.text = [newdict objectForKey:@"lastname"];
     NSLog(@"new shipment dict is:%@",newdict);
     NSLog(@"label text is:%@", _lblname.text);
-    _lblOrderNumber.text = [orderDict objectForKey:@"increment_id"];
+     _lblOrderNumber.text = [orderDict objectForKey:@"increment_id"];
     NSLog(@"increment_id:%@", _lblOrderNumber);
     
     _lblOrderTotal.text = [NSString stringWithFormat:@"₹ %@(%@ item)",[[orderDict objectForKey:@"additional_data"] objectForKey:@"grand_total"],[[orderDict objectForKey:@"additional_data"] objectForKey:@"total_item_count"]];
     _lblPaymentMethod.text = [[orderDict objectForKey:@"payment"] objectForKey:@"method"];
     _grandTotal.text = [NSString stringWithFormat:@"₹ %@",[[orderDict objectForKey:@"additional_data"] objectForKey:@"grand_total"]];
     _lblTax.text = [NSString stringWithFormat:@"₹ %@",[[orderDict objectForKey:@"additional_data"] objectForKey:@"tax_amount"]];
-    _lblTotal.text = [NSString stringWithFormat:@"₹ %@",[[orderDict objectForKey:@"additional_data"] objectForKey:@"base_grand_total"]];
-    
+     _lblTotal.text = [NSString stringWithFormat:@"₹ %@",[[orderDict objectForKey:@"additional_data"] objectForKey:@"base_grand_total"]];
+                        
     self.tblDetailMyOrders.tableHeaderView = self.headerView;
     self.tblDetailMyOrders.tableFooterView = self.footerView;
     
@@ -122,27 +120,11 @@
     self.navigationItem.leftBarButtonItem=AP_barbutton1;
 }
 
--(NSString *)nsnullToEmptyString:(id)anyObject
-{
-    NSString *realString = @"";
-    if ([anyObject isKindOfClass:[NSNull class]]) {
-        
-        realString = @"";
-        
-    }
-    else{
-        
-        realString = anyObject;
-    }
-    
-    return realString;
-}
-
 #pragma mark - UITableView Delegate Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
+   
     return productsArray.count;
 }
 
@@ -196,14 +178,14 @@
                     
                 }
             }
-            
+
         }
         else{
             
             
         }
         
-    }
+            }
     
     return cell;
 }
