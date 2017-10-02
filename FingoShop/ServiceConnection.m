@@ -316,10 +316,9 @@ NSString* urlTextEscaped =[urlText stringByAddingPercentEscapesUsingEncoding:
 -(void)GetNotificationsList
 {
     
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getNotification"];
-    //[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apioffer/getNotification"];
+   // NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/index/getNotification"];
+     NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apioffer/getNotification"];
     
-    //[NSString stringWithFormat:@"http://www.fingoshop.com/restconnect/index/trackOrder?email=rakesh.akkineni@ctouchproducts.com&order_id=100000004"];
     
     NSURL *url=[NSURL URLWithString:url_Method];
     

@@ -90,8 +90,8 @@
     
     
     
-   // if(![[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"])
-  //  {
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"])
+    {
         
         NSString *url_str=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/"];
         
@@ -105,7 +105,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[Respose_dic objectForKey:@"sessionid"] forKey:@"sessionid"];
         
         
-   // }
+    }
     
     
     

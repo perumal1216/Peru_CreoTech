@@ -254,7 +254,8 @@
 {
     
     
-    notificationArray = [NSArray arrayWithArray:jsonDict];
+    
+    notificationArray = [NSArray arrayWithArray:[jsonDict objectForKey:@"records"]];
     
    // [notificationArray addObjectsFromArray:jsonDict];
     [_notificationTableView reloadData];

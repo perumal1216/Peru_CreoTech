@@ -1552,7 +1552,6 @@
 				TargetAttributes = {
 					4CFF7E4E1D1E964D006B1780 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = Y2MC3JYYTY;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -2032,7 +2031,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "7609ad56-ad49-47ab-8a83-753bdedf8eae";
+				PROVISIONING_PROFILE = "a2215d63-f16b-4d43-9ab2-16c61ff63766";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2073,7 +2072,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "7609ad56-ad49-47ab-8a83-753bdedf8eae";
+				PROVISIONING_PROFILE = "a2215d63-f16b-4d43-9ab2-16c61ff63766";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2087,7 +2086,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
-				DEVELOPMENT_TEAM = Y2MC3JYYTY;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2107,8 +2106,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingoshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7609ad56-ad49-47ab-8a83-753bdedf8eae";
-				PROVISIONING_PROFILE_SPECIFIER = Perumal_CreoTech_Distribute;
+				PROVISIONING_PROFILE = "a2215d63-f16b-4d43-9ab2-16c61ff63766";
+				PROVISIONING_PROFILE_SPECIFIER = CreoTech_Adhoc;
 			};
 			name = Debug;
 		};
@@ -2120,7 +2119,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CTOUCH PRODUCTS PRIVATE LIMITED (Y2MC3JYYTY)";
-				DEVELOPMENT_TEAM = Y2MC3JYYTY;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2140,8 +2139,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fingoshop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7609ad56-ad49-47ab-8a83-753bdedf8eae";
-				PROVISIONING_PROFILE_SPECIFIER = Perumal_CreoTech_Distribute;
+				PROVISIONING_PROFILE = "a2215d63-f16b-4d43-9ab2-16c61ff63766";
+				PROVISIONING_PROFILE_SPECIFIER = CreoTech_Adhoc;
 			};
 			name = Release;
 		};
