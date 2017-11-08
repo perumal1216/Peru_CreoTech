@@ -736,8 +736,8 @@ heightForFooterInSection:(NSInteger)section {
     }
     else if ([ServiceType isEqualToString:@"SavePayment"]) {
         
-        if ([[jsonDict objectForKey:@"status"] isEqualToString:@"success"] && [[jsonDict objectForKey:@"nextStep"] isEqualToString:@"submit"]) {
-            if ([[jsonDict objectForKey:@"status"] isEqualToString:@"success"]) {
+       // if ([[jsonDict objectForKey:@"status"] isEqualToString:@"success"] && [[jsonDict objectForKey:@"nextStep"] isEqualToString:@"submit"]) {
+      if ([[jsonDict objectForKey:@"status"] isEqualToString:@"fail"]) {
                 
                 
                 if ([selectedPaymentType isEqualToString:@"Credit Card"]) {
@@ -792,8 +792,8 @@ heightForFooterInSection:(NSInteger)section {
                     
             
         }
-    }
-    }
+  }
+  //  }
     }
     else if ([ServiceType isEqualToString:@"SubmitOrder"]) {
         
