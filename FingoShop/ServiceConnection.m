@@ -275,7 +275,7 @@
 
 -(void)performLogout
 {
-    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/customer/logout?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
+    NSString *url_Method=[NSString stringWithFormat:@"https://www.fingoshop.com/restconnect/apicustomer/logout?SID=%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"sessionid"]];
 
     
     NSURL *url=[NSURL URLWithString:url_Method];

@@ -875,7 +875,7 @@ AppDelegate *apdl;
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
         NSDictionary *category_dict = [_Electronics_Arr objectAtIndex:indexPath.row];
-        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"main_image"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
@@ -1001,7 +1001,7 @@ AppDelegate *apdl;
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
         NSDictionary *category_dict = [_Womens_Arr objectAtIndex:indexPath.row];
-        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"main_image"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
@@ -1029,7 +1029,7 @@ AppDelegate *apdl;
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
         NSDictionary *category_dict = [_Mens_arr objectAtIndex:indexPath.row];
-        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"main_image"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
@@ -1056,7 +1056,7 @@ AppDelegate *apdl;
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
         NSDictionary *category_dict = [_Art_Arr objectAtIndex:indexPath.row];
-        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"main_image"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
@@ -1083,7 +1083,7 @@ AppDelegate *apdl;
             cell=[[DealCell alloc]initWithFrame:CGRectZero];
         }
         NSDictionary *category_dict = [_home_kichen_Arr objectAtIndex:indexPath.row];
-        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"image_url"]];
+        NSString *urlString =[NSString stringWithFormat:@"%@",[category_dict objectForKey:@"main_image"]];
         urlString=[urlString stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
         NSLog(@"prof img is %@",urlString);
         NSURL *url = [NSURL URLWithString:urlString];
