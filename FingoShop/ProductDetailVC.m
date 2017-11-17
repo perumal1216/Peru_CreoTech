@@ -1016,12 +1016,15 @@ AppDelegate *apdl_product;
         
         if ([[jsonDict objectForKey:@"status"] isEqualToString:@"SUCCESS"]) {
             
-            [_btnLike setSelected:YES];
+          
             [productDetailsDict1 setObject:@"1" forKey:@"is_in_wishlist"];
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[jsonDict objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                [_btnLike setSelected:YES];
+            }] ;
             [alertController addAction:ok];
             
             [self presentViewController:alertController animated:YES completion:nil];
