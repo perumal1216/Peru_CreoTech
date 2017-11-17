@@ -736,20 +736,11 @@ heightForFooterInSection:(NSInteger)section {
     }
     else if ([ServiceType isEqualToString:@"SavePayment"]) {
         
-       // if ([[jsonDict objectForKey:@"status"] isEqualToString:@"success"] && [[jsonDict objectForKey:@"nextStep"] isEqualToString:@"submit"]) {
-      if ([[jsonDict objectForKey:@"status"] isEqualToString:@"fail"]) {
+    if ([[jsonDict objectForKey:@"status"] isEqualToString:@"success"] && [[jsonDict objectForKey:@"nextStep"] isEqualToString:@"submit"])
+    {
+     // if ([[jsonDict objectForKey:@"status"] isEqualToString:@"fail"]) {
                 
-                
-                if ([selectedPaymentType isEqualToString:@"Credit Card"]) {
-                    
-                    [self performSegueWithIdentifier:@"CreditCardPage" sender:self];
-                }
-                else if ([selectedPaymentType isEqualToString:@"Net Banking"]) {
-                    
-                    [self performSegueWithIdentifier:@"NetBanking" sender:self];
-                    
-                }
-                else if ([selectedPaymentType isEqualToString:@"Cash on Delivery"]) {
+                if ([selectedPaymentType isEqualToString:@"Cash on Delivery"]) {
                     
             /*dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                         
@@ -793,7 +784,20 @@ heightForFooterInSection:(NSInteger)section {
             
         }
   }
-  //  }
+  else if ([[jsonDict objectForKey:@"status"] isEqualToString:@"fail"])
+      
+  {
+      if ([selectedPaymentType isEqualToString:@"Credit Card"]) {
+          
+          [self performSegueWithIdentifier:@"CreditCardPage" sender:self];
+      }
+      else if ([selectedPaymentType isEqualToString:@"Net Banking"]) {
+          
+          [self performSegueWithIdentifier:@"NetBanking" sender:self];
+          
+      }
+  }
+ 
     }
     else if ([ServiceType isEqualToString:@"SubmitOrder"]) {
         

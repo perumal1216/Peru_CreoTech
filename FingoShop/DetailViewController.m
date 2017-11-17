@@ -25,7 +25,7 @@
 #import "UIViewController+HeaderContainer.h"
 #import "TopBarNavigationVC.h"
 #import "FingoShopTags.pch"
-
+#import "ViewController.h"
 
 #define IS_IPHONE5 ( [ [ UIScreen mainScreen ] bounds ].size.height == 568 )
 #define IS_IPHONE6 ( [ [ UIScreen mainScreen ] bounds ].size.height == 667 )
@@ -46,6 +46,7 @@
     
     
 }
+@property (weak, nonatomic) IBOutlet UIView *empty_wishlistView;
 - (IBAction)btnMenuClicked:(id)sender;
 - (IBAction)btnBackClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UICollectionView *Detail_collecVW;
@@ -62,6 +63,8 @@ AppDelegate *apdl_detail;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+     [self.empty_wishlistView setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutNotification) name:@"logoutNotification" object:nil];
     
@@ -396,7 +399,30 @@ AppDelegate *apdl_detail;
 
 
 
+
 #pragma mark - Button Action Methods
+
+- (IBAction)continue_shoppingButtonAction:(id)sender
+{
+    for (UIViewController *controller in self.navigationController.viewControllers)
+    {
+        if ([controller isKindOfClass:[ViewController class]])
+        {
+            
+            [self.navigationController popToViewController:controller animated:YES];
+            
+            break;
+        }
+        else if ([controller isKindOfClass:[DetailViewController class]])
+        {
+            [self.navigationController popToViewController:controller animated:YES];
+            
+            break;
+            
+        }
+    }
+    
+}
 - (IBAction)filterButtonAction:(id)sender
 {
     
@@ -771,13 +797,15 @@ AppDelegate *apdl_detail;
     
     if ([resultsDict objectForKey:@"records"] == [NSNull null]) {
        
-        
+        [self.empty_wishlistView setHidden: NO];
+        [self.view bringSubviewToFront:self.empty_wishlistView];
       
     }
     else{
          NSMutableArray *productsarr=[resultsDict objectForKey:@"records"];
         _itemsListArr=[[NSMutableArray alloc]init];
         [_itemsListArr addObjectsFromArray:productsarr];
+        
     }
     
    
@@ -998,7 +1026,7 @@ AppDelegate *apdl_detail;
     else if ([serviceType isEqualToString:@"AddToWishList"]) {
         
         
-        if ([[jsonDict objectForKey:@"status"] isEqualToString:@"SUCCESS"]) {
+        if ([[jsonObjt objectForKey:@"status"] isEqualToString:@"SUCCESS"]) {
             
             NSMutableDictionary *itemDict=[[_itemsListArr objectAtIndex:indexVal] mutableCopy];
             [itemDict setObject:@"1" forKey:@"is_in_wishlist"];
