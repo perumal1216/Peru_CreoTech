@@ -697,6 +697,7 @@
 }
 
 -(void)callAddressDeleteService:(NSString *)string {
+    selected_address = @"" ;
     serviceType = @"DeleteAddressInfo";
     [APPDELEGATE showCustomLoader:self];
     //[SVProgressHUD showWithStatus:@"Please wait" maskType:SVProgressHUDMaskTypeBlack]; // Progress

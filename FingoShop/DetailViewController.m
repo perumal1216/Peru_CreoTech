@@ -1032,11 +1032,18 @@ AppDelegate *apdl_detail;
             [itemDict setObject:@"1" forKey:@"is_in_wishlist"];
             [_itemsListArr replaceObjectAtIndex:indexVal withObject:itemDict];
             
-            [self.Detail_collecVW reloadData];
+           
             
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[jsonDict objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FINGOSHOP" message:[jsonObjt objectForKey:@"message"] preferredStyle:UIAlertControllerStyleAlert];
             
-            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+       
+            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+                 [self.Detail_collecVW reloadData];
+                //
+            }] ;
+            
+            //UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:ok];
             
             [self presentViewController:alertController animated:YES completion:nil];
